@@ -1,0 +1,72 @@
+version: "2.3"
+services:
+  morse:
+    build:
+      context: ./docker
+      dockerfile: Dockerfile.app
+    # image: my_melodic_image
+    runtime: nvidia
+    depends_on:
+      - master
+    devices:
+      - "/dev/dri"
+      - "/dev/snd"
+    environment:
+      - "ROS_HOSTNAME=morse"
+      - "ROS_MASTER_URI=http://master:11311"
+      - "QT_X11_NO_MITSHM=1"
+      - "DISPLAY=$DISPLAY"
+      - "XAUTHORITY=$XAUTH"
+      - "QT_GRAPHICSSYSTEM=native"
+      - "PULSE_SERVER=unix:${XDG_RUNTIME_DIR}/pulse/native"
+    volumes:
+      - /tmp/.docker.xauth:/tmp/.docker.xauth:rw
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+      - /var/run/dbus:/var/run/dbus:ro
+      - /etc/machine-id:/etc/machine-id:ro
+      - ${XDG_RUNTIME_DIR}/pulse/native:${XDG_RUNTIME_DIR}/pulse/native
+      - ~/.config/pulse/cookie:/root/.config/pulse/cookie
+    expose:
+      - "8081"
+      - "3000"
+      - "3001"
+    tty: true
+    privileged: true
+    networks:
+      - morsesimnet
+
+  master:
+    build:
+      context: ./docker
+      dockerfile: Dockerfile.app
+    container_name: master
+    ports:
+      - "11311:11311"
+    command: /bin/bash -c "source /ros_ws/devel/setup.bash && roscore"
+    networks:
+      morsesimnet:
+        ipv4_address: 10.6.0.5
+
+  # argosim:
+  #   build:
+  #     context: ./docker
+  #     dockerfile: Dockerfile.simulator
+  #   container_name: argosim
+  #   depends_on:
+  #     - master
+  #   volumes:
+  #     - ./docker/simulator:/ros_ws/src/simulator/
+  #   environment:
+  #     - "ROS_HOSTNAME=argosim"
+  #     - "ROS_MASTER_URI=http://master:11311"
+  #   command: /bin/bash -c "source /ros_ws/devel/setup.bash && rosrun simulator argos_sim.py"
+  #   networks:
+  #     morsesimnet:
+  #       ipv4_address: 10.6.0.6
+
+networks:
+  morsesimnet:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 10.6.0.0/16
