@@ -1,0 +1,6 @@
+[submodule "docker/hmrs_hostpital_simulation"]
+	path = docker/hmrs_hostpital_simulation
+	url = https://github.com/gabrielsr/hmrs_hostpital_simulation
+[submodule "docker/motion_ctrl"]
+	path = docker/motion_ctrl
+	url = https://github.com/Gastd/motion_ctrl/
