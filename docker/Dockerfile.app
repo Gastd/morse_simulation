@@ -3,8 +3,11 @@ FROM osrf/ros:melodic-desktop-full
 
 
 RUN echo "source /opt/ros/melodic/setup.bash" >> /root/.bashrc
-RUN apt-get update && apt-get install -y morse-simulator python3-morse-simulator 
-RUN apt-get update && apt-get install -y python3-dev python3-yaml apt-utils python-rospkg python3-pip
+RUN apt-get update && apt-get install -y software-properties-common
+RUN add-apt-repository ppa:roehling/grpc
+RUN apt-get update && apt-get install -y morse-simulator python3-morse-simulator apt-utils
+RUN apt-get install -y python-grpcio python-grpc-tools
+RUN apt-get install -y python3-dev python3-yaml apt-utils python-rospkg python3-pip
 RUN pip3 install rospkg
 # RUN apt-get update && apt-get install -y python3-catkin-tools
 
@@ -32,5 +35,9 @@ ENV LD_LIBRARY_PATH /usr/local/nvidia/lib:/usr/local/nvidia/lib64:${LD_LIBRARY_P
 
 RUN mkdir src
 COPY hos /ros_ws/src
+COPY motion_ctrl /ros_ws/src/hos/server.launch
+COPY hmrs_hostpital_simulation/morse_hospital_sim /ros_ws/morse_hospital_sim
+COPY multimaster_fkie /ros_ws/src/multimaster_fkie
 RUN /bin/bash -c "source /ros_entrypoint.sh && catkin_make"
 RUN echo "source /ros_ws/devel/setup.bash" >> /root/.bashrc
+RUN morse import morse_hospital_sim
