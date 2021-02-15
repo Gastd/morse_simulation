@@ -30,6 +30,7 @@ services:
       - "8081"
       - "3000"
       - "3001"
+    command: /bin/bash -c "source /ros_ws/devel/setup.bash && morse run morse_hospital_sim"
     tty: true
     privileged: true
     networks:
@@ -42,27 +43,31 @@ services:
     container_name: master
     ports:
       - "11311:11311"
-    command: /bin/bash -c "source /ros_ws/devel/setup.bash && roscore"
+    command: /bin/bash -c "source /ros_ws/devel/setup.bash && roslaunch src/hos/server.launch"
     networks:
       morsesimnet:
         ipv4_address: 10.6.0.5
 
-  # argosim:
-  #   build:
-  #     context: ./docker
-  #     dockerfile: Dockerfile.simulator
-  #   container_name: argosim
-  #   depends_on:
-  #     - master
-  #   volumes:
-  #     - ./docker/simulator:/ros_ws/src/simulator/
-  #   environment:
-  #     - "ROS_HOSTNAME=argosim"
-  #     - "ROS_MASTER_URI=http://master:11311"
-  #   command: /bin/bash -c "source /ros_ws/devel/setup.bash && rosrun simulator argos_sim.py"
-  #   networks:
-  #     morsesimnet:
-  #       ipv4_address: 10.6.0.6
+  motion_ctrl:
+    build:
+      context: ./docker
+      dockerfile: Dockerfile.motion
+    container_name: motion_ctrl
+    depends_on:
+      - master
+    volumes:
+      - ./docker/motion_ctrl:/ros_ws/src/motion_ctrl/
+    environment:
+      - "ROS_HOSTNAME=motion_ctrl"
+      - "ROS_MASTER_URI=http://motion_ctrl:11311"
+      - "ROBOT_NAME=robot1"
+    env_file:
+      - test.env
+    # command: /bin/bash -c "source /ros_ws/devel/setup.bash && roslaunch motion_ctrl base_navigation.launch"
+    tty: true
+    networks:
+      morsesimnet:
+        ipv4_address: 10.6.0.6
 
 networks:
   morsesimnet:
