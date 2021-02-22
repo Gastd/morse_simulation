@@ -35,7 +35,7 @@ ENV LD_LIBRARY_PATH /usr/local/nvidia/lib:/usr/local/nvidia/lib64:${LD_LIBRARY_P
 
 RUN mkdir src
 COPY hos /ros_ws/src
-COPY motion_ctrl /ros_ws/src/hos/server.launch
+COPY motion_ctrl/launch/server.launch /ros_ws/src/hos/server.launch
 COPY hmrs_hostpital_simulation/morse_hospital_sim /ros_ws/morse_hospital_sim
 COPY multimaster_fkie /ros_ws/src/multimaster_fkie
 RUN /bin/bash -c "source /ros_entrypoint.sh && catkin_make"

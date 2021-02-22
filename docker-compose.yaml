@@ -60,14 +60,71 @@ services:
     environment:
       - "ROS_HOSTNAME=motion_ctrl"
       - "ROS_MASTER_URI=http://motion_ctrl:11311"
-      - "ROBOT_NAME=robot1"
+      - "ROBOT_NAME=turtlebot1"
     env_file:
       - test.env
-    # command: /bin/bash -c "source /ros_ws/devel/setup.bash && roslaunch motion_ctrl base_navigation.launch"
+    command: /bin/bash -c "source /ros_ws/devel/setup.bash && roslaunch motion_ctrl base_navigation.launch & rosrun topic_tools relay /move_base_simple/goal /turtlebot1/move_base_simple/goal"
     tty: true
     networks:
       morsesimnet:
         ipv4_address: 10.6.0.6
+
+  rviz:
+    build:
+      context: ./docker
+      dockerfile: Dockerfile.app
+    # image: my_melodic_image
+    runtime: nvidia
+    depends_on:
+      - motion_ctrl
+    devices:
+      - "/dev/dri"
+      - "/dev/snd"
+    environment:
+      - "ROS_HOSTNAME=rviz"
+      - "ROS_MASTER_URI=http://motion_ctrl:11311"
+      - "QT_X11_NO_MITSHM=1"
+      - "DISPLAY=$DISPLAY"
+      - "XAUTHORITY=$XAUTH"
+      - "QT_GRAPHICSSYSTEM=native"
+      - "PULSE_SERVER=unix:${XDG_RUNTIME_DIR}/pulse/native"
+    volumes:
+      - /tmp/.docker.xauth:/tmp/.docker.xauth:rw
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+      - /var/run/dbus:/var/run/dbus:ro
+      - /etc/machine-id:/etc/machine-id:ro
+      - ${XDG_RUNTIME_DIR}/pulse/native:${XDG_RUNTIME_DIR}/pulse/native
+      - ~/.config/pulse/cookie:/root/.config/pulse/cookie
+    expose:
+      - "8081"
+      - "3000"
+      - "3001"
+    command: /bin/bash -c "source /ros_ws/devel/setup.bash && export ROS_NAMESPACE=/turtlebot1 && rviz"
+    tty: true
+    privileged: true
+    networks:
+      - morsesimnet
+  
+  motion_ctrl_turtle2:
+    build:
+      context: ./docker
+      dockerfile: Dockerfile.motion
+    container_name: motion_ctrl_turtle2
+    depends_on:
+      - master
+    volumes:
+      - ./docker/motion_ctrl:/ros_ws/src/motion_ctrl/
+    environment:
+      - "ROS_HOSTNAME=motion_ctrl_turtle2"
+      - "ROS_MASTER_URI=http://motion_ctrl_turtle2:11311"
+      - "ROBOT_NAME=turtlebot2"
+    env_file:
+      - test.env
+    command: /bin/bash -c "source /ros_ws/devel/setup.bash && roslaunch motion_ctrl base_navigation.launch"
+    tty: true
+    networks:
+      morsesimnet:
+        ipv4_address: 10.6.0.7
 
 networks:
   morsesimnet:
