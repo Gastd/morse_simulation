@@ -6,7 +6,13 @@
 git clone https://github.com/...........
 ```
 
-* Go to argos_ui folder
+* Download and update submodules
+```
+git submodule update --init --recursive
+```
+
+
+* Go to morse_simulation folder
 
 * Build container
 
