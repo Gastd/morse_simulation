@@ -126,6 +126,28 @@ services:
       morsesimnet:
         ipv4_address: 10.6.0.7
 
+  py_trees1:
+    build:
+      context: ./docker
+      dockerfile: Dockerfile.pytrees
+    container_name: py_trees1
+    depends_on:
+      - motion_ctrl
+    # volumes:
+    #   - ./docker/motion_ctrl:/ros_ws/src/motion_ctrl/
+    environment:
+      - "ROS_MASTER_URI=http://motion_ctrl:11311"
+    #   - "ROS_HOSTNAME=motion_ctrl_turtle2"
+    #   - "ROBOT_NAME=turtlebot2"
+    # env_file:
+    #   - test.env
+    command: /bin/bash -c "source /ros_ws/install/setup.bash && ros2 topic pub /std_out std_msgs/msg/String data:\ \'HelloWorld\'\ "
+    command: /bin/bash -c "source /opt/ros/noetic/setup.bash && ros2 run ros1_bridge dynamic_bridge --bridge-all-topics "
+    tty: true
+    networks:
+      morsesimnet:
+        ipv4_address: 10.6.0.8
+
 networks:
   morsesimnet:
     driver: bridge
