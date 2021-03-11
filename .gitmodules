@@ -13,3 +13,6 @@
 [submodule "docker/ros1_bridge"]
 	path = docker/ros1_bridge
 	url = https://github.com/ros2/ros1_bridge
+[submodule "docker/py_trees_ros_behaviors"]
+	path = docker/py_trees_ros_behaviors
+	url = https://github.com/Gastd/py_trees_ros_behaviors
