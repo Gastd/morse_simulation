@@ -4,6 +4,9 @@ RUN apt-get update
 RUN apt-get -y upgrade
 RUN apt-get install -y apt-utils
 RUN apt-get install -y ros-$ROS2_DISTRO-py-trees ros-$ROS2_DISTRO-py-trees-ros-tutorials
+RUN apt-get update
+RUN apt-get -y upgrade
+RUN apt-get install -y ros-$ROS2_DISTRO-navigation2 ros-$ROS2_DISTRO-nav2-bringup
 
 WORKDIR /ros_ws
 
