@@ -30,7 +30,7 @@ services:
       - "8081"
       - "3000"
       - "3001"
-    # command: /bin/bash -c "source /ros_ws/devel/setup.bash && morse run morse_hospital_sim"
+    command: /bin/bash -c "source /ros_ws/devel/setup.bash && morse run morse_hospital_sim"
     tty: true
     privileged: true
     networks:
