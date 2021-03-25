@@ -6,6 +6,7 @@ services:
       dockerfile: Dockerfile.app
     # image: my_melodic_image
     runtime: nvidia
+    container_name: morse
     depends_on:
       - master
     devices:
@@ -63,47 +64,48 @@ services:
       - "ROBOT_NAME=turtlebot1"
     env_file:
       - test.env
-    command: /bin/bash -c "source /ros_ws/devel/setup.bash && roslaunch motion_ctrl base_navigation.launch & rosrun topic_tools relay /move_base_simple/goal /turtlebot1/move_base_simple/goal"
+    command: /bin/bash -c "source /ros_ws/devel/setup.bash && roslaunch motion_ctrl base_navigation.launch"
+    # command: /bin/bash -c "source /ros_ws/devel/setup.bash && roslaunch motion_ctrl base_navigation.launch & rosrun topic_tools relay /move_base_simple/goal /turtlebot1/move_base_simple/goal"
     tty: true
     networks:
       morsesimnet:
         ipv4_address: 10.6.0.6
 
-  rviz:
-    build:
-      context: ./docker
-      dockerfile: Dockerfile.app
-    # image: my_melodic_image
-    runtime: nvidia
-    depends_on:
-      - motion_ctrl
-    devices:
-      - "/dev/dri"
-      - "/dev/snd"
-    environment:
-      - "ROS_HOSTNAME=rviz"
-      - "ROS_MASTER_URI=http://motion_ctrl:11311"
-      - "QT_X11_NO_MITSHM=1"
-      - "DISPLAY=$DISPLAY"
-      - "XAUTHORITY=$XAUTH"
-      - "QT_GRAPHICSSYSTEM=native"
-      - "PULSE_SERVER=unix:${XDG_RUNTIME_DIR}/pulse/native"
-    volumes:
-      - /tmp/.docker.xauth:/tmp/.docker.xauth:rw
-      - /tmp/.X11-unix:/tmp/.X11-unix:rw
-      - /var/run/dbus:/var/run/dbus:ro
-      - /etc/machine-id:/etc/machine-id:ro
-      - ${XDG_RUNTIME_DIR}/pulse/native:${XDG_RUNTIME_DIR}/pulse/native
-      - ~/.config/pulse/cookie:/root/.config/pulse/cookie
-    expose:
-      - "8081"
-      - "3000"
-      - "3001"
-    command: /bin/bash -c "source /ros_ws/devel/setup.bash && export ROS_NAMESPACE=/turtlebot1 && rviz"
-    tty: true
-    privileged: true
-    networks:
-      - morsesimnet
+  # rviz:
+  #   build:
+  #     context: ./docker
+  #     dockerfile: Dockerfile.app
+  #   # image: my_melodic_image
+  #   runtime: nvidia
+  #   depends_on:
+  #     - motion_ctrl
+  #   devices:
+  #     - "/dev/dri"
+  #     - "/dev/snd"
+  #   environment:
+  #     - "ROS_HOSTNAME=rviz"
+  #     - "ROS_MASTER_URI=http://motion_ctrl:11311"
+  #     - "QT_X11_NO_MITSHM=1"
+  #     - "DISPLAY=$DISPLAY"
+  #     - "XAUTHORITY=$XAUTH"
+  #     - "QT_GRAPHICSSYSTEM=native"
+  #     - "PULSE_SERVER=unix:${XDG_RUNTIME_DIR}/pulse/native"
+  #   volumes:
+  #     - /tmp/.docker.xauth:/tmp/.docker.xauth:rw
+  #     - /tmp/.X11-unix:/tmp/.X11-unix:rw
+  #     - /var/run/dbus:/var/run/dbus:ro
+  #     - /etc/machine-id:/etc/machine-id:ro
+  #     - ${XDG_RUNTIME_DIR}/pulse/native:${XDG_RUNTIME_DIR}/pulse/native
+  #     - ~/.config/pulse/cookie:/root/.config/pulse/cookie
+  #   expose:
+  #     - "8081"
+  #     - "3000"
+  #     - "3001"
+  #   command: /bin/bash -c "source /ros_ws/devel/setup.bash && export ROS_NAMESPACE=/turtlebot1 && rviz"
+  #   tty: true
+  #   privileged: true
+  #   networks:
+  #     - morsesimnet
   
   motion_ctrl_turtle2:
     build:
@@ -137,7 +139,7 @@ services:
       - "/dev/dri"
       - "/dev/snd"
     environment:
-      - "ROS_HOSTNAME=rviz"
+      - "ROS_HOSTNAME=py_trees1"
       - "ROS_MASTER_URI=http://motion_ctrl:11311"
       - "QT_X11_NO_MITSHM=1"
       - "DISPLAY=$DISPLAY"
@@ -151,6 +153,7 @@ services:
       - /etc/machine-id:/etc/machine-id:ro
       - ${XDG_RUNTIME_DIR}/pulse/native:${XDG_RUNTIME_DIR}/pulse/native
       - ~/.config/pulse/cookie:/root/.config/pulse/cookie
+      - ./docker/py_trees_ros_behaviors:/ros_ws/src/py_trees_ros_behaviors/
     # command: /bin/bash -c "source /ros_ws/install/setup.bash && ros2 topic pub /std_out std_msgs/msg/String data:\ \'HelloWorld\'\ "
     command: /bin/bash -c "source /opt/ros/noetic/setup.bash && ros2 run ros1_bridge dynamic_bridge --bridge-all-topics "
     tty: true
