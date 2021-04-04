@@ -27,6 +27,7 @@ services:
       - /etc/machine-id:/etc/machine-id:ro
       - ${XDG_RUNTIME_DIR}/pulse/native:${XDG_RUNTIME_DIR}/pulse/native
       - ~/.config/pulse/cookie:/root/.config/pulse/cookie
+      - ./docker/hmrs_hostpital_simulation/morse_hospital_sim:/ros_ws/morse_hospital_sim
     expose:
       - "8081"
       - "3000"
@@ -65,7 +66,6 @@ services:
     env_file:
       - test.env
     command: /bin/bash -c "source /ros_ws/devel/setup.bash && roslaunch motion_ctrl base_navigation.launch"
-    # command: /bin/bash -c "source /ros_ws/devel/setup.bash && roslaunch motion_ctrl base_navigation.launch & rosrun topic_tools relay /move_base_simple/goal /turtlebot1/move_base_simple/goal"
     tty: true
     networks:
       morsesimnet:
