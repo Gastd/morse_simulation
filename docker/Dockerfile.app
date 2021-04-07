@@ -10,6 +10,10 @@ RUN apt-get install -y python-grpcio python-grpc-tools
 RUN apt-get install -y python3-dev python3-yaml apt-utils python-rospkg python3-pip
 RUN pip3 install rospkg
 RUN apt-get install -y xauth
+RUN sudo apt-get install -y ros-melodic-rosbridge-server
+RUN sudo apt-get install -y ros-melodic-tf2-web-republisher
+RUN pip3 install -U pip
+RUN pip3 install roslibpy
 # RUN apt-get update && apt-get install -y python3-catkin-tools
 
 
