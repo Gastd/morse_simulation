@@ -4,6 +4,9 @@ RUN apt-get update
 RUN apt-get -y upgrade
 RUN apt-get install -y apt-utils
 RUN apt-get install -y ros-$ROS2_DISTRO-py-trees ros-$ROS2_DISTRO-py-trees-ros-tutorials
+RUN apt-get install -y python3-pip
+RUN pip3 install -U pip
+RUN pip3 install roslibpy
 
 WORKDIR /ros_ws
 
@@ -11,6 +14,7 @@ RUN mkdir -p /ros_ws/src
 RUN cd /ros_ws/src
 RUN /bin/bash -c "source /ros_entrypoint.sh && colcon build"
 COPY py_trees_ros_behaviors /ros_ws/src/py_trees_ros_behaviors
+COPY bridge/bridge.py /ros_ws/src
 RUN /bin/bash -c "colcon build"
 RUN echo "source /opt/ros/foxy/setup.bash" >> /root/.bashrc
 # RUN echo "source /opt/ros/noetic/setup.bash" >> /root/.bashrc

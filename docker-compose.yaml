@@ -33,6 +33,8 @@ services:
       - "3000"
       - "3001"
     command: /bin/bash -c "source /ros_ws/devel/setup.bash && morse run morse_hospital_sim"
+    command: roslaunch rosbridge_server rosbridge_websocket.launch
+    command: rosrun tf2_web_republisher tf2_web_republisher
     tty: true
     privileged: true
     networks:
@@ -155,6 +157,7 @@ services:
       - ~/.config/pulse/cookie:/root/.config/pulse/cookie
       - ./docker/py_trees_ros_behaviors:/ros_ws/src/py_trees_ros_behaviors/
     # command: /bin/bash -c "source /ros_ws/install/setup.bash && ros2 topic pub /std_out std_msgs/msg/String data:\ \'HelloWorld\'\ "
+    command: python3 /ros_ws/src/bridge.py
     command: /bin/bash -c "source /opt/ros/noetic/setup.bash && ros2 run ros1_bridge dynamic_bridge --bridge-all-topics "
     tty: true
     networks:
