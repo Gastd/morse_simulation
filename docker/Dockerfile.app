@@ -4,8 +4,9 @@ FROM osrf/ros:melodic-desktop-full
 
 RUN echo "source /opt/ros/melodic/setup.bash" >> /root/.bashrc
 RUN apt-get update && apt-get install -y software-properties-common
+# RUN apt-get update && apt-get install -y xserver-xorg xinit
 RUN add-apt-repository ppa:roehling/grpc
-RUN apt-get update && apt-get install -y morse-simulator python3-morse-simulator apt-utils
+RUN apt-get update && apt-get install -y morse-simulator python3-morse-simulator apt-utils xvfb llvm-dev
 RUN apt-get install -y python-grpcio python-grpc-tools
 RUN apt-get install -y python3-dev python3-yaml apt-utils python-rospkg python3-pip
 RUN pip3 install rospkg
@@ -17,7 +18,7 @@ WORKDIR /ros_ws
 
 RUN \
   apt-get update && \
-  apt-get -y install libgl1-mesa-glx libgl1-mesa-dri && \
+  apt-get -y install mesa-utils libegl1-mesa libegl1-mesa-dev libgbm-dev libgbm1 libgl1-mesa-dev libgl1-mesa-dri libglu1-mesa libglu1-mesa-dev && \
   rm -rf /var/lib/apt/lists/*
 RUN apt-get update && apt-get install -y mesa-utils
 
@@ -33,6 +34,12 @@ ENV LD_LIBRARY_PATH /usr/local/nvidia/lib:/usr/local/nvidia/lib64:${LD_LIBRARY_P
 # RUN wget http://us.download.nvidia.com/XFree86/Linux-x86_64/"$version"/NVIDIA-Linux-x86_64-"$version".run
 # RUN mv NVIDIA-Linux-x86_64-"$version".run NVIDIA-DRIVER.run
 # RUN ./NVIDIA-DRIVER.run -a -N --ui=none --no-kernel-module
+
+# ENV QT_DEBUG_PLUGINS=1
+# ENV QT_QPA_PLATFORM=xcb
+# ENV QT_QPA_PLATFORM_PLUGIN_PATH=/opt/Qt/${QT_VERSION}/gcc_64/plugins
+# ENV QT_PLUGIN_PATH=/opt/Qt/${QT_VERSION}/gcc_64/plugins
+# ENV DISPLAY=:1
 
 RUN mkdir src
 COPY hos /ros_ws/src
