@@ -1,0 +1,16 @@
+FROM ros:melodic-ros-base
+
+RUN apt-get update && \
+    apt-get install -y ros-melodic-rosbridge-server
+
+# Install argos_control
+# COPY ros-melodic-data-acquisition-msgs_0.0.0-0bionic_amd64.deb /root
+
+RUN apt update && \
+    apt-get install -y gdebi-core unzip zip vim git
+
+WORKDIR /root
+# RUN gdebi --non-interactive ros-melodic-data-acquisition-msgs_0.0.0-0bionic_amd64.deb
+
+RUN echo "source /opt/ros/melodic/setup.bash" >> /root/.bashrc \
+    && /bin/bash -c "source /root/.bashrc"
