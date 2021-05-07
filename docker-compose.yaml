@@ -12,6 +12,8 @@ services:
     devices:
       - "/dev/dri"
       - "/dev/snd"
+    env_file:
+      - .env
     environment:
       - "ROS_HOSTNAME=morse"
       - "ROS_MASTER_URI=http://master:11311"
@@ -32,11 +34,18 @@ services:
       - "8081"
       - "3000"
       - "3001"
-    command: /bin/bash -c "source /ros_ws/devel/setup.bash && morse run morse_hospital_sim"
-    command: roslaunch rosbridge_server rosbridge_websocket.launch
-    command: rosrun tf2_web_republisher tf2_web_republisher
+    # command: /bin/bash -c "source /ros_ws/devel/setup.bash && morse run morse_hospital_sim"
+    command:
+      - roslaunch rosbridge_server rosbridge_websocket.launch
+      - rosrun tf2_web_republisher tf2_web_republisher
+      - /bin/bash -c "source /ros_ws/devel/setup.bash && Xvfb -screen 0 100x100x24 :3 & DISPLAY=:3 morse run morse_hospital_sim"
+    # command: rosrun tf2_web_republisher tf2_web_republisher
+    # command: /bin/bash -c "source /ros_ws/devel/setup.bash && Xvfb -screen 0 100x100x24 :3 & DISPLAY=:3 morse run morse_hospital_sim"
+    # command: /bin/bash -c "source /ros_ws/devel/setup.bash && morse run morse_hospital_sim"
+    # command: /bin/bash -c "source /ros_ws/devel/setup.bash && Xvfb -screen 0 1024x768x24 :2 & DISPLAY=:2 morse run morse_hospital_sim"
+    # command: /bin/bash -c "source /ros_ws/devel/setup.bash && Xvfb -screen 0 100x100x24 :2 & DISPLAY=:2 morse run morse_hospital_sim"
     tty: true
-    privileged: true
+    # privileged: true
     networks:
       - morsesimnet
 
@@ -45,8 +54,6 @@ services:
       context: ./docker
       dockerfile: Dockerfile.app
     container_name: master
-    ports:
-      - "11311:11311"
     command: /bin/bash -c "source /ros_ws/devel/setup.bash && roslaunch src/hos/server.launch"
     networks:
       morsesimnet:
@@ -57,58 +64,102 @@ services:
       context: ./docker
       dockerfile: Dockerfile.motion
     container_name: motion_ctrl
+    runtime: runc
     depends_on:
       - master
+    ports:
+      - "11311:11311"
     volumes:
       - ./docker/motion_ctrl:/ros_ws/src/motion_ctrl/
+      - ./docker/turtlebot3_hospital_sim:/ros_ws/src/turtlebot3_hospital_sim/
     environment:
       - "ROS_HOSTNAME=motion_ctrl"
       - "ROS_MASTER_URI=http://motion_ctrl:11311"
       - "ROBOT_NAME=turtlebot1"
     env_file:
       - test.env
-    command: /bin/bash -c "source /ros_ws/devel/setup.bash && roslaunch motion_ctrl base_navigation.launch"
+    # command: /bin/bash -c "source /ros_ws/devel/setup.bash && roslaunch motion_ctrl base_navigation.launch"
+    command: /bin/bash -c "source /ros_ws/devel/setup.bash && roslaunch motion_ctrl base_navigation.launch & rosrun topic_tools relay /move_base_simple/goal /turtlebot1/move_base_simple/goal"
+    # command: /bin/bash -c "source /ros_ws/devel/setup.bash && roscore"
     tty: true
+    privileged: true
     networks:
       morsesimnet:
         ipv4_address: 10.6.0.6
 
-  # rviz:
+# rosrun gmapping slam_gmapping scan:=/turtlebot1/lidar
+
+  # rosbridge:
   #   build:
   #     context: ./docker
-  #     dockerfile: Dockerfile.app
-  #   # image: my_melodic_image
-  #   runtime: nvidia
+  #     dockerfile: Dockerfile.rosbridge
+  #   tty: true
+  #   command: /bin/bash -c "source /opt/ros/melodic/setup.bash && roslaunch --wait rosbridge_server rosbridge_websocket.launch"
+  #   environment:
+  #     - "ROS_MASTER_URI=http://motion_ctrl:11311"
   #   depends_on:
   #     - motion_ctrl
-  #   devices:
-  #     - "/dev/dri"
-  #     - "/dev/snd"
-  #   environment:
-  #     - "ROS_HOSTNAME=rviz"
-  #     - "ROS_MASTER_URI=http://motion_ctrl:11311"
-  #     - "QT_X11_NO_MITSHM=1"
-  #     - "DISPLAY=$DISPLAY"
-  #     - "XAUTHORITY=$XAUTH"
-  #     - "QT_GRAPHICSSYSTEM=native"
-  #     - "PULSE_SERVER=unix:${XDG_RUNTIME_DIR}/pulse/native"
-  #   volumes:
-  #     - /tmp/.docker.xauth:/tmp/.docker.xauth:rw
-  #     - /tmp/.X11-unix:/tmp/.X11-unix:rw
-  #     - /var/run/dbus:/var/run/dbus:ro
-  #     - /etc/machine-id:/etc/machine-id:ro
-  #     - ${XDG_RUNTIME_DIR}/pulse/native:${XDG_RUNTIME_DIR}/pulse/native
-  #     - ~/.config/pulse/cookie:/root/.config/pulse/cookie
-  #   expose:
-  #     - "8081"
-  #     - "3000"
-  #     - "3001"
-  #   command: /bin/bash -c "source /ros_ws/devel/setup.bash && export ROS_NAMESPACE=/turtlebot1 && rviz"
-  #   tty: true
-  #   privileged: true
+  #   links:
+  #     - motion_ctrl
+  #   ports:
+  #     - "9090:9090"
   #   networks:
-  #     - morsesimnet
-  
+  #     morsesimnet:
+  #       ipv4_address: 10.6.0.106
+
+  webviz:
+    image: cruise/webviz
+    ports:
+      - "8080:8080"
+    depends_on:
+      - motion_ctrl
+      # http://10.6.0.12:8080/?rosbridge-websocket-url=ws://10.6.0.106:9090
+      # http://10.6.0.12:8080/?rosbridge-websocket-url=ws://10.6.0.6:9090&layout-url=/home/gastd/Downloads/layout.json
+    networks:
+      morsesimnet:
+        ipv4_address: 10.6.0.12
+
+  rviz:
+    build:
+      context: ./docker
+      dockerfile: Dockerfile.app
+    # image: my_melodic_image
+    runtime: nvidia
+    depends_on:
+      - motion_ctrl
+    devices:
+      - "/dev/dri"
+      - "/dev/snd"
+    environment:
+      - "ROS_HOSTNAME=rviz"
+      - "ROS_MASTER_URI=http://10.6.0.6:11311"
+      - "QT_X11_NO_MITSHM=1"
+      - "DISPLAY=$DISPLAY"
+      # - "XAUTHORITY=$XAUTH"
+      - "QT_GRAPHICSSYSTEM=native"
+      - "PULSE_SERVER=unix:${XDG_RUNTIME_DIR}/pulse/native"
+    volumes:
+      - "$HOME/.Xauthority:/root/.Xauthority:rw"
+      - /tmp/.docker.xauth:/tmp/.docker.xauth:rw
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+      - /var/run/dbus:/var/run/dbus:ro
+      - /etc/machine-id:/etc/machine-id:ro
+      - ${XDG_RUNTIME_DIR}/pulse/native:${XDG_RUNTIME_DIR}/pulse/native
+      - ~/.config/pulse/cookie:/root/.config/pulse/cookie
+      - ./docker/motion_ctrl/launch/simulation.rviz:/ros_ws/src/hos/simulation.rviz
+    expose:
+      - "8081"
+      - "3000"
+      - "3001"
+    command: /bin/bash -c "source /ros_ws/devel/setup.bash && export ROS_NAMESPACE=/turtlebot1 && rviz -d /ros_ws/src/hos/simulation.rviz"
+    tty: true
+    privileged: true
+    # network_mode: host
+    # links:
+    #   - motion_ctrl
+    networks:
+      - morsesimnet
+
   motion_ctrl_turtle2:
     build:
       context: ./docker
@@ -135,8 +186,11 @@ services:
       context: ./docker
       dockerfile: Dockerfile.pytrees
     container_name: py_trees1
+    runtime: runc
     depends_on:
       - motion_ctrl
+    env_file:
+      - .env
     devices:
       - "/dev/dri"
       - "/dev/snd"
@@ -148,6 +202,7 @@ services:
       - "XAUTHORITY=$XAUTH"
       - "QT_GRAPHICSSYSTEM=native"
       - "PULSE_SERVER=unix:${XDG_RUNTIME_DIR}/pulse/native"
+      - "ROBOT_NAME=turtlebot1"
     volumes:
       - /tmp/.docker.xauth:/tmp/.docker.xauth:rw
       - /tmp/.X11-unix:/tmp/.X11-unix:rw
@@ -168,5 +223,9 @@ networks:
   morsesimnet:
     driver: bridge
     ipam:
+      driver: default
       config:
         - subnet: 10.6.0.0/16
+  # hostnet:
+  #   name: host
+  #   external: true
