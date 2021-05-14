@@ -275,7 +275,7 @@ class Experiment(object):
         self.xp_id = 0
         self.nrobots = 0
         self.config_file = config_file
-        self.simulation_timeout_s = 5
+        self.simulation_timeout_s = 15
         self.load_trials(self.config_file)
 
     def load_trials(self, file_name):
@@ -407,7 +407,7 @@ class Experiment(object):
             'runtime': 'runc',
             'container_name': 'morse',
             'depends_on': ['master'],
-            'devices': ["/dev/dri", "/dev/snd"],
+            # 'devices': ["/dev/dri", "/dev/snd"],
             'env_file': [env_path],
             'environment': ["ROS_HOSTNAME=morse", "ROS_MASTER_URI=http://master:11311", "QT_X11_NO_MITSHM=1"],
             'volumes': ['/tmp/.X11-unix:/tmp/.X11-unix:rw', '~/.config/pulse/cookie:/root/.config/pulse/cookie', './docker/hmrs_hostpital_simulation/morse_hospital_sim:/ros_ws/morse_hospital_sim'],
