@@ -182,7 +182,7 @@ class Robot(object):
             'container_name': cointainer_name,
             'runtime': 'runc',
             'depends_on': ['master'],
-            'ports': ["9090:9090"],
+            # 'ports': ["9090:9090"],
             'env_file': [env_path],
             'volumes': ['./docker/'+self.motion_pkg_name+':/ros_ws/src/'+self.motion_pkg_name+'/', './docker/turtlebot3_hospital_sim:/ros_ws/src/turtlebot3_hospital_sim/'],
             'environment': ["ROS_HOSTNAME="+cointainer_name, "ROS_MASTER_URI=http://"+cointainer_name+":11311", "ROBOT_NAME=turtlebot"+str(self.id)],
