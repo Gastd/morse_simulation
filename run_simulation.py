@@ -5,6 +5,7 @@ import json
 import math
 import yaml
 import copy
+import time
 import shlex
 import random
 import subprocess
@@ -267,13 +268,14 @@ class Trials(object):
         
 class Experiment(object):
     """docstring for Experiment"""
-    def __init__(self, config_file="experiment_sample.json"):
+    def __init__(self, config_file="experiment_trials.json"):
         super(Experiment, self).__init__()
         self.sim_process = None
         self.docker_compose = dict()
         self.xp_id = 0
         self.nrobots = 0
         self.config_file = config_file
+        self.simulation_timeout_s = 5
         self.load_trials(self.config_file)
 
     def load_trials(self, file_name):
@@ -287,17 +289,67 @@ class Experiment(object):
         print(self.config[0]["nurses"][0])
         print(len(self.config[0]["robots"][1]))
         self.nurses_config = self.config[0]["nurses"]
-        self.robots_config = self.config[0]["robots"][0:3]
+        self.robots_config = self.config[0]["robots"]
+
+    def run_simulation(self):
+        self.nurses_config = self.config[0]["nurses"]
+        self.robots_config = self.config[0]["robots"]
         self.create_env_file()
         self.create_dockers()
         self.create_robots()
         self.save_compose_file()
+        print("STARTING SIMULATION #%d..."%i)
+        self.start_simulation()
+        start = time.time()
+        runtime = time.time()
+        # call simulation and watch timeout
+        while (runtime - start) <= self.simulation_timeout_s:
+            time.sleep(1)
+            runtime = time.time()
+            self.check_end_simulation()
+        end = time.time()
+        self.close_simulation()
+        print("ENDING SIMULATION #%d..."%i)
+        print(f"Runtime of the simulation #{i} is {end - start}")
+
+    def run_all_simulations(self):
+        print("RUNNING %d TRIALS FOR THIS EXPERIMENT"%len(self.config))
+        # create files
+        for i in range(0, len(self.config)):
+            print("RUNNING TRIALS #%d"%i)
+            self.nurses_config = self.config[i]["nurses"]
+            self.robots_config = self.config[i]["robots"]
+            self.create_env_file()
+            self.create_dockers()
+            self.create_robots()
+            self.save_compose_file()
+            print("STARTING SIMULATION #%d..."%i)
+            self.start_simulation()
+            start = time.time()
+            runtime = time.time()
+            # call simulation and watch timeout
+            while (runtime - start) <= self.simulation_timeout_s:
+                time.sleep(1)
+                runtime = time.time()
+                # check simulation end
+            end = time.time()
+            self.close_simulation()
+            print("ENDING SIMULATION #%d..."%i)
+            print(f"Runtime of the simulation #{i} is {end - start}")
+
+    def check_end_simulation(self):
+        pass
 
     def create_env_file(self):
-        self.env_name = "sim1.env"
+        self.env_name = "sim.env"
         curr_path = os.getcwd()+'/'
         file_path = curr_path + self.env_name
         with open(file_path, "w") as ef:
+            nurse_pos = self.nurses_config[0]["position"]
+            nurse_str = str(nurse_pos).replace(',',';')
+            nurse_env = "NURSE_POSE="+nurse_str
+            ef.write(nurse_env+'\n')
+            ef.write('\n')
             ef.write('N_ROBOTS='+str(len(self.robots_config))+'\n')
             for robot in self.robots_config:
                 # name
@@ -305,7 +357,8 @@ class Experiment(object):
                 ef.write('ROBOT_NAME_%d=turtlebot%d\n'%(id_str,id_str))
                 # pose
                 yaw = random.uniform(-math.pi, math.pi)
-                pose_str = str(get_pose(robot["location"])).replace(',',';')
+                # pose_str = str(get_pose(robot["location"])).replace(',',';')
+                pose_str = str(robot["position"]).replace(',',';')
                 pose_env = ("ROBOT_POSE_%d="%(id_str))+pose_str
                 ef.write(pose_env+'\n')
                 # batt level
@@ -355,7 +408,7 @@ class Experiment(object):
             'container_name': 'morse',
             'depends_on': ['master'],
             'devices': ["/dev/dri", "/dev/snd"],
-            'env_file': ['.env'],
+            'env_file': [env_path],
             'environment': ["ROS_HOSTNAME=morse", "ROS_MASTER_URI=http://master:11311", "QT_X11_NO_MITSHM=1"],
             'volumes': ['/tmp/.X11-unix:/tmp/.X11-unix:rw', '~/.config/pulse/cookie:/root/.config/pulse/cookie', './docker/hmrs_hostpital_simulation/morse_hospital_sim:/ros_ws/morse_hospital_sim'],
             'expose': ["8081", "3000", "3001"],
@@ -422,7 +475,7 @@ class Experiment(object):
         return self.docker_compose
 
     def start_simulation(self):
-        up_docker_str = 'docker-compose -f exp_1_trial_1.yaml up -d'
+        up_docker_str = 'docker-compose -f experiment_trials.yaml up -d'
         print('Run Simulation')
         up_docker_tk = shlex.split(up_docker_str)
         # print(up_docker_tk)
@@ -435,7 +488,7 @@ class Experiment(object):
         print(self.sim_process.stderr)
 
     def close_simulation(self):
-        stop_docker_str = 'docker-compose -f exp_1_trial_1.yaml stop'
+        stop_docker_str = 'docker-compose -f experiment_trials.yaml stop'
         stop_docker_tk = shlex.split(stop_docker_str)
 
         print('Close Simulation')
@@ -447,7 +500,7 @@ class Experiment(object):
         print(self.sim_process.stderr)
 
     def save_compose_file(self):
-        self.compose_name = 'exp_1_trial_1.yaml'
+        self.compose_name = 'experiment_trials.yaml'
         with open(current_path+'/'+self.compose_name, 'w') as file:
             documents = yaml.dump(self.get_compose_file(), file)
 
@@ -476,6 +529,7 @@ def choose_poses(n_robots):
 # robots = [r1, r2, r3]
 
 xp1 = Experiment()
+xp1.run_all_simulations()
 
 # print(str(r1))
 # print(str(r2))
@@ -501,7 +555,7 @@ xp1 = Experiment()
 #     env_file.write('\n')
 
 # env_file.close()
-# with open(current_path+'/exp_1_trial_1.yaml', 'w') as file:
+# with open(current_path+'/experiment_trials.yaml', 'w') as file:
 #     documents = yaml.dump(xp1.get_compose_file(), file)
 
 # xp1.start_simulation()
@@ -509,7 +563,7 @@ xp1 = Experiment()
 # xp1.close_simulation()
 
 
-# up_docker_str = 'docker-compose -f exp_1_trial_1.yaml up -d'
+# up_docker_str = 'docker-compose -f experiment_trials.yaml up -d'
 # print('Run Simulation')
 # up_docker_tk = shlex.split(up_docker_str)
 # print(up_docker_tk)
@@ -521,7 +575,7 @@ xp1 = Experiment()
 # print(process.stdout)
 # print(process.stderr)
 
-# stop_docker_str = 'docker-compose -f exp_1_trial_1.yaml stop'
+# stop_docker_str = 'docker-compose -f experiment_trials.yaml stop'
 # stop_docker_tk = shlex.split(stop_docker_str)
 
 # print('Close Simulation')
