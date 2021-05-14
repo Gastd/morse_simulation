@@ -97,6 +97,7 @@ node = rclpy.create_node('bridge')
 float_sub = [Bridge(topic_name,'std_msgs/Float32')  for topic_name in client.get_topics_for_type('std_msgs/Float32')]
 int_sub = [Bridge(topic_name,'std_msgs/Int32')  for topic_name in client.get_topics_for_type('std_msgs/Int32')]
 odom_sub = [Bridge(topic_name,'nav_msgs/Odometry')  for topic_name in client.get_topics_for_type('nav_msgs/Odometry')]
+str_sub = [Bridge(topic_name,'std_msgs/String')  for topic_name in client.get_topics_for_type('std_msgs/String')]
 pose_sub = [Bridge(topic_name,'geometry_msgs/PoseStamped')  for topic_name in client.get_topics_for_type('geometry_msgs/PoseStamped')]
 laser_sub = [Bridge(topic_name,'sensor_msgs/LaserScan')  for topic_name in client.get_topics_for_type('sensor_msgs/LaserScan')]
 

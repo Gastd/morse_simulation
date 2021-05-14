@@ -11,8 +11,8 @@ RUN apt-get install -y python-grpcio python-grpc-tools
 RUN apt-get install -y python3-dev python3-yaml apt-utils python-rospkg python3-pip
 RUN pip3 install rospkg
 RUN apt-get install -y xauth
-RUN sudo apt-get install -y ros-melodic-rosbridge-server
-RUN sudo apt-get install -y ros-melodic-tf2-web-republisher
+RUN apt-get update && sudo apt-get install -y ros-melodic-rosbridge-server
+RUN apt-get update && sudo apt-get install -y ros-melodic-tf2-web-republisher
 RUN pip3 install -U pip
 RUN pip3 install roslibpy
 # RUN apt-get update && apt-get install -y python3-catkin-tools
@@ -39,7 +39,7 @@ ENV LD_LIBRARY_PATH /usr/local/nvidia/lib:/usr/local/nvidia/lib64:${LD_LIBRARY_P
 # RUN mv NVIDIA-Linux-x86_64-"$version".run NVIDIA-DRIVER.run
 # RUN ./NVIDIA-DRIVER.run -a -N --ui=none --no-kernel-module
 
-# ENV QT_DEBUG_PLUGINS=1
+ENV QT_DEBUG_PLUGINS=0
 # ENV QT_QPA_PLATFORM=xcb
 # ENV QT_QPA_PLATFORM_PLUGIN_PATH=/opt/Qt/${QT_VERSION}/gcc_64/plugins
 # ENV QT_PLUGIN_PATH=/opt/Qt/${QT_VERSION}/gcc_64/plugins
