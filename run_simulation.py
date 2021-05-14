@@ -404,7 +404,7 @@ class Experiment(object):
                 'context' : './docker',
                 'dockerfile': 'Dockerfile.app',
             },
-            'runtime': 'nvidia',
+            'runtime': 'runc',
             'container_name': 'morse',
             'depends_on': ['master'],
             'devices': ["/dev/dri", "/dev/snd"],
