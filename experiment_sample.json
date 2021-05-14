@@ -1,0 +1,246 @@
+[{
+    "id": 1,
+    "nurses": [
+        {
+            "location": "PC Room 6",
+            "position": [
+                -11.5,
+                18,
+                -1.57
+            ]
+        }
+    ],
+    "robots": [
+        {
+            "avg_speed": 0.8,
+            "battery_consumption_rate": 0.0024000000000000002,
+            "battery_level": 0.64,
+            "id": 0,
+            "local_plan": [
+                [
+                    "navigation",
+                    [
+                        "IC Room 1",
+                        [
+                            [
+                                -28.5,
+                                18.0,
+                                -1.57
+                            ],
+                            [
+                                -19,
+                                16
+                            ],
+                            [
+                                -37,
+                                15
+                            ],
+                            [
+                                -39.44,
+                                33.98,
+                                0.0
+                            ]
+                        ]
+                    ]
+                ],
+                [
+                    "approach_person",
+                    [
+                        "nurse"
+                    ]
+                ],
+                [
+                    "authenticate_person",
+                    [
+                        "nurse"
+                    ]
+                ],
+                [
+                    "operate_drawer",
+                    [
+                        "open"
+                    ]
+                ],
+                [
+                    "send_message",
+                    [
+                        "nurse"
+                    ]
+                ],
+                [
+                    "wait_message",
+                    [
+                        "r1"
+                    ]
+                ],
+                [
+                    "operate_drawer",
+                    [
+                        "close"
+                    ]
+                ],
+                [
+                    "navigation",
+                    [
+                        "Pharmacy",
+                        [
+                            [
+                                -39.44,
+                                33.98,
+                                0.0
+                            ],
+                            [
+                                -37,
+                                15
+                            ],
+                            [
+                                -19,
+                                16
+                            ],
+                            [
+                                0,
+                                8
+                            ],
+                            [
+                                -2,
+                                2.6
+                            ]
+                        ]
+                    ]
+                ],
+                [
+                    "approach_robot",
+                    [
+                        "lab_arm"
+                    ]
+                ],
+                [
+                    "operate_drawer",
+                    [
+                        "open"
+                    ]
+                ],
+                [
+                    "send_message",
+                    [
+                        "lab_arm"
+                    ]
+                ],
+                [
+                    "wait_message",
+                    [
+                        "r1"
+                    ]
+                ],
+                [
+                    "operate_drawer",
+                    [
+                        "close"
+                    ]
+                ]
+            ],
+            "location": "PC Room 1",
+            "position": [
+                -28.5,
+                18.0,
+                -1.57
+            ],
+            "skills": [
+                "approach_person",
+                "approach_robot",
+                "authenticate_person",
+                "deposit",
+                "navigation",
+                "operate_drawer",
+                "pick_up"
+            ]
+        },
+        {
+            "avg_speed": 0.8,
+            "battery_consumption_rate": 0.0028,
+            "battery_level": 0.53,
+            "id": 1,
+            "local_plan": null,
+            "location": "PC Room 7",
+            "position": [
+                -4,
+                18,
+                -1.57
+            ],
+            "skills": [
+                "approach_person",
+                "approach_robot",
+                "authenticate_person",
+                "deposit",
+                "navigation",
+                "operate_drawer",
+                "pick_up"
+            ]
+        },
+        {
+            "avg_speed": 0.8,
+            "battery_consumption_rate": 0.0013000000000000002,
+            "battery_level": 0.45,
+            "id": 2,
+            "local_plan": null,
+            "location": "PC Room 6",
+            "position": [
+                -11.5,
+                18,
+                -1.57
+            ],
+            "skills": [
+                "approach_person",
+                "approach_robot",
+                "authenticate_person",
+                "deposit",
+                "navigation",
+                "pick_up"
+            ]
+        },
+        {
+            "avg_speed": 0.8,
+            "battery_consumption_rate": 0.0023,
+            "battery_level": 0.29,
+            "id": 3,
+            "local_plan": null,
+            "location": "PC Room 9",
+            "position": [
+                -26.0,
+                13.0,
+                1.57
+            ],
+            "skills": [
+                "approach_person",
+                "approach_robot",
+                "authenticate_person",
+                "deposit",
+                "navigation",
+                "operate_drawer",
+                "pick_up"
+            ]
+        },
+        {
+            "avg_speed": 0.8,
+            "battery_consumption_rate": 0.0012000000000000001,
+            "battery_level": 0.38,
+            "id": 4,
+            "local_plan": null,
+            "location": "PC Room 4",
+            "position": [
+                -19.0,
+                18.0,
+                -1.57
+            ],
+            "skills": [
+                "approach_person",
+                "approach_robot",
+                "authenticate_person",
+                "deposit",
+                "navigation",
+                "operate_drawer",
+                "pick_up"
+            ]
+        }
+    ]
+}]
