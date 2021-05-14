@@ -4,6 +4,7 @@ import os
 import json
 import math
 import yaml
+import copy
 import shlex
 import random
 import subprocess
@@ -11,6 +12,7 @@ import subprocess
 current_path = os.getcwd()
 print(current_path)
 simulation_path = current_path+'/simulation_files'
+env_path = current_path+'/sim.env'
 print(simulation_path)
 
 try:
@@ -27,39 +29,91 @@ METRICS = ['MissionSuccRate', 'AverageTimespan', 'LowBattFailure']
 # Características que serão mudadas durante cada trial: 
 #   - Posição
 #   - Bateria
-#   - Capabilities
+#   - skills
 
 
-              #  x,   y,     yaw 
-robot_pose = [[0.0, 0.0,        0.0],       # r1
-              [1.0, 1.0,    math.pi],       # r2
-              [2.0, 2.0,        0.0],       # r3
-              [3.0, 3.0,        0.0],       # r4
-              [4.0, 4.0,  math.pi/2]]       # r5
+#               #  x,   y,     yaw 
+# robot_pose = [[0.0, 0.0,        0.0],       # r1
+#               [1.0, 1.0,    math.pi],       # r2
+#               [2.0, 2.0,        0.0],       # r3
+#               [3.0, 3.0,        0.0],       # r4
+#               [4.0, 4.0,  math.pi/2]]       # r5
 
 
                     #  r1    r2    r3    r4    r5
-robot_batt_levels = [[1.00, 0.90, 0.90, 0.90, 1.00],    # set 1 
-                     [1.00, 0.90, 0.90, 0.90, 1.00],    # set 2
-                     [1.00, 0.90, 0.90, 0.90, 1.00],    # set 3
-                     [1.00, 0.90, 0.90, 0.90, 1.00],    # set 4
-                     [1.00, 0.90, 0.90, 0.90, 1.00]]    # set 5
+# robot_batt_levels = [[1.00, 0.90, 0.90, 0.90, 1.00],    # set 1 
+#                      [1.00, 0.90, 0.90, 0.90, 1.00],    # set 2
+#                      [1.00, 0.90, 0.90, 0.90, 1.00],    # set 3
+#                      [1.00, 0.90, 0.90, 0.90, 1.00],    # set 4
+#                      [1.00, 0.90, 0.90, 0.90, 1.00]]    # set 5
+
+            # x     y
+rooms = [[-39.74, 32.52], # 1
+         [-39.55, 26.26], # 2
+         [-39.92, 19.31], # 3
+         [-40.00, 13.02], # 4
+         [-32.90, 31.06], # 5
+         [-32.94, 22.06], # 6
+         [-28.70, 19.79], # 7
+         [-28.70, 12.02], # 8
+         [-25.38, 19.78], # 9
+         [-24.32, 11.91], # 10
+         [-21.81, 19.59], # 11
+         [-19.18, 12.15], # 12
+         [-17.91, 19.77], # 13
+         [-14.31, 19.52], # 14
+         [-14.31, 19.52], # 15
+         [-10.00, 19.81], # 16
+         [-06.37, 24.87], # 17
+         [-05.72, 28.96], # 18
+         [-00.29, 28.55], # 19
+         [-00.57, 24.25]] # 20
+
+def get_pose(loc):
+    poses = {
+        "IC Corridor": [-37, 15],
+        "IC Room 1": [-39.44, 33.98, 0.00],
+        "IC Room 2": [-32.88, 33.95, 3.14],
+        "IC Room 3": [-40.23, 25.37, 0.00],
+        "IC Room 4": [-33.90, 18.93, 3.14],
+        "IC Room 5": [-38.00, 21.50, 0.00],
+        "IC Room 6": [-38.00, 10.00, 0.00],
+        "PC Corridor": [-19, 16],
+        "PC Room 1": [-28.50, 18.00,-1.57],
+        "PC Room 2": [-27.23, 18.00,-1.57],
+        "PC Room 3": [-21.00, 18.00,-1.57],
+        "PC Room 4": [-19.00, 18.00,-1.57],
+        "PC Room 5": [-13.50, 18.00,-1.57],
+        "PC Room 6": [-11.50, 18,-1.57],
+        "PC Room 7": [-4, 18,-1.57],
+        "PC Room 8": [-27.23, 13.00, 1.57],
+        "PC Room 9": [-26.00, 13.00, 1.57],
+        "PC Room 10": [-18.00, 13.00, 1.57],
+        "Reception": [-1, 20],
+        "Pharmacy Corridor": [0, 8],
+        "Pharmacy": [-2, 2.6],
+    }
+    return poses[loc]
+
+available_capabilities = ['NavToRoom', 'ApproachNurse', 'AuthenticateNurse', 'WaitForMessage', 'SendMessage']
+handle_capability = ['HandleDrawer']
 
 
-available_capabilities = ['NavToRoom', 'ApproachNurse', 'AuthenticateNurse', 'HandleDrawer', 'WaitForMessage', 'SendMessage']
 
 class Robot(object):
     """docstring for Robot"""
-    def __init__(self, n, pose, batt_level, capabilities):
+    def __init__(self, n, loc, batt_level, skills, config):
         super(Robot, self).__init__()
         self.id = n
-        self.pose = pose
+        self.pose = get_pose(loc)
         self.batt_level = batt_level
-        self.capabilities = capabilities
+        self.skills = skills
+        # self.plan = plan
+        self.config = config
         self.repre = {'id': self.id,
                       'pose': self.pose,
                       'batt_level': self.batt_level,
-                      'capabilities': self.capabilities
+                      'skills': self.skills
                       }
         self.motion_pkg_name = 'motion_ctrl'
         self.pytrees_pkg_name = 'py_trees'
@@ -67,6 +121,15 @@ class Robot(object):
         self.pytreesd = None
         self.build_motion_docker()
         self.build_pytrees_docker()
+
+    def get_id(self):
+        return self.id
+
+    def get_pose(self):
+        return self.pose
+
+    def get_batt_level(self):
+        return self.batt_level
 
     def get_motion_docker(self):
         return ('motion_ctrl'+str(self.id), self.motiond)
@@ -118,8 +181,8 @@ class Robot(object):
             'container_name': cointainer_name,
             'runtime': 'runc',
             'depends_on': ['master'],
-            # 'ports': ["11311:11311"],
-            'env_file': ['test.env'],
+            'ports': ["9090:9090"],
+            'env_file': [env_path],
             'volumes': ['./docker/'+self.motion_pkg_name+':/ros_ws/src/'+self.motion_pkg_name+'/', './docker/turtlebot3_hospital_sim:/ros_ws/src/turtlebot3_hospital_sim/'],
             'environment': ["ROS_HOSTNAME="+cointainer_name, "ROS_MASTER_URI=http://"+cointainer_name+":11311", "ROBOT_NAME=turtlebot"+str(self.id)],
             # 'command': '/bin/bash -c "source /ros_ws/devel/setup.bash && roslaunch motion_ctrl base_navigation.launch & rosrun topic_tools relay /move_base_simple/goal /turtlebot1/move_base_simple/goal"'
@@ -182,9 +245,9 @@ class Robot(object):
             'container_name': cointainer_name,
             'runtime': 'runc',
             'depends_on': ['motion_ctrl'+str(self.id)],
-            'env_file': ['test.env'],
+            'env_file': [env_path],
             'volumes': ['/tmp/.docker.xauth:/tmp/.docker.xauth:rw', '/tmp/.X11-unix:/tmp/.X11-unix:rw', '/var/run/dbus:/var/run/dbus:ro', '/etc/machine-id:/etc/machine-id:ro', '${XDG_RUNTIME_DIR}/pulse/native:${XDG_RUNTIME_DIR}/pulse/native', '~/.config/pulse/cookie:/root/.config/pulse/cookie', './docker/'+package_name+'_ros_behaviors:/ros_ws/src/'+package_name+'_ros_behaviors/'],
-            'environment': ["ROS_HOSTNAME="+cointainer_name, "ROS_MASTER_URI=http://"+self.motion_pkg_name+str(self.id)+":11311", "ROBOT_NAME=turtlebot"+str(self.id)],
+            'environment': ["ROS_HOSTNAME="+cointainer_name, "ROS_MASTER_URI=http://"+self.motion_pkg_name+str(self.id)+":11311", "ROBOT_NAME=turtlebot"+str(self.id), "SKILLS="+str(self.skills), "ROBOT_CONFIG="+json.dumps(self.config)],
             # 'command': '/bin/bash -c "source /ros_ws/devel/setup.bash && roslaunch motion_ctrl base_navigation.launch & rosrun topic_tools relay /move_base_simple/goal /turtlebot1/move_base_simple/goal"'
             # 'command': '/bin/bash -c "source /opt/ros/noetic/setup.bash && ros2 run ros1_bridge dynamic_bridge --bridge-all-topics "',
             'tty': True,
@@ -204,10 +267,83 @@ class Trials(object):
         
 class Experiment(object):
     """docstring for Experiment"""
-    def __init__(self, xp_id, nrobots):
+    def __init__(self, config_file="experiment_sample.json"):
         super(Experiment, self).__init__()
         self.sim_process = None
         self.docker_compose = dict()
+        self.xp_id = 0
+        self.nrobots = 0
+        self.config_file = config_file
+        self.load_trials(self.config_file)
+
+    def load_trials(self, file_name):
+        # file_name = "experiment_sample.json"
+        curr_path = os.getcwd()+'/'
+        file_path = curr_path + file_name
+        self.config = None
+        with open(file_path) as f:
+            self.config = json.load(f)
+        print(print(json.dumps(self.config[0]["robots"][0], indent=2, sort_keys=True)))
+        print(self.config[0]["nurses"][0])
+        print(len(self.config[0]["robots"][1]))
+        self.nurses_config = self.config[0]["nurses"]
+        self.robots_config = self.config[0]["robots"][0:3]
+        self.create_env_file()
+        self.create_dockers()
+        self.create_robots()
+        self.save_compose_file()
+
+    def create_env_file(self):
+        self.env_name = "sim1.env"
+        curr_path = os.getcwd()+'/'
+        file_path = curr_path + self.env_name
+        with open(file_path, "w") as ef:
+            ef.write('N_ROBOTS='+str(len(self.robots_config))+'\n')
+            for robot in self.robots_config:
+                # name
+                id_str = (robot["id"]+1)
+                ef.write('ROBOT_NAME_%d=turtlebot%d\n'%(id_str,id_str))
+                # pose
+                yaw = random.uniform(-math.pi, math.pi)
+                pose_str = str(get_pose(robot["location"])).replace(',',';')
+                pose_env = ("ROBOT_POSE_%d="%(id_str))+pose_str
+                ef.write(pose_env+'\n')
+                # batt level
+                batt_level_str = robot["battery_level"]*100
+                batt_level_env = "BATT_INIT_STATE_%d=%.2f"%(id_str,batt_level_str)
+                ef.write(batt_level_env+'\n')
+                batt_slope_str = robot["battery_consumption_rate"]*100
+                batt_slope_env = "BATT_SLOPE_STATE_%d=%.2f"%(id_str, batt_slope_str)
+                ef.write(batt_slope_env+'\n')
+                ef.write('\n')
+
+    def create_robots(self):
+        robots_servs = []
+
+        # build robots
+        for r_config in self.robots_config:
+            r_id = r_config["id"]+1
+            r_loc = r_config["location"]
+            robot = Robot(r_id, r_loc, r_config["battery_level"], r_config["skills"], r_config)
+            print(robot)
+            r_motion_name, r_motion_serv = robot.get_motion_docker()
+            r_pytrees_name, r_pytrees_serv = robot.get_pytrees_docker()
+            robot_info = {
+                'id': r_id,
+                'robot': robot,
+                'motion_name': r_motion_name,
+                'motion_serv': r_motion_serv,
+                'pytrees_name': r_pytrees_name,
+                'pytrees_serv': r_pytrees_serv,
+            }
+            robots_servs.append(robot_info)
+            print(r_config["local_plan"])
+        for i in range(0, len(self.robots_config)):
+            self.services[robots_servs[i]["motion_name"]] = robots_servs[i]["motion_serv"]
+            self.services[robots_servs[i]["pytrees_name"]] = robots_servs[i]["pytrees_serv"]
+        # print(self.services)
+
+    def create_dockers(self):
         display_idx = random.choice([1,2,3])
         morse_cmd = '/bin/bash -c "source /ros_ws/devel/setup.bash && Xvfb -screen 0 100x100x24 :%d & DISPLAY=:%d morse run morse_hospital_sim"'
         self.morse = {
@@ -250,7 +386,7 @@ class Experiment(object):
             'container_name': 'ros1_bridge',
             'runtime': 'runc',
             'depends_on': ['master'],
-            'env_file': ['test.env'],
+            'env_file': [env_path],
             'volumes': ['/tmp/.docker.xauth:/tmp/.docker.xauth:rw', '/tmp/.X11-unix:/tmp/.X11-unix:rw', '/var/run/dbus:/var/run/dbus:ro'],
             'environment': ["ROS_HOSTNAME=ros1_bridge", "ROS_MASTER_URI=http://master:11311"],
             'command': '/bin/bash -c "source /opt/ros/noetic/setup.bash && ros2 run ros1_bridge dynamic_bridge --bridge-all-topics "',
@@ -271,34 +407,11 @@ class Experiment(object):
                 }
             }
         }
-
-        robots = []
-        # build robots
-        for i in range(0, nrobots):
-            robot = Robot(i+1, robot_pose[i], robot_batt_levels[0][i], available_capabilities)
-            r_motion_name, r_motion_serv = robot.get_motion_docker()
-            r_pytrees_name, r_pytrees_serv = robot.get_pytrees_docker()
-            robot_info = {
-                'id': i,
-                'robot': robot,
-                'motion_name': r_motion_name,
-                'motion_serv': r_motion_serv,
-                'pytrees_name': r_pytrees_name,
-                'pytrees_serv': r_pytrees_serv,
-            }
-            robots.append(robot_info)
-
-        r1 = Robot(1, robot_pose[0], robot_batt_levels[0][0], available_capabilities)
-        r1_motion_name, r1_motion_serv = r1.get_motion_docker()
-        r1_pytrees_name, r1_pytrees_serv = r1.get_pytrees_docker()
         self.services = {
             'morse': self.morse,
             'master': self.master,
             'ros1_bridge': self.ros1_bridge,
         }
-        for i in range(0, nrobots):
-            self.services[robots[i]["motion_name"]] = robots[i]["motion_serv"]
-            self.services[robots[i]["pytrees_name"]] = robots[i]["pytrees_serv"]
         self.docker_compose = {
             'version': "2.3",
             'services': self.services,
@@ -338,21 +451,63 @@ class Experiment(object):
         with open(current_path+'/'+self.compose_name, 'w') as file:
             documents = yaml.dump(self.get_compose_file(), file)
 
-r1 = Robot(1, robot_pose[0], robot_batt_levels[0][0], available_capabilities)
-r2 = Robot(2, robot_pose[1], robot_batt_levels[0][1], available_capabilities)
-r3 = Robot(3, robot_pose[2], robot_batt_levels[0][2], available_capabilities)
-r4 = Robot(4, robot_pose[3], robot_batt_levels[0][3], available_capabilities)
-r5 = Robot(5, robot_pose[4], robot_batt_levels[0][4], available_capabilities)
+def choose_poses(n_robots):
+    poses = []
+    for n in range(0, n_robots):
+        pose = []
+        pose = random.choice(rooms)
+        print(pose)
+        pose.append(random.uniform(-math.pi, math.pi)) # choose initial orientation
+        if len(pose) > 3:
+            raise Exception('len(pose)==', len(pose))
+        poses.append(pose)
+        print(poses)
+        # TODO: check if the choosed pose is already taken
+    return poses
 
-xp1 = Experiment(1, 2)
+# n_robots = 3
+# poses = choose_poses(n_robots)
 
-print(str(r1))
-with open(current_path+'/exp_1_trial_1.yaml', 'w') as file:
-    documents = yaml.dump(xp1.get_compose_file(), file)
+# r1 = Robot(1, poses[0], random.uniform(0, 100), available_capabilities + random.choice([0, 1])*handle_capability)
+# r2 = Robot(2, poses[1], random.uniform(0, 100), available_capabilities + random.choice([0, 1])*handle_capability)
+# r3 = Robot(3, poses[2], random.uniform(0, 100), available_capabilities + random.choice([0, 1])*handle_capability)
+# r4 = Robot(4, robot_pose[3], robot_batt_levels[0][3], available_capabilities)
+# r5 = Robot(5, robot_pose[4], robot_batt_levels[0][4], available_capabilities)
+# robots = [r1, r2, r3]
 
-xp1.start_simulation()
+xp1 = Experiment()
+
+# print(str(r1))
+# print(str(r2))
+# print(str(r3))
+
+# print(env_path)
+# env_file = open(env_path, "w")
+# env_file.write('N_ROBOTS='+str(n_robots)+'\n')
+# for i in range(0, n_robots):
+#     # name
+#     id_str = robots[i].get_id()
+#     env_file.write('ROBOT_NAME_%d=turtlebot%d\n'%(id_str,id_str))
+#     # pose
+#     pose_str = str(robots[i].get_pose()).replace(',',';')
+#     pose_env = ("ROBOT_POSE_%d="%(id_str))+pose_str
+#     env_file.write(pose_env+'\n')
+#     # batt level
+#     batt_level_str = robots[i].get_batt_level()
+#     batt_level_env = "BATT_INIT_STATE_%d=%.2f"%(id_str,batt_level_str)
+#     env_file.write(batt_level_env+'\n')
+#     batt_slope_env = "BATT_SLOPE_STATE_%d=0.05"%(id_str)
+#     env_file.write(batt_slope_env+'\n')
+#     env_file.write('\n')
+
+# env_file.close()
+# with open(current_path+'/exp_1_trial_1.yaml', 'w') as file:
+#     documents = yaml.dump(xp1.get_compose_file(), file)
+
+# xp1.start_simulation()
 
 # xp1.close_simulation()
+
 
 # up_docker_str = 'docker-compose -f exp_1_trial_1.yaml up -d'
 # print('Run Simulation')
