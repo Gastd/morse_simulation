@@ -246,7 +246,7 @@ class Robot(object):
             'container_name': cointainer_name,
             'runtime': 'runc',
             'depends_on': ['motion_ctrl'+str(self.id)],
-            # 'env_file': [env_path],
+            'env_file': [env_path],
             'volumes': ['/tmp/.docker.xauth:/tmp/.docker.xauth:rw',
                 '/tmp/.X11-unix:/tmp/.X11-unix:rw',
                 '/var/run/dbus:/var/run/dbus:ro',
