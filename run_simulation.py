@@ -184,8 +184,8 @@ class Robot(object):
             'depends_on': ['master'],
             # 'ports': ["9090:9090"],
             'env_file': [env_path],
-            'volumes': ['./docker/'+self.motion_pkg_name+':/ros_ws/src/'+self.motion_pkg_name+'/', './docker/turtlebot3_hospital_sim:/ros_ws/src/turtlebot3_hospital_sim/'],
-            'environment': ["ROS_HOSTNAME="+cointainer_name, "ROS_MASTER_URI=http://"+cointainer_name+":11311", "ROBOT_NAME=turtlebot"+str(self.id)],
+            'volumes': ['./docker/'+self.motion_pkg_name+':/ros_ws/src/'+self.motion_pkg_name+'/', './docker/turtlebot3_hospital_sim:/ros_ws/src/turtlebot3_hospital_sim/', './log/:/root/.ros/logger_sim/'],
+            'environment': ["ROS_HOSTNAME="+cointainer_name, "ROS_MASTER_URI=http://master:11311", "ROBOT_NAME=turtlebot"+str(self.id)],
             # 'command': '/bin/bash -c "source /ros_ws/devel/setup.bash && roslaunch motion_ctrl base_navigation.launch & rosrun topic_tools relay /move_base_simple/goal /turtlebot1/move_base_simple/goal"'
             'command': '/bin/bash -c "source /ros_ws/devel/setup.bash && roslaunch motion_ctrl base_navigation.launch"',
             'tty': True,
@@ -246,11 +246,18 @@ class Robot(object):
             'container_name': cointainer_name,
             'runtime': 'runc',
             'depends_on': ['motion_ctrl'+str(self.id)],
-            'env_file': [env_path],
-            'volumes': ['/tmp/.docker.xauth:/tmp/.docker.xauth:rw', '/tmp/.X11-unix:/tmp/.X11-unix:rw', '/var/run/dbus:/var/run/dbus:ro', '/etc/machine-id:/etc/machine-id:ro', '${XDG_RUNTIME_DIR}/pulse/native:${XDG_RUNTIME_DIR}/pulse/native', '~/.config/pulse/cookie:/root/.config/pulse/cookie', './docker/'+package_name+'_ros_behaviors:/ros_ws/src/'+package_name+'_ros_behaviors/'],
-            'environment': ["ROS_HOSTNAME="+cointainer_name, "ROS_MASTER_URI=http://"+self.motion_pkg_name+str(self.id)+":11311", "ROBOT_NAME=turtlebot"+str(self.id), "SKILLS="+str(self.skills), "ROBOT_CONFIG="+json.dumps(self.config)],
+            # 'env_file': [env_path],
+            'volumes': ['/tmp/.docker.xauth:/tmp/.docker.xauth:rw',
+                '/tmp/.X11-unix:/tmp/.X11-unix:rw',
+                '/var/run/dbus:/var/run/dbus:ro',
+                '/etc/machine-id:/etc/machine-id:ro',
+                '${XDG_RUNTIME_DIR}/pulse/native:${XDG_RUNTIME_DIR}/pulse/native',
+                '~/.config/pulse/cookie:/root/.config/pulse/cookie',
+                './docker/py_trees_ros_behaviors:/ros_ws/src/py_trees_ros_behaviors/'
+                ],
+            'environment': ["ROS_HOSTNAME="+cointainer_name, "ROS_MASTER_URI=http://master:11311", "ROBOT_NAME=turtlebot"+str(self.id), "SKILLS="+str(self.skills), "ROBOT_CONFIG="+json.dumps(self.config)],
             # 'command': '/bin/bash -c "source /ros_ws/devel/setup.bash && roslaunch motion_ctrl base_navigation.launch & rosrun topic_tools relay /move_base_simple/goal /turtlebot1/move_base_simple/goal"'
-            # 'command': '/bin/bash -c "source /opt/ros/noetic/setup.bash && ros2 run ros1_bridge dynamic_bridge --bridge-all-topics "',
+            'command': '/bin/bash -c "colcon build && source /ros_ws/install/setup.bash && ros2 launch py_trees_ros_behaviors tutorial_seven_docking_cancelling_failing_launch.py"',
             'tty': True,
             # 'networks': {
             #     'morsegatonet': {
@@ -275,8 +282,9 @@ class Experiment(object):
         self.xp_id = 0
         self.nrobots = 0
         self.config_file = config_file
-        self.simulation_timeout_s = 15
+        self.simulation_timeout_s = 60*8
         self.load_trials(self.config_file)
+        self.endsim = False
 
     def load_trials(self, file_name):
         # file_name = "experiment_sample.json"
@@ -292,30 +300,34 @@ class Experiment(object):
         self.robots_config = self.config[0]["robots"]
 
     def run_simulation(self):
+        self.endsim = False
         self.nurses_config = self.config[0]["nurses"]
         self.robots_config = self.config[0]["robots"]
         self.create_env_file()
         self.create_dockers()
         self.create_robots()
         self.save_compose_file()
-        print("STARTING SIMULATION #%d..."%i)
+        print("STARTING SIMULATION...")
         self.start_simulation()
         start = time.time()
         runtime = time.time()
+        self.clear_log_file()
         # call simulation and watch timeout
-        while (runtime - start) <= self.simulation_timeout_s:
+        while (runtime - start) <= self.simulation_timeout_s and self.endsim == False:
             time.sleep(1)
             runtime = time.time()
             self.check_end_simulation()
         end = time.time()
         self.close_simulation()
-        print("ENDING SIMULATION #%d..."%i)
-        print(f"Runtime of the simulation #{i} is {end - start}")
+        print("ENDING SIMULATION...")
+        print(f"Runtime of the simulation is {end - start}")
+        self.save_log_file(1)
 
     def run_all_simulations(self):
         print("RUNNING %d TRIALS FOR THIS EXPERIMENT"%len(self.config))
         # create files
         for i in range(0, len(self.config)):
+            self.endsim = False
             print("RUNNING TRIALS #%d"%i)
             self.nurses_config = self.config[i]["nurses"]
             self.robots_config = self.config[i]["robots"]
@@ -327,18 +339,39 @@ class Experiment(object):
             self.start_simulation()
             start = time.time()
             runtime = time.time()
+            self.clear_log_file()
             # call simulation and watch timeout
-            while (runtime - start) <= self.simulation_timeout_s:
+            while (runtime - start) <= self.simulation_timeout_s and self.endsim == False:
                 time.sleep(1)
                 runtime = time.time()
+                self.check_end_simulation()
                 # check simulation end
             end = time.time()
             self.close_simulation()
             print("ENDING SIMULATION #%d..."%i)
             print(f"Runtime of the simulation #{i} is {end - start}")
+            self.save_log_file(i)
+
+    def clear_log_file(self):
+        with open(current_path+'/log/experiment.log', 'w') as file:
+            file.write('')
+
+    def save_log_file(self, run):
+        with open(current_path+'/log/experiment.log', 'r') as file:
+            print("Saving log file as: " + current_path+f'/log/experiment_trial1_exp{run}.log')
+            lines = file.readlines()
+            with open(current_path+f'/log/experiment_trial1_exp{run}.log', 'w') as logfile:
+                for line in lines:
+                    logfile.write(line)
+        self.clear_log_file()
 
     def check_end_simulation(self):
-        pass
+        with open(current_path+'/log/experiment.log', 'r') as file:
+            print("Checking simulation...")
+            lines = file.readlines()
+            print(lines)
+            if "ENDSIM\n" in lines:
+                self.endsim = True
 
     def create_env_file(self):
         self.env_name = "sim.env"
@@ -476,6 +509,7 @@ class Experiment(object):
 
     def start_simulation(self):
         up_docker_str = 'docker-compose -f experiment_trials.yaml up -d'
+        # up_docker_str = 'docker-compose up -d'
         print('Run Simulation')
         up_docker_tk = shlex.split(up_docker_str)
         # print(up_docker_tk)
@@ -488,10 +522,11 @@ class Experiment(object):
         print(self.sim_process.stderr)
 
     def close_simulation(self):
-        stop_docker_str = 'docker-compose -f experiment_trials.yaml stop'
+        # stop_docker_str = 'docker-compose down'
+        stop_docker_str = 'docker-compose -f experiment_trials.yaml down'
         stop_docker_tk = shlex.split(stop_docker_str)
 
-        print('Close Simulation')
+        print('Closing Simulation')
         self.sim_process = subprocess.run(stop_docker_tk,
                              stdout=subprocess.PIPE, 
                              stderr=subprocess.PIPE,
@@ -529,6 +564,7 @@ def choose_poses(n_robots):
 # robots = [r1, r2, r3]
 
 xp1 = Experiment()
+# xp1.run_simulation()
 xp1.run_all_simulations()
 
 # print(str(r1))

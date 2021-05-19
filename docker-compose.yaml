@@ -36,7 +36,7 @@ services:
       - "3001"
     # command: /bin/bash -c "source /ros_ws/devel/setup.bash && morse run morse_hospital_sim"
     # command:
-      # - roslaunch rosbridge_server rosbridge_websocket.launch
+      # - roslaunch rosbridge_server rosbridge_websocket.launch --wait
       # - rosrun tf2_web_republisher tf2_web_republisher
       # - /bin/bash -c "source /ros_ws/devel/setup.bash && Xvfb -screen 0 100x100x24 :2 & DISPLAY=:2 morse run morse_hospital_sim"
     # command: rosrun tf2_web_republisher tf2_web_republisher
@@ -56,7 +56,7 @@ services:
       context: ./docker
       dockerfile: Dockerfile.app
     container_name: master
-    command: /bin/bash -c "source /ros_ws/devel/setup.bash && roslaunch src/hos/server.launch"
+    command: /bin/bash -c "source /ros_ws/devel/setup.bash && roscore"
     networks:
       morsesimnet:
         ipv4_address: 10.6.0.5
@@ -69,19 +69,21 @@ services:
     runtime: runc
     depends_on:
       - master
+      - morse
     ports:
       - "11311:11311"
     volumes:
       - ./docker/motion_ctrl:/ros_ws/src/motion_ctrl/
       - ./docker/turtlebot3_hospital_sim:/ros_ws/src/turtlebot3_hospital_sim/
+      - ./log/:/root/.ros/logger_sim/
     environment:
       - "ROS_HOSTNAME=motion_ctrl"
-      - "ROS_MASTER_URI=http://motion_ctrl:11311"
+      - "ROS_MASTER_URI=http://master:11311"
       - "ROBOT_NAME=turtlebot1"
     env_file:
       - .env
-    # command: /bin/bash -c "source /ros_ws/devel/setup.bash && roslaunch motion_ctrl base_navigation.launch"
-    command: /bin/bash -c "source /ros_ws/devel/setup.bash && roslaunch motion_ctrl base_navigation.launch & rosrun topic_tools relay /move_base_simple/goal /turtlebot1/move_base_simple/goal"
+    # command: /bin/bash -c "source /ros_ws/devel/setup.bash && roslaunch motion_ctrl base_navigation.launch --wait"
+    command: /bin/bash -c "source /ros_ws/devel/setup.bash && roslaunch motion_ctrl base_navigation.launch --wait & rosrun topic_tools relay /move_base_simple/goal /turtlebot1/move_base_simple/goal"
     # command: /bin/bash -c "source /ros_ws/devel/setup.bash && roscore"
     tty: true
     privileged: true
@@ -96,9 +98,9 @@ services:
   #     context: ./docker
   #     dockerfile: Dockerfile.rosbridge
   #   tty: true
-  #   command: /bin/bash -c "source /opt/ros/melodic/setup.bash && roslaunch --wait rosbridge_server rosbridge_websocket.launch"
+  #   command: /bin/bash -c "source /opt/ros/melodic/setup.bash && roslaunch --wait rosbridge_server rosbridge_websocket.launch --wait"
   #   environment:
-  #     - "ROS_MASTER_URI=http://motion_ctrl:11311"
+  #     - "ROS_MASTER_URI=http://master:11311"
   #   depends_on:
   #     - motion_ctrl
   #   links:
@@ -134,7 +136,7 @@ services:
       - "/dev/snd"
     environment:
       - "ROS_HOSTNAME=rviz"
-      - "ROS_MASTER_URI=http://10.6.0.6:11311"
+      - "ROS_MASTER_URI=http://master:11311"
       - "QT_X11_NO_MITSHM=1"
       - "DISPLAY=$DISPLAY"
       # - "XAUTHORITY=$XAUTH"
@@ -174,11 +176,11 @@ services:
   #     - ./docker/turtlebot3_hospital_sim:/ros_ws/src/turtlebot3_hospital_sim/
   #   environment:
   #     - "ROS_HOSTNAME=motion_ctrl2"
-  #     - "ROS_MASTER_URI=http://motion_ctrl2:11311"
+  #     - "ROS_MASTER_URI=http://master:11311"
   #     - "ROBOT_NAME=turtlebot2"
   #   env_file:
   #     - .env
-  #   command: /bin/bash -c "source /ros_ws/devel/setup.bash && roslaunch motion_ctrl base_navigation.launch"
+  #   command: /bin/bash -c "source /ros_ws/devel/setup.bash && roslaunch motion_ctrl base_navigation.launch --wait"
   #   tty: true
   #   networks:
   #     morsesimnet:
@@ -199,13 +201,24 @@ services:
       - "/dev/snd"
     environment:
       - "ROS_HOSTNAME=pytree_test1"
-      - "ROS_MASTER_URI=http://motion_ctrl:11311"
+      - "ROS_MASTER_URI=http://master:11311"
       - "QT_X11_NO_MITSHM=1"
       - "DISPLAY=$DISPLAY"
       - "XAUTHORITY=$XAUTH"
       - "QT_GRAPHICSSYSTEM=native"
       - "PULSE_SERVER=unix:${XDG_RUNTIME_DIR}/pulse/native"
       - "ROBOT_NAME=turtlebot1"
+      - 'ROBOT_CONFIG={"avg_speed": 0.8, "battery_consumption_rate": 0.0024000000000000002,
+      "battery_level": 0.64, "id": 0, "local_plan": [["navigation", ["IC Room 1",
+      [[-28.5, 18.0, -1.57], [-19, 16], [-37, 15], [-39.44, 33.98, 0.0]]]], ["approach_person",
+      ["nurse"]], ["authenticate_person", ["nurse"]], ["operate_drawer", ["open"]],
+      ["send_message", ["nurse"]], ["wait_message", ["r1"]], ["operate_drawer", ["close"]],
+      ["navigation", ["Pharmacy", [[-39.44, 33.98, 0.0], [-37, 15], [-19, 16], [0,
+      8], [-2, 2.6]]]], ["approach_robot", ["lab_arm"]], ["operate_drawer", ["open"]],
+      ["send_message", ["lab_arm"]], ["wait_message", ["r1"]], ["operate_drawer",
+      ["close"]]], "location": "PC Room 1", "position": [-28.5, 18.0, -1.57], "skills":
+      ["approach_person", "approach_robot", "authenticate_person", "deposit", "navigation",
+      "operate_drawer", "pick_up"]}'
     volumes:
       - /tmp/.docker.xauth:/tmp/.docker.xauth:rw
       - /tmp/.X11-unix:/tmp/.X11-unix:rw
@@ -216,12 +229,59 @@ services:
       - ./docker/bridge/bridge.py:/ros_ws/src/bridge.py
       - ./docker/py_trees_ros_behaviors:/ros_ws/src/py_trees_ros_behaviors/
     # command: /bin/bash -c "source /ros_ws/install/setup.bash && ros2 topic pub /std_out std_msgs/msg/String data:\ \'HelloWorld\'\ "
-    # command: python3 /ros_ws/src/bridge.py
-    command: /bin/bash -c "source /opt/ros/noetic/setup.bash && ros2 run ros1_bridge dynamic_bridge --bridge-all-topics --show-introspection "
+    command: /bin/bash -c "colcon build && source /ros_ws/install/setup.bash && ros2 launch py_trees_ros_behaviors tutorial_seven_docking_cancelling_failing_launch.py"
     tty: true
     networks:
       morsesimnet:
         ipv4_address: 10.6.0.8
+
+  pytree_bridge:
+    build:
+      context: ./docker
+      dockerfile: Dockerfile.pytrees
+    container_name: pytree_bridge
+    runtime: runc
+    depends_on:
+      - motion_ctrl
+    env_file:
+      - .env
+    devices:
+      - "/dev/dri"
+      - "/dev/snd"
+    environment:
+      - "ROS_HOSTNAME=pytree_bridge"
+      - "ROS_MASTER_URI=http://master:11311"
+      - "QT_X11_NO_MITSHM=1"
+      - "DISPLAY=$DISPLAY"
+      - "XAUTHORITY=$XAUTH"
+      - "QT_GRAPHICSSYSTEM=native"
+      - "PULSE_SERVER=unix:${XDG_RUNTIME_DIR}/pulse/native"
+      - "ROBOT_NAME=turtlebot1"
+      - 'ROBOT_CONFIG={"avg_speed": 0.8, "battery_consumption_rate": 0.0024000000000000002,
+      "battery_level": 0.64, "id": 0, "local_plan": [["navigation", ["IC Room 1",
+      [[-28.5, 18.0, -1.57], [-19, 16], [-37, 15], [-39.44, 33.98, 0.0]]]], ["approach_person",
+      ["nurse"]], ["authenticate_person", ["nurse"]], ["operate_drawer", ["open"]],
+      ["send_message", ["nurse"]], ["wait_message", ["r1"]], ["operate_drawer", ["close"]],
+      ["navigation", ["Pharmacy", [[-39.44, 33.98, 0.0], [-37, 15], [-19, 16], [0,
+      8], [-2, 2.6]]]], ["approach_robot", ["lab_arm"]], ["operate_drawer", ["open"]],
+      ["send_message", ["lab_arm"]], ["wait_message", ["r1"]], ["operate_drawer",
+      ["close"]]], "location": "PC Room 1", "position": [-28.5, 18.0, -1.57], "skills":
+      ["approach_person", "approach_robot", "authenticate_person", "deposit", "navigation",
+      "operate_drawer", "pick_up"]}'
+    volumes:
+      - /tmp/.docker.xauth:/tmp/.docker.xauth:rw
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+      - /var/run/dbus:/var/run/dbus:ro
+      - /etc/machine-id:/etc/machine-id:ro
+      - ${XDG_RUNTIME_DIR}/pulse/native:${XDG_RUNTIME_DIR}/pulse/native
+      - ~/.config/pulse/cookie:/root/.config/pulse/cookie
+      - ./docker/bridge/bridge.py:/ros_ws/src/bridge.py
+      - ./docker/py_trees_ros_behaviors:/ros_ws/src/py_trees_ros_behaviors/
+    # command: /bin/bash -c "source /ros_ws/install/setup.bash && ros2 topic pub /std_out std_msgs/msg/String data:\ \'HelloWorld\'\ "
+    command: /bin/bash -c "source /opt/ros/noetic/setup.bash && ros2 run ros1_bridge dynamic_bridge --bridge-all-topics "
+    tty: true
+    networks:
+      - morsesimnet
 
   # pytree_test2:
   #   build:
@@ -238,7 +298,7 @@ services:
   #     - "/dev/snd"
   #   environment:
   #     - "ROS_HOSTNAME=pytree_test2"
-  #     - "ROS_MASTER_URI=http://motion_ctrl2:11311"
+  #     - "ROS_MASTER_URI=http://master:11311"
   #     - "QT_X11_NO_MITSHM=1"
   #     - "DISPLAY=$DISPLAY"
   #     - "XAUTHORITY=$XAUTH"
