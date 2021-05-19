@@ -282,7 +282,7 @@ class Experiment(object):
         self.xp_id = 0
         self.nrobots = 0
         self.config_file = config_file
-        self.simulation_timeout_s = 60*8
+        self.simulation_timeout_s = 60*10
         self.load_trials(self.config_file)
         self.endsim = False
 
@@ -363,6 +363,7 @@ class Experiment(object):
             with open(current_path+f'/log/experiment_trial1_exp{run}.log', 'w') as logfile:
                 for line in lines:
                     logfile.write(line)
+                logfile.write("Simulation concluded ok = "+str(self.endsim))
         self.clear_log_file()
 
     def check_end_simulation(self):
