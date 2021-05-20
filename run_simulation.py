@@ -455,7 +455,7 @@ class Experiment(object):
         self.master = {
             'build': {
                 'context' : './docker',
-                'dockerfile': 'Dockerfile.app',
+                'dockerfile': 'Dockerfile.motion',
             },
             'container_name': 'master',
             'command': '/bin/bash -c "source /ros_ws/devel/setup.bash && roslaunch src/motion_ctrl/launch/log.launch"',
