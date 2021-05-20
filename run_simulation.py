@@ -458,8 +458,10 @@ class Experiment(object):
                 'dockerfile': 'Dockerfile.motion',
             },
             'container_name': 'master',
+            'env_file': [env_path],
             'volumes': ['./log/:/root/.ros/logger_sim/'],
             'command': '/bin/bash -c "source /ros_ws/devel/setup.bash && roslaunch src/motion_ctrl/launch/log.launch"',
+            'tty': True,
             'networks': {
                 'morsegatonet': {
                     'ipv4_address': '10.2.0.5'
