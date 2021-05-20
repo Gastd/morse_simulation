@@ -458,7 +458,7 @@ class Experiment(object):
                 'dockerfile': 'Dockerfile.app',
             },
             'container_name': 'master',
-            'command': '/bin/bash -c "source /ros_ws/devel/setup.bash && roslaunch src/hos/server.launch"',
+            'command': '/bin/bash -c "source /ros_ws/devel/setup.bash && roslaunch src/motion_ctrl/launch/log.launch"',
             'networks': {
                 'morsegatonet': {
                     'ipv4_address': '10.2.0.5'
