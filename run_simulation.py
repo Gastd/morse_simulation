@@ -371,9 +371,13 @@ class Experiment(object):
             print("Checking simulation...")
             lines = file.readlines()
             print(lines)
+            alllines = ''
             for line in lines:
+                alllines = alllines+line
                 if "ENDSIM" in line:
                     self.endsim = True
+            if alllines.count('LOW BATTERY') >= 5:
+                self.endsim = True
 
     def create_env_file(self):
         self.env_name = "sim.env"
