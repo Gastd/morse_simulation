@@ -360,7 +360,7 @@ class Experiment(object):
         with open(current_path+'/log/experiment.log', 'r') as file:
             print("Saving log file as: " + current_path+f'/log/experiment_trial1_exp{run}.log')
             lines = file.readlines()
-            with open(current_path+f'/log/experiment_trial1_exp{run}.log', 'w') as logfile:
+            with open(current_path+f'/log/experiment_exp1_trial{run}.log', 'w') as logfile:
                 for line in lines:
                     logfile.write(line)
                 logfile.write("Simulation concluded ok = "+str(self.endsim))
@@ -371,8 +371,9 @@ class Experiment(object):
             print("Checking simulation...")
             lines = file.readlines()
             print(lines)
-            if "ENDSIM\n" in lines:
-                self.endsim = True
+            for line in lines:
+                if "ENDSIM" in line:
+                    self.endsim = True
 
     def create_env_file(self):
         self.env_name = "sim.env"
