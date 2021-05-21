@@ -363,7 +363,7 @@ class Experiment(object):
             with open(current_path+f'/log/experiment_exp1_trial{run}.log', 'w') as logfile:
                 for line in lines:
                     logfile.write(line)
-                logfile.write("Simulation by its own = "+str(self.endsim)+"\n")
+                logfile.write("Simulation closed by its own = "+str(self.endsim)+"\n")
         self.clear_log_file()
 
     def check_end_simulation(self):
@@ -376,8 +376,8 @@ class Experiment(object):
                 alllines = alllines+line
                 if "ENDSIM" in line:
                     self.endsim = True
-            if alllines.count('LOW BATTERY') >= 5:
-                self.endsim = True
+            # if alllines.count('LOW BATTERY') >= 5:
+            #     self.endsim = True
 
     def create_env_file(self):
         self.env_name = "sim.env"
