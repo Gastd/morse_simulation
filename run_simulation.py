@@ -363,7 +363,7 @@ class Experiment(object):
             with open(current_path+f'/log/experiment_exp1_trial{run}.log', 'w') as logfile:
                 for line in lines:
                     logfile.write(line)
-                logfile.write("Simulation concluded ok = "+str(self.endsim))
+                logfile.write("Simulation by its own = "+str(self.endsim)+"\n")
         self.clear_log_file()
 
     def check_end_simulation(self):
