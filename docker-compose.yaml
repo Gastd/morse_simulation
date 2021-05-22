@@ -66,27 +66,24 @@ services:
       context: ./docker
       dockerfile: Dockerfile.motion
     container_name: motion_ctrl
-    runtime: runc
     depends_on:
-      - master
-      - morse
-    ports:
-      - "11311:11311"
-    volumes:
-      - ./docker/motion_ctrl:/ros_ws/src/motion_ctrl/
-      - ./docker/turtlebot3_hospital_sim:/ros_ws/src/turtlebot3_hospital_sim/
-      - ./log/:/root/.ros/logger_sim/
-    environment:
-      - "ROS_HOSTNAME=motion_ctrl"
-      - "ROS_MASTER_URI=http://master:11311"
-      - "ROBOT_NAME=turtlebot1"
+    - master
     env_file:
-      - .env
-    # command: /bin/bash -c "source /ros_ws/devel/setup.bash && roslaunch motion_ctrl base_navigation.launch --wait"
-    command: /bin/bash -c "source /ros_ws/devel/setup.bash && roslaunch motion_ctrl base_navigation.launch --wait & rosrun topic_tools relay /move_base_simple/goal /turtlebot1/move_base_simple/goal"
-    # command: /bin/bash -c "source /ros_ws/devel/setup.bash && roscore"
-    tty: true
+    - /home/gastd/git/morse_simulation/sim.env
+    environment:
+    - ROS_HOSTNAME=motion_ctrl
+    - ROS_MASTER_URI=http://master:11311
+    - ROBOT_NAME=turtlebot1
+    networks:
+    - morsegatonet
     privileged: true
+    runtime: runc
+    tty: true
+    volumes:
+    - ./docker/motion_ctrl:/ros_ws/src/motion_ctrl/
+    - ./docker/turtlebot3_hospital_sim:/ros_ws/src/turtlebot3_hospital_sim/
+    - ./log/:/root/.ros/logger_sim/
+    command: /bin/bash -c "source /ros_ws/devel/setup.bash && roslaunch motion_ctrl base_navigation.launch --wait"
     networks:
       morsesimnet:
         ipv4_address: 10.6.0.6
@@ -190,25 +187,20 @@ services:
     build:
       context: ./docker
       dockerfile: Dockerfile.pytrees
+    command: /bin/bash -c "colcon build && source /ros_ws/install/setup.bash && ros2
+      launch py_trees_ros_behaviors tutorial_seven_docking_cancelling_failing_launch.py"
     container_name: pytree_test1
-    runtime: runc
     depends_on:
-      - motion_ctrl
+    - motion_ctrl
     env_file:
-      - .env
-    devices:
-      - "/dev/dri"
-      - "/dev/snd"
+    - /home/gastd/git/morse_simulation/sim.env
     environment:
-      - "ROS_HOSTNAME=pytree_test1"
-      - "ROS_MASTER_URI=http://master:11311"
-      - "QT_X11_NO_MITSHM=1"
-      - "DISPLAY=$DISPLAY"
-      - "XAUTHORITY=$XAUTH"
-      - "QT_GRAPHICSSYSTEM=native"
-      - "PULSE_SERVER=unix:${XDG_RUNTIME_DIR}/pulse/native"
-      - "ROBOT_NAME=turtlebot1"
-      - 'ROBOT_CONFIG={"avg_speed": 0.8, "battery_consumption_rate": 0.0024000000000000002,
+    - ROS_HOSTNAME=pytree_test1
+    - ROS_MASTER_URI=http://master:11311
+    - ROBOT_NAME=turtlebot1
+    - SKILLS=['approach_person', 'approach_robot', 'authenticate_person', 'deposit',
+      'navigation', 'operate_drawer', 'pick_up']
+    - 'ROBOT_CONFIG={"avg_speed": 0.8, "battery_consumption_rate": 0.0024000000000000002,
       "battery_level": 0.64, "id": 0, "local_plan": [["navigation", ["PC Room 2",
       [[-28.5, 18.0, -1.57], [-28, 16], [-27.23, 18.0, -1.57]]]], ["approach_person",
       ["nurse"]], ["authenticate_person", ["nurse"]], ["operate_drawer", ["open"]],
@@ -219,19 +211,19 @@ services:
       ["close"]]], "location": "PC Room 1", "position": [-28.5, 18.0, -1.57], "skills":
       ["approach_person", "approach_robot", "authenticate_person", "deposit", "navigation",
       "operate_drawer", "pick_up"]}'
-    volumes:
-      - /tmp/.docker.xauth:/tmp/.docker.xauth:rw
-      - /tmp/.X11-unix:/tmp/.X11-unix:rw
-      - /var/run/dbus:/var/run/dbus:ro
-      - /etc/machine-id:/etc/machine-id:ro
-      - ${XDG_RUNTIME_DIR}/pulse/native:${XDG_RUNTIME_DIR}/pulse/native
-      - ~/.config/pulse/cookie:/root/.config/pulse/cookie
-      - ./docker/bridge/bridge.py:/ros_ws/src/bridge.py
-      - ./docker/py_trees_ros_behaviors:/ros_ws/src/py_trees_ros_behaviors/
-    # command: /bin/bash -c "source /ros_ws/install/setup.bash && ros2 topic pub /std_out std_msgs/msg/String data:\ \'HelloWorld\'\ "
-    # command: /bin/bash -c "
-#colcon build && source /ros_ws/install/setup.bash && ros2 launch py_trees_ros_behaviors tutorial_seven_docking_cancelling_failing_launch.py
+    networks:
+    - morsegatonet
+    runtime: runc
     tty: true
+    volumes:
+    - /tmp/.docker.xauth:/tmp/.docker.xauth:rw
+    - /tmp/.X11-unix:/tmp/.X11-unix:rw
+    - /var/run/dbus:/var/run/dbus:ro
+    - /etc/machine-id:/etc/machine-id:ro
+    - ${XDG_RUNTIME_DIR}/pulse/native:${XDG_RUNTIME_DIR}/pulse/native
+    - ~/.config/pulse/cookie:/root/.config/pulse/cookie
+    - ./docker/py_trees_ros_behaviors:/ros_ws/src/py_trees_ros_behaviors/
+  
     networks:
       morsesimnet:
         ipv4_address: 10.6.0.8
