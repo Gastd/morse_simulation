@@ -8,6 +8,7 @@ import copy
 import time
 import shlex
 import random
+import datetime
 import subprocess
 
 current_path = os.getcwd()
@@ -187,7 +188,7 @@ class Robot(object):
             'volumes': ['./docker/'+self.motion_pkg_name+':/ros_ws/src/'+self.motion_pkg_name+'/', './docker/turtlebot3_hospital_sim:/ros_ws/src/turtlebot3_hospital_sim/', './log/:/root/.ros/logger_sim/'],
             'environment': ["ROS_HOSTNAME="+cointainer_name, "ROS_MASTER_URI=http://master:11311", "ROBOT_NAME=turtlebot"+str(self.id)],
             # 'command': '/bin/bash -c "source /ros_ws/devel/setup.bash && roslaunch motion_ctrl base_navigation.launch & rosrun topic_tools relay /move_base_simple/goal /turtlebot1/move_base_simple/goal"'
-            'command': '/bin/bash -c "source /ros_ws/devel/setup.bash && roslaunch motion_ctrl base_navigation.launch"',
+            'command': '/bin/bash -c "source /ros_ws/devel/setup.bash && roslaunch motion_ctrl base_navigation.launch --wait"',
             'tty': True,
             'privileged': True,
             # 'networks': {
@@ -284,7 +285,7 @@ class Experiment(object):
         self.config_file = config_file
         self.simulation_timeout_s = 60*60
         self.load_trials(self.config_file)
-        self.endsim = False
+        self.endsim = ''
 
     def load_trials(self, file_name):
         # file_name = "experiment_sample.json"
@@ -350,21 +351,31 @@ class Experiment(object):
             self.close_simulation()
             print("ENDING SIMULATION #%d..."%i)
             print(f"Runtime of the simulation #{i} is {end - start}")
-            self.save_log_file(i)
+            self.save_log_file(i, end - start)
 
     def clear_log_file(self):
         with open(current_path+'/log/experiment.log', 'w') as file:
             file.write('')
 
-    def save_log_file(self, run):
+    def save_log_file(self, run, execution_time):
         with open(current_path+'/log/experiment.log', 'r') as file:
             print("Saving log file as: " + current_path+f'/log/experiment_trial1_exp{run}.log')
             lines = file.readlines()
             with open(current_path+f'/log/experiment_exp1_trial{run}.log', 'w') as logfile:
                 for line in lines:
                     logfile.write(line)
-                logfile.write("Simulation closed by its own = "+str(self.endsim)+"\n")
+                if self.endsim == 'reach-target':
+                    logfile.write("0.0,[debug],simulation closed,"+self.endsim+','+str(execution_time)+"\n")
+                elif self.endsim == 'failure-bt':
+                    logfile.write("0.0,[debug],simulation closed,"+self.endsim+','+str(execution_time)+"\n")
+                else:
+                    logfile.write("0.0,[debug],simulation closed,runner,"+str(execution_time)+"\n")
         self.clear_log_file()
+        self.save_bag_file(run)
+
+    def save_bag_file(self, run):
+        current_date = datetime.datetime.today().strftime('%H-%M-%S-%d-%b-%Y')
+        os.rename(current_path+'/log/bag.bag', current_path+f'/log/exp1_trial{run}_{current_date}.bag')
 
     def check_end_simulation(self):
         with open(current_path+'/log/experiment.log', 'r') as file:
@@ -375,7 +386,9 @@ class Experiment(object):
             for line in lines:
                 alllines = alllines+line
                 if "ENDSIM" in line:
-                    self.endsim = True
+                    self.endsim = 'reach-target'
+                if "FAILURE" in line:
+                    self.endsim = 'failure-bt'
             # if alllines.count('LOW BATTERY') >= 5:
             #     self.endsim = True
 
@@ -573,8 +586,8 @@ def choose_poses(n_robots):
 # robots = [r1, r2, r3]
 
 xp1 = Experiment()
-# xp1.run_simulation()
-xp1.run_all_simulations()
+xp1.run_simulation()
+# xp1.run_all_simulations()
 
 # print(str(r1))
 # print(str(r2))
