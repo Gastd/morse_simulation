@@ -371,7 +371,7 @@ class Experiment(object):
                 else:
                     logfile.write("0.0,[debug],simulation closed,runner,"+str(execution_time)+"\n")
         self.clear_log_file()
-        self.save_bag_file(run)
+        # self.save_bag_file(run)
 
     def save_bag_file(self, run):
         current_date = datetime.datetime.today().strftime('%H-%M-%S-%d-%b-%Y')
