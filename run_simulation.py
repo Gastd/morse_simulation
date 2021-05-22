@@ -283,7 +283,7 @@ class Experiment(object):
         self.xp_id = 0
         self.nrobots = 0
         self.config_file = config_file
-        self.simulation_timeout_s = 60*60
+        self.simulation_timeout_s = 90*60
         self.load_trials(self.config_file)
         self.endsim = ''
 
@@ -322,7 +322,7 @@ class Experiment(object):
         self.close_simulation()
         print("ENDING SIMULATION...")
         print(f"Runtime of the simulation is {end - start}")
-        self.save_log_file(1)
+        self.save_log_file(1, end - start)
 
     def run_all_simulations(self):
         print("RUNNING %d TRIALS FOR THIS EXPERIMENT"%len(self.config))
