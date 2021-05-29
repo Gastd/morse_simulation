@@ -3,6 +3,7 @@ FROM osrf/ros:melodic-desktop-full
 
 
 RUN echo "source /opt/ros/melodic/setup.bash" >> /root/.bashrc
+RUN apt-get update && apt-get upgrade
 RUN apt-get update && apt-get install -y software-properties-common
 RUN apt-get update && apt-get install -y morse-simulator python3-morse-simulator apt-utils
 RUN apt-get update && apt-get install -y ros-melodic-navigation ros-melodic-rosbridge-server

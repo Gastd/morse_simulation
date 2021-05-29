@@ -3,6 +3,7 @@ FROM osrf/ros:melodic-desktop-full
 
 
 RUN echo "source /opt/ros/melodic/setup.bash" >> /root/.bashrc
+RUN apt-get update && apt-get upgrade
 RUN apt-get update && apt-get install -y software-properties-common
 # RUN apt-get update && apt-get install -y xserver-xorg xinit
 RUN add-apt-repository ppa:roehling/grpc
