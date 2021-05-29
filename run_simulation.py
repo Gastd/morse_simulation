@@ -283,7 +283,7 @@ class Experiment(object):
         self.xp_id = 0
         self.nrobots = 0
         self.config_file = config_file
-        self.simulation_timeout_s = 90*60
+        self.simulation_timeout_s = 15*60
         self.load_trials(self.config_file)
         self.endsim = ''
 
