@@ -184,18 +184,10 @@ services:
     - ROBOT_NAME=turtlebot1
     - SKILLS=['approach_person', 'approach_robot', 'authenticate_person', 'deposit',
       'navigation', 'operate_drawer', 'pick_up']
-    - 'ROBOT_CONFIG={"avg_speed": 0.8, "battery_consumption_rate": 0.0027, "battery_level":
-      0.37, "id": 0, "local_plan": [["navigation", ["PC Room 7", [[-19.0, 18.0, -1.57],
-      [-19.0, 16.0], [-18.0, 16.0], [-13.5, 16.0], [-13.5, 18.0, -1.57]]]], ["approach_person",
-      ["nurse"]], ["authenticate_person", ["nurse"]], ["operate_drawer", ["open"]],
-      ["send_message", ["nurse"]], ["wait_message", ["r1"]], ["operate_drawer", ["close"]],
-      ["navigation", ["Laboratory", [[-13.5, 18.0, -1.57], [-13.5, 16.0], [-18.0,
-      16.0], [-19.0, 16.0], [-21.0, 16.0], [-26.0, 16.0], [-26.0, 13.0, 1.57]]]],
-      ["approach_robot", ["lab_arm"]], ["operate_drawer", ["open"]], ["send_message",
-      ["lab_arm"]], ["wait_message", ["r1"]], ["operate_drawer", ["close"]]], "location":
-      "PC Room 6", "position": [-19.0, 18.0, -1.57], "skills": ["approach_person",
-      "approach_robot", "authenticate_person", "deposit", "navigation", "operate_drawer",
-      "pick_up"]}'
+    - 'ROBOT_CONFIG={"avg_speed": 0.8, "battery_consumption_rate": 0.0011, "battery_level":
+      0.22, "id": 0, "local_plan": null, "location": "PC Room 6", "position": [-19.0,
+      18.0, -1.57], "skills": ["approach_person", "approach_robot", "authenticate_person",
+      "deposit", "navigation", "operate_drawer", "pick_up"]}'
     networks:
     - morsegatonet
     runtime: runc
@@ -225,9 +217,17 @@ services:
     - ROBOT_NAME=turtlebot2
     - SKILLS=['approach_person', 'approach_robot', 'authenticate_person', 'deposit',
       'navigation', 'operate_drawer', 'pick_up']
-    - 'ROBOT_CONFIG={"avg_speed": 0.8, "battery_consumption_rate": 0.0019, "battery_level":
-      0.54, "id": 1, "local_plan": null, "location": "IC Room 5", "position": [-32.88,
-      33.95, 3.14], "skills": ["approach_person", "approach_robot", "authenticate_person",
+    - 'ROBOT_CONFIG={"avg_speed": 0.8, "battery_consumption_rate": 0.0018000000000000002,
+      "battery_level": 0.56, "id": 1, "local_plan": [["navigation", ["IC Room 2",
+      [[-32.88, 33.95, 3.14], [-37.0, 33.95], [-37.0, 33.98], [-37.0, 25.37], [-37.0,
+      21.5], [-38.0, 21.5, 0.0]]]], ["approach_person", ["nurse"]], ["authenticate_person",
+      ["nurse"]], ["operate_drawer", ["open"]], ["send_message", ["nurse"]], ["wait_message",
+      ["r1"]], ["operate_drawer", ["close"]], ["navigation", ["Laboratory", [[-38.0,
+      21.5, 0.0], [-37.0, 21.5], [-37.0, 18.93], [-37.0, 16.0], [-28.5, 16.0], [-27.23,
+      16.0], [-27.25, 16.0], [-26.0, 16.0], [-26.0, 13.0, 1.57]]]], ["approach_robot",
+      ["lab_arm"]], ["operate_drawer", ["open"]], ["send_message", ["lab_arm"]], ["wait_message",
+      ["r1"]], ["operate_drawer", ["close"]]], "location": "IC Room 5", "position":
+      [-32.88, 33.95, 3.14], "skills": ["approach_person", "approach_robot", "authenticate_person",
       "deposit", "navigation", "operate_drawer", "pick_up"]}'
     networks:
     - morsegatonet
@@ -258,10 +258,10 @@ services:
     - ROBOT_NAME=turtlebot3
     - SKILLS=['approach_person', 'approach_robot', 'authenticate_person', 'deposit',
       'navigation', 'pick_up']
-    - 'ROBOT_CONFIG={"avg_speed": 0.8, "battery_consumption_rate": 0.0022, "battery_level":
-      0.23, "id": 2, "local_plan": null, "location": "PC Room 8", "position": [-11.5,
-      18.0, -1.57], "skills": ["approach_person", "approach_robot", "authenticate_person",
-      "deposit", "navigation", "pick_up"]}'
+    - 'ROBOT_CONFIG={"avg_speed": 0.8, "battery_consumption_rate": 0.0021000000000000003,
+      "battery_level": 0.55, "id": 2, "local_plan": null, "location": "PC Room 8",
+      "position": [-11.5, 18.0, -1.57], "skills": ["approach_person", "approach_robot",
+      "authenticate_person", "deposit", "navigation", "pick_up"]}'
     networks:
     - morsegatonet
     runtime: runc
@@ -291,10 +291,10 @@ services:
     - ROBOT_NAME=turtlebot4
     - SKILLS=['approach_person', 'approach_robot', 'authenticate_person', 'deposit',
       'navigation', 'operate_drawer', 'pick_up']
-    - 'ROBOT_CONFIG={"avg_speed": 0.8, "battery_consumption_rate": 0.0016, "battery_level":
-      0.21, "id": 3, "local_plan": null, "location": "PC Room 5", "position": [-21.0,
-      18.0, -1.57], "skills": ["approach_person", "approach_robot", "authenticate_person",
-      "deposit", "navigation", "operate_drawer", "pick_up"]}'
+    - 'ROBOT_CONFIG={"avg_speed": 0.8, "battery_consumption_rate": 0.0013000000000000002,
+      "battery_level": 0.44, "id": 3, "local_plan": null, "location": "PC Room 5",
+      "position": [-21.0, 18.0, -1.57], "skills": ["approach_person", "approach_robot",
+      "authenticate_person", "deposit", "navigation", "operate_drawer", "pick_up"]}'
     networks:
     - morsegatonet
     runtime: runc
@@ -324,10 +324,10 @@ services:
     - ROBOT_NAME=turtlebot5
     - SKILLS=['approach_person', 'approach_robot', 'authenticate_person', 'deposit',
       'navigation', 'operate_drawer', 'pick_up']
-    - 'ROBOT_CONFIG={"avg_speed": 0.8, "battery_consumption_rate": 0.0012000000000000001,
-      "battery_level": 0.62, "id": 4, "local_plan": null, "location": "IC Room 3",
-      "position": [-40.23, 25.37, 0.0], "skills": ["approach_person", "approach_robot",
-      "authenticate_person", "deposit", "navigation", "operate_drawer", "pick_up"]}'
+    - 'ROBOT_CONFIG={"avg_speed": 0.8, "battery_consumption_rate": 0.002, "battery_level":
+      0.15, "id": 4, "local_plan": null, "location": "IC Room 3", "position": [-40.23,
+      25.37, 0.0], "skills": ["approach_person", "approach_robot", "authenticate_person",
+      "deposit", "navigation", "operate_drawer", "pick_up"]}'
     networks:
     - morsegatonet
     runtime: runc
