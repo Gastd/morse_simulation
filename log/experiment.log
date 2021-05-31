@@ -1,5 +1,0 @@
-logger,1621639931282375574,Simulation open
-0.0,[debug],logger,init,subcribing to in the topic /log
-0.683333158493,[debug],turtlebot1,move-base-info,Move_base is up and ok....,
-0.683333158493,[debug],turtlebot1,move-base-info,Move_base is up and ok....,
-47.3166666031,[info],turtlebot1,skill-life-cycle,navigation,(status=STARTED, parameters=[[-28, 16, -1.3258176636680326, True], [-27.23, 18.0, -1.57, False]])
