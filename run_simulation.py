@@ -286,6 +286,12 @@ class Experiment(object):
         self.simulation_timeout_s = 15*60
         self.load_trials(self.config_file)
         self.endsim = ''
+        self.chose_robot = ""
+        self.n_timeout = 0
+        self.n_successes = 0
+        self.n_bt_failures = 0
+        self.n_low_battery = 0
+        self.total = 0
 
     def load_trials(self, file_name):
         # file_name = "experiment_sample.json"
@@ -302,27 +308,29 @@ class Experiment(object):
 
     def run_simulation(self):
         self.endsim = False
-        self.nurses_config = self.config[0]["nurses"]
-        self.robots_config = self.config[0]["robots"]
-        self.create_env_file()
+        idx = 0
+        self.nurses_config = self.config[idx]["nurses"]
+        self.robots_config = self.config[idx]["robots"]
+        self.create_env_file(self.config[idx]["id"])
         self.create_dockers()
         self.create_robots()
         self.save_compose_file()
-        # print("STARTING SIMULATION...")
-        # self.start_simulation()
-        # start = time.time()
-        # runtime = time.time()
-        # self.clear_log_file()
-        # # call simulation and watch timeout
-        # while (runtime - start) <= self.simulation_timeout_s and self.endsim == False:
-        #     time.sleep(1)
-        #     runtime = time.time()
-        #     self.check_end_simulation()
-        # end = time.time()
-        # self.close_simulation()
-        # print("ENDING SIMULATION...")
-        # print(f"Runtime of the simulation is {end - start}")
-        # self.save_log_file(1, end - start)
+        print("STARTING SIMULATION...")
+        self.start_simulation()
+        start = time.time()
+        runtime = time.time()
+        self.clear_log_file()
+        # call simulation and watch timeout
+        while (runtime - start) <= self.simulation_timeout_s and self.endsim == False:
+            time.sleep(1)
+            runtime = time.time()
+            self.check_end_simulation()
+        end = time.time()
+        self.close_simulation()
+        print("ENDING SIMULATION...")
+        print(f"Runtime of the simulation is {end - start}")
+        self.save_log_file(idx, end - start)
+        self.save_table_file()
 
     def run_some_simulations(self, sim_list):
         print("RUNNING %d TRIALS FOR THIS EXPERIMENT"%len(self.config))
@@ -332,7 +340,7 @@ class Experiment(object):
             print("RUNNING TRIALS #%d"%idx)
             self.nurses_config = self.config[idx]["nurses"]
             self.robots_config = self.config[idx]["robots"]
-            self.create_env_file()
+            self.create_env_file(self.config[idx]["id"])
             self.create_dockers()
             self.create_robots()
             self.save_compose_file()
@@ -352,6 +360,7 @@ class Experiment(object):
             print("ENDING SIMULATION #%d..."%idx)
             print(f"Runtime of the simulation #{idx} is {end - start}")
             self.save_log_file(idx, end - start)
+            self.save_table_file()
 
     def run_all_simulations(self):
         print("RUNNING %d TRIALS FOR THIS EXPERIMENT"%len(self.config))
@@ -361,7 +370,7 @@ class Experiment(object):
             print("RUNNING TRIALS #%d"%i)
             self.nurses_config = self.config[i]["nurses"]
             self.robots_config = self.config[i]["robots"]
-            self.create_env_file()
+            self.create_env_file(self.config[i]["id"])
             self.create_dockers()
             self.create_robots()
             self.save_compose_file()
@@ -381,6 +390,16 @@ class Experiment(object):
             print("ENDING SIMULATION #%d..."%i)
             print(f"Runtime of the simulation #{i} is {end - start}")
             self.save_log_file(i, end - start)
+            self.save_table_file()
+
+    def save_table_file(self):
+        current_date = datetime.datetime.today().strftime('%H-%M-%S-%d-%b-%Y')
+        with open(current_path+'/log/experiment-'+current_date+'.csv', 'w') as file:
+            file.write('Type,Quantity,\n')
+            file.write('BT Failure,'+str(self.n_bt_failures)+'\n')
+            file.write('Timeout,'+str(self.n_timeout)+'\n')
+            file.write('Success,'+str(self.n_successes)+'\n')
+            file.write('Total,'+str(self.total)+'\n')
 
     def clear_log_file(self):
         with open(current_path+'/log/experiment.log', 'w') as file:
@@ -388,17 +407,25 @@ class Experiment(object):
 
     def save_log_file(self, run, execution_time):
         with open(current_path+'/log/experiment.log', 'r') as file:
-            print("Saving log file as: " + current_path+f'/log/experiment_trial1_exp{run}.log')
+            print("Saving log file as: " + current_path+f'/log/experiment1_trial{run}.log')
             lines = file.readlines()
-            with open(current_path+f'/log/experiment_exp1_trial{run}.log', 'w') as logfile:
+            file_path = current_path+f'/log/experiment1_trial{run}.log' if run < 10 else current_path+f'/log/experiment1_trial0{run}.log'
+            with open(file_path, 'w') as logfile:
                 for line in lines:
                     logfile.write(line)
                 if self.endsim == 'reach-target':
                     logfile.write("0.0,[debug],simulation closed,"+self.endsim+','+str(execution_time)+"\n")
+                    self.n_successes = self.n_successes + 1
                 elif self.endsim == 'failure-bt':
                     logfile.write("0.0,[debug],simulation closed,"+self.endsim+','+str(execution_time)+"\n")
+                    self.n_bt_failures = self.n_bt_failures + 1
+                elif self.endsim == 'low-battery':
+                    logfile.write("0.0,[debug],simulation closed,"+self.endsim+','+str(execution_time)+"\n")
+                    self.n_low_battery = self.n_low_battery + 1
                 else:
-                    logfile.write("0.0,[debug],simulation closed,runner,"+str(execution_time)+"\n")
+                    logfile.write("0.0,[debug],simulation closed,timeout,"+str(execution_time)+"\n")
+                    self.n_timeout = self.n_timeout + 1
+                self.total = self.total + 1
         self.clear_log_file()
         # self.save_bag_file(run)
 
@@ -418,27 +445,31 @@ class Experiment(object):
                     self.endsim = 'reach-target'
                 if "FAILURE" in line:
                     self.endsim = 'failure-bt'
+                if "ENDLOWBATT" in line:
+                    self.endsim = 'low-battery'
             # if alllines.count('LOW BATTERY') >= 5:
             #     self.endsim = True
 
-    def create_env_file(self):
+    def create_env_file(self, n_trial):
         self.env_name = "sim.env"
         curr_path = os.getcwd()+'/'
         file_path = curr_path + self.env_name
-        chosed_robot = ""
         
+        self.chose_robot = ""
         for r_config in self.robots_config:
             r_id = r_config["id"]+1
-            if r_config["local_plan"] != None:  chosed_robot = "turtlebot"+str(r_id)
+            if r_config["local_plan"] != None:  self.chose_robot = "turtlebot"+str(r_id)
         
         with open(file_path, "w") as ef:
             nurse_pos = self.nurses_config[0]["position"]
             nurse_str = str(nurse_pos).replace(',',';')
+            ef.write("TRIAL="+str(n_trial)+'\n')
+            ef.write('\n')
             ef.write("NURSE_POSE="+nurse_str+'\n')
             ef.write('\n')
-            ef.write("CHOSED_ROBOT="+chosed_robot+'\n')
+            ef.write("CHOSE_ROBOT="+self.chose_robot+'\n')
             ef.write('\n')
-            ef.write('N_ROBOTS='+str(len(self.robots_config))+'\n')
+            ef.write('N_ROBOTS='+str(1)+'\n')
             ef.write('\n')
             for robot in self.robots_config:
                 # name
@@ -478,9 +509,7 @@ class Experiment(object):
                 'pytrees_serv': r_pytrees_serv,
             }
             robots_servs.append(robot_info)
-            if r_config["local_plan"] != None:  chosed_robot = "turtlebot"+str(r_id)
             print(r_config["local_plan"])
-        print(f"ROBOT CHOSED IS: {chosed_robot}")
         for i in range(0, len(self.robots_config)):
             self.services[robots_servs[i]["motion_name"]] = robots_servs[i]["motion_serv"]
             self.services[robots_servs[i]["pytrees_name"]] = robots_servs[i]["pytrees_serv"]
@@ -515,7 +544,7 @@ class Experiment(object):
             },
             'container_name': 'master',
             'env_file': [env_path],
-            'volumes': ['./log/:/root/.ros/logger_sim/'],
+            'volumes': ['./log/:/root/.ros/logger_sim/', './docker/motion_ctrl:/ros_ws/src/motion_ctrl/'],
             'command': '/bin/bash -c "source /ros_ws/devel/setup.bash && roslaunch src/motion_ctrl/launch/log.launch"',
             'tty': True,
             'networks': {
@@ -573,6 +602,11 @@ class Experiment(object):
         print('Run Simulation')
         up_docker_tk = shlex.split(up_docker_str)
         # print(up_docker_tk)
+
+        self.n_timeout = 0
+        self.n_successes = 0
+        self.n_bt_failures = 0
+        self.n_low_battery = 0
 
         self.sim_process = subprocess.run(up_docker_tk,
                                      stdout=subprocess.PIPE, 
