@@ -308,21 +308,21 @@ class Experiment(object):
         self.create_dockers()
         self.create_robots()
         self.save_compose_file()
-        print("STARTING SIMULATION...")
-        self.start_simulation()
-        start = time.time()
-        runtime = time.time()
-        self.clear_log_file()
-        # call simulation and watch timeout
-        while (runtime - start) <= self.simulation_timeout_s and self.endsim == False:
-            time.sleep(1)
-            runtime = time.time()
-            self.check_end_simulation()
-        end = time.time()
-        self.close_simulation()
-        print("ENDING SIMULATION...")
-        print(f"Runtime of the simulation is {end - start}")
-        self.save_log_file(1, end - start)
+        # print("STARTING SIMULATION...")
+        # self.start_simulation()
+        # start = time.time()
+        # runtime = time.time()
+        # self.clear_log_file()
+        # # call simulation and watch timeout
+        # while (runtime - start) <= self.simulation_timeout_s and self.endsim == False:
+        #     time.sleep(1)
+        #     runtime = time.time()
+        #     self.check_end_simulation()
+        # end = time.time()
+        # self.close_simulation()
+        # print("ENDING SIMULATION...")
+        # print(f"Runtime of the simulation is {end - start}")
+        # self.save_log_file(1, end - start)
 
     def run_some_simulations(self, sim_list):
         print("RUNNING %d TRIALS FOR THIS EXPERIMENT"%len(self.config))
@@ -425,13 +425,21 @@ class Experiment(object):
         self.env_name = "sim.env"
         curr_path = os.getcwd()+'/'
         file_path = curr_path + self.env_name
+        chosed_robot = ""
+        
+        for r_config in self.robots_config:
+            r_id = r_config["id"]+1
+            if r_config["local_plan"] != None:  chosed_robot = "turtlebot"+str(r_id)
+        
         with open(file_path, "w") as ef:
             nurse_pos = self.nurses_config[0]["position"]
             nurse_str = str(nurse_pos).replace(',',';')
-            nurse_env = "NURSE_POSE="+nurse_str
-            ef.write(nurse_env+'\n')
+            ef.write("NURSE_POSE="+nurse_str+'\n')
+            ef.write('\n')
+            ef.write("CHOSED_ROBOT="+chosed_robot+'\n')
             ef.write('\n')
             ef.write('N_ROBOTS='+str(len(self.robots_config))+'\n')
+            ef.write('\n')
             for robot in self.robots_config:
                 # name
                 id_str = (robot["id"]+1)
@@ -453,7 +461,6 @@ class Experiment(object):
 
     def create_robots(self):
         robots_servs = []
-
         # build robots
         for r_config in self.robots_config:
             r_id = r_config["id"]+1
@@ -471,7 +478,9 @@ class Experiment(object):
                 'pytrees_serv': r_pytrees_serv,
             }
             robots_servs.append(robot_info)
+            if r_config["local_plan"] != None:  chosed_robot = "turtlebot"+str(r_id)
             print(r_config["local_plan"])
+        print(f"ROBOT CHOSED IS: {chosed_robot}")
         for i in range(0, len(self.robots_config)):
             self.services[robots_servs[i]["motion_name"]] = robots_servs[i]["motion_serv"]
             self.services[robots_servs[i]["pytrees_name"]] = robots_servs[i]["pytrees_serv"]
