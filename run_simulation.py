@@ -469,7 +469,7 @@ class Experiment(object):
             ef.write('\n')
             ef.write("CHOSE_ROBOT="+self.chose_robot+'\n')
             ef.write('\n')
-            ef.write('N_ROBOTS='+str(1)+'\n')
+            ef.write('N_ROBOTS='+str(len(self.robots_config))++'\n')
             ef.write('\n')
             for robot in self.robots_config:
                 # name
