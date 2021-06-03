@@ -324,6 +324,35 @@ class Experiment(object):
         print(f"Runtime of the simulation is {end - start}")
         self.save_log_file(1, end - start)
 
+    def run_some_simulations(self, sim_list):
+        print("RUNNING %d TRIALS FOR THIS EXPERIMENT"%len(self.config))
+        # create files
+        for idx in sim_list:
+            self.endsim = False
+            print("RUNNING TRIALS #%d"%idx)
+            self.nurses_config = self.config[idx]["nurses"]
+            self.robots_config = self.config[idx]["robots"]
+            self.create_env_file()
+            self.create_dockers()
+            self.create_robots()
+            self.save_compose_file()
+            print("STARTING SIMULATION #%d..."%idx)
+            self.start_simulation()
+            start = time.time()
+            runtime = time.time()
+            self.clear_log_file()
+            # call simulation and watch timeout
+            while (runtime - start) <= self.simulation_timeout_s and self.endsim == False:
+                time.sleep(1)
+                runtime = time.time()
+                self.check_end_simulation()
+                # check simulation end
+            end = time.time()
+            self.close_simulation()
+            print("ENDING SIMULATION #%d..."%idx)
+            print(f"Runtime of the simulation #{idx} is {end - start}")
+            self.save_log_file(idx, end - start)
+
     def run_all_simulations(self):
         print("RUNNING %d TRIALS FOR THIS EXPERIMENT"%len(self.config))
         # create files
@@ -587,6 +616,7 @@ def choose_poses(n_robots):
 
 xp1 = Experiment()
 xp1.run_simulation()
+# xp1.run_some_simulations([9, 17, 34, 63, 73, 75])
 # xp1.run_all_simulations()
 
 # print(str(r1))
