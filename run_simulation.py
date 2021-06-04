@@ -394,7 +394,7 @@ class Experiment(object):
             self.save_table_file()
 
     def save_table_file(self):
-        with open(current_path+'/log/experiment-'+self.current_date+'.csv', 'r') as file:
+        with open(current_path+'/log/experiment-'+self.current_date+'.csv', 'w') as file:
             file.write('Type,Quantity,\n')
             file.write('BT Failure,'+str(self.n_bt_failures)+'\n')
             file.write('Timeout,'+str(self.n_timeout)+'\n')
