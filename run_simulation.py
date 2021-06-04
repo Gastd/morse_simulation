@@ -292,6 +292,7 @@ class Experiment(object):
         self.n_bt_failures = 0
         self.n_low_battery = 0
         self.total = 0
+        self.current_date = datetime.datetime.today().strftime('%H-%M-%S-%d-%b-%Y')
 
     def load_trials(self, file_name):
         # file_name = "experiment_sample.json"
@@ -393,8 +394,7 @@ class Experiment(object):
             self.save_table_file()
 
     def save_table_file(self):
-        current_date = datetime.datetime.today().strftime('%H-%M-%S-%d-%b-%Y')
-        with open(current_path+'/log/experiment-'+current_date+'.csv', 'w') as file:
+        with open(current_path+'/log/experiment-'+self.current_date+'.csv', 'a') as file:
             file.write('Type,Quantity,\n')
             file.write('BT Failure,'+str(self.n_bt_failures)+'\n')
             file.write('Timeout,'+str(self.n_timeout)+'\n')
