@@ -394,10 +394,11 @@ class Experiment(object):
             self.save_table_file()
 
     def save_table_file(self):
-        with open(current_path+'/log/experiment-'+self.current_date+'.csv', 'a') as file:
+        with open(current_path+'/log/experiment-'+self.current_date+'.csv', 'r') as file:
             file.write('Type,Quantity,\n')
             file.write('BT Failure,'+str(self.n_bt_failures)+'\n')
             file.write('Timeout,'+str(self.n_timeout)+'\n')
+            file.write('Low Battery,'+str(self.n_low_battery)+'\n')
             file.write('Success,'+str(self.n_successes)+'\n')
             file.write('Total,'+str(self.total)+'\n')
 
@@ -409,7 +410,7 @@ class Experiment(object):
         with open(current_path+'/log/experiment.log', 'r') as file:
             print("Saving log file as: " + current_path+f'/log/experiment1_trial{run}.log')
             lines = file.readlines()
-            file_path = current_path+f'/log/experiment1_trial{run}.log' if run < 10 else current_path+f'/log/experiment1_trial0{run}.log'
+            file_path = current_path+f'/log/experiment1_trial{run}.log' if run > 10 else current_path+f'/log/experiment1_trial0{run}.log'
             with open(file_path, 'w') as logfile:
                 for line in lines:
                     logfile.write(line)
