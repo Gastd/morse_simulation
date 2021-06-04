@@ -604,11 +604,6 @@ class Experiment(object):
         up_docker_tk = shlex.split(up_docker_str)
         # print(up_docker_tk)
 
-        self.n_timeout = 0
-        self.n_successes = 0
-        self.n_bt_failures = 0
-        self.n_low_battery = 0
-
         self.sim_process = subprocess.run(up_docker_tk,
                                      stdout=subprocess.PIPE, 
                                      stderr=subprocess.PIPE,
