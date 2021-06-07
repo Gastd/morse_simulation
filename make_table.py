@@ -54,7 +54,7 @@ def count_many_sims(basepath):
                     low_bat = low_bat + 1
                     lows.append(file.name)
                 else:
-                    if "runner" in last_line:
+                    if "timeout" in last_line:
                         timeout = timeout + 1
                         timeouts.append(file.name)
             total = success+low_bat+timeout+bt_fail
