@@ -41,8 +41,8 @@ services:
       # - /bin/bash -c "source /ros_ws/devel/setup.bash && Xvfb -screen 0 100x100x24 :2 & DISPLAY=:2 morse run morse_hospital_sim"
     # command: rosrun tf2_web_republisher tf2_web_republisher
     # command: 
-    # command: /bin/bash -c "source /ros_ws/devel/setup.bash && Xvfb -screen 0 100x100x24 :2 & DISPLAY=:2 morse run morse_hospital_sim"
-    command: /bin/bash -c "source /ros_ws/devel/setup.bash && morse run morse_hospital_sim"
+    command: /bin/bash -c "source /ros_ws/devel/setup.bash && Xvfb -screen 0 100x100x24 :2 & DISPLAY=:2 morse run morse_hospital_sim"
+    # command: /bin/bash -c "source /ros_ws/devel/setup.bash && morse run morse_hospital_sim"
     # command: /bin/bash -c "source /ros_ws/devel/setup.bash && Xvfb -screen 0 1024x768x24 :2 & DISPLAY=:2 morse run morse_hospital_sim"
     # command: /bin/bash -c "source /ros_ws/devel/setup.bash && Xvfb -screen 0 100x100x24 :2 & DISPLAY=:2 morse run morse_hospital_sim"
     tty: true
@@ -128,9 +128,9 @@ services:
     # image: my_melodic_image
     runtime: nvidia
     depends_on:
-      - morse
       - master
-      - motion_ctrl
+      # - morse
+      # - motion_ctrl
     devices:
       - "/dev/dri"
       - "/dev/snd"
