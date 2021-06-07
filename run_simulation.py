@@ -497,7 +497,7 @@ class Experiment(object):
         for r_config in self.robots_config:
             r_id = r_config["id"]+1
             r_loc = r_config["location"]
-            robot = Robot(r_id, r_loc, r_config["battery_level"], r_config["skills"], r_config)
+            robot = Robot(r_id, r_loc, r_config["battery_charge"], r_config["skills"], r_config)
             print(robot)
             r_motion_name, r_motion_serv = robot.get_motion_docker()
             r_pytrees_name, r_pytrees_serv = robot.get_pytrees_docker()
