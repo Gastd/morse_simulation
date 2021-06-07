@@ -58,9 +58,9 @@ def count_many_sims(basepath):
                         timeout = timeout + 1
                         timeouts.append(file.name)
             total = success+low_bat+timeout+bt_fail
-    print("lows: "+str(len(lows)/total))
-    print("timeouts: "+str(len(timeouts)/total))
-    print("faileds: "+str(len(faileds)/total))
+    print("lows: "+str(len(lows)/total)+" : "+str(lows))
+    print("timeouts: "+str(len(timeouts)/total)+" : "+str(timeouts))
+    print("faileds: "+str(len(faileds)/total)+" : "+str(faileds))
     print("succeded: "+str(len(succeded)/total))
     print("total: "+str(total))
 
