@@ -415,16 +415,16 @@ class Experiment(object):
                 for line in lines:
                     logfile.write(line)
                 if self.endsim == 'reach-target':
-                    logfile.write("0.0,[debug],simulation closed,"+self.endsim+','+str(execution_time)+"\n")
+                    logfile.write("0.0,[debug],simulation closed,"+self.endsim+',execution-wall-clock='+str(execution_time)+"\n")
                     self.n_successes = self.n_successes + 1
                 elif self.endsim == 'failure-bt':
-                    logfile.write("0.0,[debug],simulation closed,"+self.endsim+','+str(execution_time)+"\n")
+                    logfile.write("0.0,[debug],simulation closed,"+self.endsim+',execution-wall-clock='+str(execution_time)+"\n")
                     self.n_bt_failures = self.n_bt_failures + 1
                 elif self.endsim == 'low-battery':
-                    logfile.write("0.0,[debug],simulation closed,"+self.endsim+','+str(execution_time)+"\n")
+                    logfile.write("0.0,[debug],simulation closed,"+self.endsim+',execution-wall-clock='+str(execution_time)+"\n")
                     self.n_low_battery = self.n_low_battery + 1
                 else:
-                    logfile.write("0.0,[debug],simulation closed,timeout,"+str(execution_time)+"\n")
+                    logfile.write("0.0,[debug],simulation closed,timeout,execution-wall-clock="+str(execution_time)+"\n")
                     self.n_timeout = self.n_timeout + 1
                 self.total = self.total + 1
         self.clear_log_file()
@@ -483,10 +483,10 @@ class Experiment(object):
                 pose_env = ("ROBOT_POSE_%d="%(id_str))+pose_str
                 ef.write(pose_env+'\n')
                 # batt level
-                batt_level_str = robot["battery_level"]*100
+                batt_level_str = robot["battery_charge"]*100
                 batt_level_env = "BATT_INIT_STATE_%d=%.2f"%(id_str,batt_level_str)
                 ef.write(batt_level_env+'\n')
-                batt_slope_str = robot["battery_consumption_rate"]*100
+                batt_slope_str = robot["battery_discharge_rate"]*100
                 batt_slope_env = "BATT_SLOPE_STATE_%d=%.2f"%(id_str, batt_slope_str)
                 ef.write(batt_slope_env+'\n')
                 ef.write('\n')
@@ -653,7 +653,8 @@ def choose_poses(n_robots):
 # r5 = Robot(5, robot_pose[4], robot_batt_levels[0][4], available_capabilities)
 # robots = [r1, r2, r3]
 
-xp1 = Experiment()
+xp1 = Experiment("experiment_baseline_trials.json")
+# xp1 = Experiment("experiment_planned_trials.json")
 xp1.run_simulation()
 # xp1.run_some_simulations([9, 17, 34, 63, 73, 75])
 # xp1.run_all_simulations()
