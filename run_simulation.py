@@ -463,6 +463,8 @@ class Experiment(object):
         
         with open(file_path, "w") as ef:
             nurse_pos = self.nurses_config[0]["position"]
+            nurse_pos = nurse_pos[0] + 1.0
+            nurse_pos = nurse_pos[1] + 1.0
             nurse_str = str(nurse_pos).replace(',',';')
             ef.write("TRIAL="+str(n_trial)+'\n')
             ef.write('\n')
