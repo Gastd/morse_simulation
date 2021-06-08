@@ -545,6 +545,7 @@ class Experiment(object):
             },
             'container_name': 'master',
             'env_file': [env_path],
+            'environment': ["ROBOTS_CONFIG="+json.dumps(self.robots_config), "NURSES_CONFIG="+json.dumps(self.nurses_config)],
             'volumes': ['./log/:/root/.ros/logger_sim/', './docker/motion_ctrl:/ros_ws/src/motion_ctrl/'],
             'command': '/bin/bash -c "source /ros_ws/devel/setup.bash && roslaunch src/motion_ctrl/launch/log.launch"',
             'tty': True,
