@@ -13,7 +13,34 @@ services:
     command: /bin/bash -c "source /ros_ws/devel/setup.bash && roslaunch src/motion_ctrl/launch/log.launch"
     container_name: master
     env_file:
-    - /home/gastd/git/morse_simulation/sim.env
+    - /home/azureuser/git/morse_simulation/sim.env
+    environment:
+    - 'ROBOTS_CONFIG=[{"avg_speed": 0.15, "battery_charge": 0.37, "battery_discharge_rate":
+      0.00018, "id": 0, "local_plan": null, "location": "PC Room 6", "position": [-19.0,
+      18.0, -1.57], "skills": ["approach_person", "approach_robot", "authenticate_person",
+      "deposit", "navigation", "operate_drawer", "pick_up"]}, {"avg_speed": 0.15,
+      "battery_charge": 0.54, "battery_discharge_rate": 0.00014000000000000001, "id":
+      1, "local_plan": null, "location": "IC Room 5", "position": [-32.88, 33.98,
+      3.14], "skills": ["approach_person", "approach_robot", "authenticate_person",
+      "deposit", "navigation", "operate_drawer", "pick_up"]}, {"avg_speed": 0.15,
+      "battery_charge": 0.23, "battery_discharge_rate": 0.00016, "id": 2, "local_plan":
+      [["navigation", ["PC Room 3", [[-11.5, 18.0, -1.57], [-11.5, 16.0], [-28.5,
+      16.0], [-28.5, 18.0, -1.57]]]], ["approach_person", ["nurse"]], ["authenticate_person",
+      ["nurse"]], ["operate_drawer", ["open"]], ["send_message", ["nurse"]], ["wait_message",
+      ["r1"]], ["operate_drawer", ["close"]], ["navigation", ["Laboratory", [[-28.5,
+      18.0, -1.57], [-28.5, 16.0], [-26.0, 16.0], [-26.0, 13.0, 1.57]]]], ["approach_robot",
+      ["lab_arm"]], ["operate_drawer", ["open"]], ["send_message", ["lab_arm"]], ["wait_message",
+      ["r1"]], ["operate_drawer", ["close"]]], "location": "PC Room 8", "position":
+      [-11.5, 18.0, -1.57], "skills": ["approach_person", "approach_robot", "authenticate_person",
+      "deposit", "navigation", "pick_up"]}, {"avg_speed": 0.15, "battery_charge":
+      0.21, "battery_discharge_rate": 0.00015000000000000001, "id": 3, "local_plan":
+      null, "location": "PC Room 5", "position": [-21.0, 18.0, -1.57], "skills": ["approach_person",
+      "approach_robot", "authenticate_person", "deposit", "navigation", "operate_drawer",
+      "pick_up"]}, {"avg_speed": 0.15, "battery_charge": 0.62, "battery_discharge_rate":
+      0.00011, "id": 4, "local_plan": null, "location": "IC Room 3", "position": [-40.23,
+      25.37, 0.0], "skills": ["approach_person", "approach_robot", "authenticate_person",
+      "deposit", "navigation", "operate_drawer", "pick_up"]}]'
+    - 'NURSES_CONFIG=[{"location": "PC Room 3", "position": [-27.5, 19.0, -1.57]}]'
     networks:
       morsegatonet:
         ipv4_address: 10.2.0.5
@@ -31,7 +58,7 @@ services:
     depends_on:
     - master
     env_file:
-    - /home/gastd/git/morse_simulation/sim.env
+    - /home/azureuser/git/morse_simulation/sim.env
     environment:
     - ROS_HOSTNAME=morse
     - ROS_MASTER_URI=http://master:11311
@@ -58,7 +85,7 @@ services:
     depends_on:
     - master
     env_file:
-    - /home/gastd/git/morse_simulation/sim.env
+    - /home/azureuser/git/morse_simulation/sim.env
     environment:
     - ROS_HOSTNAME=motion_ctrl1
     - ROS_MASTER_URI=http://master:11311
@@ -82,7 +109,7 @@ services:
     depends_on:
     - master
     env_file:
-    - /home/gastd/git/morse_simulation/sim.env
+    - /home/azureuser/git/morse_simulation/sim.env
     environment:
     - ROS_HOSTNAME=motion_ctrl2
     - ROS_MASTER_URI=http://master:11311
@@ -106,7 +133,7 @@ services:
     depends_on:
     - master
     env_file:
-    - /home/gastd/git/morse_simulation/sim.env
+    - /home/azureuser/git/morse_simulation/sim.env
     environment:
     - ROS_HOSTNAME=motion_ctrl3
     - ROS_MASTER_URI=http://master:11311
@@ -130,7 +157,7 @@ services:
     depends_on:
     - master
     env_file:
-    - /home/gastd/git/morse_simulation/sim.env
+    - /home/azureuser/git/morse_simulation/sim.env
     environment:
     - ROS_HOSTNAME=motion_ctrl4
     - ROS_MASTER_URI=http://master:11311
@@ -154,7 +181,7 @@ services:
     depends_on:
     - master
     env_file:
-    - /home/gastd/git/morse_simulation/sim.env
+    - /home/azureuser/git/morse_simulation/sim.env
     environment:
     - ROS_HOSTNAME=motion_ctrl5
     - ROS_MASTER_URI=http://master:11311
@@ -178,25 +205,17 @@ services:
     depends_on:
     - motion_ctrl1
     env_file:
-    - /home/gastd/git/morse_simulation/sim.env
+    - /home/azureuser/git/morse_simulation/sim.env
     environment:
     - ROS_HOSTNAME=py_trees1
     - ROS_MASTER_URI=http://master:11311
     - ROBOT_NAME=turtlebot1
     - SKILLS=['approach_person', 'approach_robot', 'authenticate_person', 'deposit',
       'navigation', 'operate_drawer', 'pick_up']
-    - 'ROBOT_CONFIG={"avg_speed": 0.8, "battery_consumption_rate": 0.0027, "battery_level":
-      0.37, "id": 0, "local_plan": [["navigation", ["PC Room 7", [[-19.0, 18.0, -1.57],
-      [-19.0, 16.0], [-18.0, 16.0], [-13.5, 16.0], [-13.5, 18.0, -1.57]]]], ["approach_person",
-      ["nurse"]], ["authenticate_person", ["nurse"]], ["operate_drawer", ["open"]],
-      ["send_message", ["nurse"]], ["wait_message", ["r1"]], ["operate_drawer", ["close"]],
-      ["navigation", ["Laboratory", [[-13.5, 18.0, -1.57], [-13.5, 16.0], [-18.0,
-      16.0], [-19.0, 16.0], [-21.0, 16.0], [-26.0, 16.0], [-26.0, 13.0, 1.57]]]],
-      ["approach_robot", ["lab_arm"]], ["operate_drawer", ["open"]], ["send_message",
-      ["lab_arm"]], ["wait_message", ["r1"]], ["operate_drawer", ["close"]]], "location":
-      "PC Room 6", "position": [-19.0, 18.0, -1.57], "skills": ["approach_person",
-      "approach_robot", "authenticate_person", "deposit", "navigation", "operate_drawer",
-      "pick_up"]}'
+    - 'ROBOT_CONFIG={"avg_speed": 0.15, "battery_charge": 0.37, "battery_discharge_rate":
+      0.00018, "id": 0, "local_plan": null, "location": "PC Room 6", "position": [-19.0,
+      18.0, -1.57], "skills": ["approach_person", "approach_robot", "authenticate_person",
+      "deposit", "navigation", "operate_drawer", "pick_up"]}'
     networks:
     - morsegatonet
     runtime: runc
@@ -219,17 +238,17 @@ services:
     depends_on:
     - motion_ctrl2
     env_file:
-    - /home/gastd/git/morse_simulation/sim.env
+    - /home/azureuser/git/morse_simulation/sim.env
     environment:
     - ROS_HOSTNAME=py_trees2
     - ROS_MASTER_URI=http://master:11311
     - ROBOT_NAME=turtlebot2
     - SKILLS=['approach_person', 'approach_robot', 'authenticate_person', 'deposit',
       'navigation', 'operate_drawer', 'pick_up']
-    - 'ROBOT_CONFIG={"avg_speed": 0.8, "battery_consumption_rate": 0.0019, "battery_level":
-      0.54, "id": 1, "local_plan": null, "location": "IC Room 5", "position": [-32.88,
-      33.98, 3.14], "skills": ["approach_person", "approach_robot", "authenticate_person",
-      "deposit", "navigation", "operate_drawer", "pick_up"]}'
+    - 'ROBOT_CONFIG={"avg_speed": 0.15, "battery_charge": 0.54, "battery_discharge_rate":
+      0.00014000000000000001, "id": 1, "local_plan": null, "location": "IC Room 5",
+      "position": [-32.88, 33.98, 3.14], "skills": ["approach_person", "approach_robot",
+      "authenticate_person", "deposit", "navigation", "operate_drawer", "pick_up"]}'
     networks:
     - morsegatonet
     runtime: runc
@@ -252,17 +271,24 @@ services:
     depends_on:
     - motion_ctrl3
     env_file:
-    - /home/gastd/git/morse_simulation/sim.env
+    - /home/azureuser/git/morse_simulation/sim.env
     environment:
     - ROS_HOSTNAME=py_trees3
     - ROS_MASTER_URI=http://master:11311
     - ROBOT_NAME=turtlebot3
     - SKILLS=['approach_person', 'approach_robot', 'authenticate_person', 'deposit',
       'navigation', 'pick_up']
-    - 'ROBOT_CONFIG={"avg_speed": 0.8, "battery_consumption_rate": 0.0022, "battery_level":
-      0.23, "id": 2, "local_plan": null, "location": "PC Room 8", "position": [-11.5,
-      18.0, -1.57], "skills": ["approach_person", "approach_robot", "authenticate_person",
-      "deposit", "navigation", "pick_up"]}'
+    - 'ROBOT_CONFIG={"avg_speed": 0.15, "battery_charge": 0.23, "battery_discharge_rate":
+      0.00016, "id": 2, "local_plan": [["navigation", ["PC Room 3", [[-11.5, 18.0,
+      -1.57], [-11.5, 16.0], [-28.5, 16.0], [-28.5, 18.0, -1.57]]]], ["approach_person",
+      ["nurse"]], ["authenticate_person", ["nurse"]], ["operate_drawer", ["open"]],
+      ["send_message", ["nurse"]], ["wait_message", ["r1"]], ["operate_drawer", ["close"]],
+      ["navigation", ["Laboratory", [[-28.5, 18.0, -1.57], [-28.5, 16.0], [-26.0,
+      16.0], [-26.0, 13.0, 1.57]]]], ["approach_robot", ["lab_arm"]], ["operate_drawer",
+      ["open"]], ["send_message", ["lab_arm"]], ["wait_message", ["r1"]], ["operate_drawer",
+      ["close"]]], "location": "PC Room 8", "position": [-11.5, 18.0, -1.57], "skills":
+      ["approach_person", "approach_robot", "authenticate_person", "deposit", "navigation",
+      "pick_up"]}'
     networks:
     - morsegatonet
     runtime: runc
@@ -285,17 +311,17 @@ services:
     depends_on:
     - motion_ctrl4
     env_file:
-    - /home/gastd/git/morse_simulation/sim.env
+    - /home/azureuser/git/morse_simulation/sim.env
     environment:
     - ROS_HOSTNAME=py_trees4
     - ROS_MASTER_URI=http://master:11311
     - ROBOT_NAME=turtlebot4
     - SKILLS=['approach_person', 'approach_robot', 'authenticate_person', 'deposit',
       'navigation', 'operate_drawer', 'pick_up']
-    - 'ROBOT_CONFIG={"avg_speed": 0.8, "battery_consumption_rate": 0.0016, "battery_level":
-      0.21, "id": 3, "local_plan": null, "location": "PC Room 5", "position": [-21.0,
-      18.0, -1.57], "skills": ["approach_person", "approach_robot", "authenticate_person",
-      "deposit", "navigation", "operate_drawer", "pick_up"]}'
+    - 'ROBOT_CONFIG={"avg_speed": 0.15, "battery_charge": 0.21, "battery_discharge_rate":
+      0.00015000000000000001, "id": 3, "local_plan": null, "location": "PC Room 5",
+      "position": [-21.0, 18.0, -1.57], "skills": ["approach_person", "approach_robot",
+      "authenticate_person", "deposit", "navigation", "operate_drawer", "pick_up"]}'
     networks:
     - morsegatonet
     runtime: runc
@@ -318,17 +344,17 @@ services:
     depends_on:
     - motion_ctrl5
     env_file:
-    - /home/gastd/git/morse_simulation/sim.env
+    - /home/azureuser/git/morse_simulation/sim.env
     environment:
     - ROS_HOSTNAME=py_trees5
     - ROS_MASTER_URI=http://master:11311
     - ROBOT_NAME=turtlebot5
     - SKILLS=['approach_person', 'approach_robot', 'authenticate_person', 'deposit',
       'navigation', 'operate_drawer', 'pick_up']
-    - 'ROBOT_CONFIG={"avg_speed": 0.8, "battery_consumption_rate": 0.0012000000000000001,
-      "battery_level": 0.62, "id": 4, "local_plan": null, "location": "IC Room 3",
-      "position": [-40.23, 25.37, 0.0], "skills": ["approach_person", "approach_robot",
-      "authenticate_person", "deposit", "navigation", "operate_drawer", "pick_up"]}'
+    - 'ROBOT_CONFIG={"avg_speed": 0.15, "battery_charge": 0.62, "battery_discharge_rate":
+      0.00011, "id": 4, "local_plan": null, "location": "IC Room 3", "position": [-40.23,
+      25.37, 0.0], "skills": ["approach_person", "approach_robot", "authenticate_person",
+      "deposit", "navigation", "operate_drawer", "pick_up"]}'
     networks:
     - morsegatonet
     runtime: runc
@@ -351,7 +377,7 @@ services:
     depends_on:
     - master
     env_file:
-    - /home/gastd/git/morse_simulation/sim.env
+    - /home/azureuser/git/morse_simulation/sim.env
     environment:
     - ROS_HOSTNAME=ros1_bridge
     - ROS_MASTER_URI=http://master:11311

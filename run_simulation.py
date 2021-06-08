@@ -317,21 +317,21 @@ class Experiment(object):
         self.create_robots()
         self.save_compose_file()
         print("STARTING SIMULATION...")
-        self.start_simulation()
-        start = time.time()
-        runtime = time.time()
-        self.clear_log_file()
+        #self.start_simulation()
+        #start = time.time()
+        #runtime = time.time()
+        #self.clear_log_file()
         # call simulation and watch timeout
-        while (runtime - start) <= self.simulation_timeout_s and self.endsim == False:
-            time.sleep(1)
-            runtime = time.time()
-            self.check_end_simulation()
-        end = time.time()
-        self.close_simulation()
-        print("ENDING SIMULATION...")
-        print(f"Runtime of the simulation is {end - start}")
-        self.save_log_file(idx, end - start)
-        self.save_table_file()
+        #while (runtime - start) <= self.simulation_timeout_s and self.endsim == False:
+        #    time.sleep(1)
+        #    runtime = time.time()
+        #    self.check_end_simulation()
+        #end = time.time()
+        #self.close_simulation()
+        #print("ENDING SIMULATION...")
+        #print(f"Runtime of the simulation is {end - start}")
+        #self.save_log_file(idx, end - start)
+        #self.save_table_file()
 
     def run_some_simulations(self, sim_list):
         print("RUNNING %d TRIALS FOR THIS EXPERIMENT"%len(self.config))
@@ -463,8 +463,9 @@ class Experiment(object):
         
         with open(file_path, "w") as ef:
             nurse_pos = self.nurses_config[0]["position"]
-            nurse_pos = nurse_pos[0] + 1.0
-            nurse_pos = nurse_pos[1] + 1.0
+            print(str(nurse_pos))
+            nurse_pos[0] = nurse_pos[0] + 1.0
+            nurse_pos[1] = nurse_pos[1] + 1.0
             nurse_str = str(nurse_pos).replace(',',';')
             ef.write("TRIAL="+str(n_trial)+'\n')
             ef.write('\n')
