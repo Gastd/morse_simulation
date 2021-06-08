@@ -15,7 +15,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.37,
-                "battery_discharge_rate": 0.0009000000000000001,
+                "battery_discharge_rate": 0.00018,
                 "id": 0,
                 "local_plan": null,
                 "location": "PC Room 6",
@@ -37,7 +37,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.54,
-                "battery_discharge_rate": 0.0007,
+                "battery_discharge_rate": 0.00014000000000000001,
                 "id": 1,
                 "local_plan": null,
                 "location": "IC Room 5",
@@ -59,7 +59,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.23,
-                "battery_discharge_rate": 0.0008,
+                "battery_discharge_rate": 0.00016,
                 "id": 2,
                 "local_plan": null,
                 "location": "PC Room 8",
@@ -80,7 +80,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.21,
-                "battery_discharge_rate": 0.00075,
+                "battery_discharge_rate": 0.00015000000000000001,
                 "id": 3,
                 "local_plan": [
                     [
@@ -221,7 +221,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.62,
-                "battery_discharge_rate": 0.00055,
+                "battery_discharge_rate": 0.00011,
                 "id": 4,
                 "local_plan": null,
                 "location": "IC Room 3",
@@ -258,7 +258,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.37,
-                "battery_discharge_rate": 0.00055,
+                "battery_discharge_rate": 0.00011,
                 "id": 0,
                 "local_plan": null,
                 "location": "PC Room 6",
@@ -280,7 +280,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.54,
-                "battery_discharge_rate": 0.0005,
+                "battery_discharge_rate": 0.0001,
                 "id": 1,
                 "local_plan": null,
                 "location": "IC Room 5",
@@ -302,7 +302,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.23,
-                "battery_discharge_rate": 0.00075,
+                "battery_discharge_rate": 0.00015000000000000001,
                 "id": 2,
                 "local_plan": null,
                 "location": "PC Room 8",
@@ -323,7 +323,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.21,
-                "battery_discharge_rate": 0.00095,
+                "battery_discharge_rate": 0.00019,
                 "id": 3,
                 "local_plan": null,
                 "location": "PC Room 5",
@@ -345,7 +345,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.62,
-                "battery_discharge_rate": 0.0007,
+                "battery_discharge_rate": 0.00014000000000000001,
                 "id": 4,
                 "local_plan": [
                     [
@@ -505,7 +505,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.37,
-                "battery_discharge_rate": 0.00055,
+                "battery_discharge_rate": 0.00011,
                 "id": 0,
                 "local_plan": [
                     [
@@ -646,7 +646,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.54,
-                "battery_discharge_rate": 0.0007,
+                "battery_discharge_rate": 0.00014000000000000001,
                 "id": 1,
                 "local_plan": null,
                 "location": "IC Room 5",
@@ -668,7 +668,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.23,
-                "battery_discharge_rate": 0.0006000000000000001,
+                "battery_discharge_rate": 0.00012000000000000002,
                 "id": 2,
                 "local_plan": null,
                 "location": "PC Room 8",
@@ -689,7 +689,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.21,
-                "battery_discharge_rate": 0.0008,
+                "battery_discharge_rate": 0.00016,
                 "id": 3,
                 "local_plan": null,
                 "location": "PC Room 5",
@@ -711,7 +711,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.62,
-                "battery_discharge_rate": 0.00075,
+                "battery_discharge_rate": 0.00015000000000000001,
                 "id": 4,
                 "local_plan": null,
                 "location": "IC Room 3",
@@ -748,7 +748,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.22,
-                "battery_discharge_rate": 0.0009000000000000001,
+                "battery_discharge_rate": 0.00018,
                 "id": 0,
                 "local_plan": null,
                 "location": "PC Room 6",
@@ -770,7 +770,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.56,
-                "battery_discharge_rate": 0.0007,
+                "battery_discharge_rate": 0.00014000000000000001,
                 "id": 1,
                 "local_plan": null,
                 "location": "IC Room 5",
@@ -792,7 +792,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.55,
-                "battery_discharge_rate": 0.0008,
+                "battery_discharge_rate": 0.00016,
                 "id": 2,
                 "local_plan": null,
                 "location": "PC Room 8",
@@ -813,7 +813,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.44,
-                "battery_discharge_rate": 0.00075,
+                "battery_discharge_rate": 0.00015000000000000001,
                 "id": 3,
                 "local_plan": [
                     [
@@ -954,7 +954,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.15,
-                "battery_discharge_rate": 0.00055,
+                "battery_discharge_rate": 0.00011,
                 "id": 4,
                 "local_plan": null,
                 "location": "IC Room 3",
@@ -991,7 +991,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.22,
-                "battery_discharge_rate": 0.00055,
+                "battery_discharge_rate": 0.00011,
                 "id": 0,
                 "local_plan": null,
                 "location": "PC Room 6",
@@ -1013,7 +1013,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.56,
-                "battery_discharge_rate": 0.0005,
+                "battery_discharge_rate": 0.0001,
                 "id": 1,
                 "local_plan": null,
                 "location": "IC Room 5",
@@ -1035,7 +1035,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.55,
-                "battery_discharge_rate": 0.00075,
+                "battery_discharge_rate": 0.00015000000000000001,
                 "id": 2,
                 "local_plan": null,
                 "location": "PC Room 8",
@@ -1056,7 +1056,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.44,
-                "battery_discharge_rate": 0.00095,
+                "battery_discharge_rate": 0.00019,
                 "id": 3,
                 "local_plan": [
                     [
@@ -1197,7 +1197,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.15,
-                "battery_discharge_rate": 0.0007,
+                "battery_discharge_rate": 0.00014000000000000001,
                 "id": 4,
                 "local_plan": null,
                 "location": "IC Room 3",
@@ -1234,7 +1234,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.22,
-                "battery_discharge_rate": 0.00055,
+                "battery_discharge_rate": 0.00011,
                 "id": 0,
                 "local_plan": null,
                 "location": "PC Room 6",
@@ -1256,7 +1256,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.56,
-                "battery_discharge_rate": 0.0007,
+                "battery_discharge_rate": 0.00014000000000000001,
                 "id": 1,
                 "local_plan": [
                     [
@@ -1401,7 +1401,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.55,
-                "battery_discharge_rate": 0.0006000000000000001,
+                "battery_discharge_rate": 0.00012000000000000002,
                 "id": 2,
                 "local_plan": null,
                 "location": "PC Room 8",
@@ -1422,7 +1422,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.44,
-                "battery_discharge_rate": 0.0008,
+                "battery_discharge_rate": 0.00016,
                 "id": 3,
                 "local_plan": null,
                 "location": "PC Room 5",
@@ -1444,7 +1444,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.15,
-                "battery_discharge_rate": 0.00075,
+                "battery_discharge_rate": 0.00015000000000000001,
                 "id": 4,
                 "local_plan": null,
                 "location": "IC Room 3",
@@ -1481,7 +1481,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.68,
-                "battery_discharge_rate": 0.0009000000000000001,
+                "battery_discharge_rate": 0.00018,
                 "id": 0,
                 "local_plan": null,
                 "location": "PC Room 6",
@@ -1503,7 +1503,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.79,
-                "battery_discharge_rate": 0.0007,
+                "battery_discharge_rate": 0.00014000000000000001,
                 "id": 1,
                 "local_plan": [
                     [
@@ -1648,7 +1648,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.25,
-                "battery_discharge_rate": 0.0008,
+                "battery_discharge_rate": 0.00016,
                 "id": 2,
                 "local_plan": null,
                 "location": "PC Room 8",
@@ -1669,7 +1669,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.59,
-                "battery_discharge_rate": 0.00075,
+                "battery_discharge_rate": 0.00015000000000000001,
                 "id": 3,
                 "local_plan": null,
                 "location": "PC Room 5",
@@ -1691,7 +1691,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.2,
-                "battery_discharge_rate": 0.00055,
+                "battery_discharge_rate": 0.00011,
                 "id": 4,
                 "local_plan": null,
                 "location": "IC Room 3",
@@ -1728,7 +1728,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.68,
-                "battery_discharge_rate": 0.00055,
+                "battery_discharge_rate": 0.00011,
                 "id": 0,
                 "local_plan": null,
                 "location": "PC Room 6",
@@ -1750,7 +1750,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.79,
-                "battery_discharge_rate": 0.0005,
+                "battery_discharge_rate": 0.0001,
                 "id": 1,
                 "local_plan": null,
                 "location": "IC Room 5",
@@ -1772,7 +1772,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.25,
-                "battery_discharge_rate": 0.00075,
+                "battery_discharge_rate": 0.00015000000000000001,
                 "id": 2,
                 "local_plan": null,
                 "location": "PC Room 8",
@@ -1793,7 +1793,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.59,
-                "battery_discharge_rate": 0.00095,
+                "battery_discharge_rate": 0.00019,
                 "id": 3,
                 "local_plan": null,
                 "location": "PC Room 5",
@@ -1815,7 +1815,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.2,
-                "battery_discharge_rate": 0.0007,
+                "battery_discharge_rate": 0.00014000000000000001,
                 "id": 4,
                 "local_plan": [
                     [
@@ -1975,7 +1975,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.68,
-                "battery_discharge_rate": 0.00055,
+                "battery_discharge_rate": 0.00011,
                 "id": 0,
                 "local_plan": null,
                 "location": "PC Room 6",
@@ -1997,7 +1997,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.79,
-                "battery_discharge_rate": 0.0007,
+                "battery_discharge_rate": 0.00014000000000000001,
                 "id": 1,
                 "local_plan": null,
                 "location": "IC Room 5",
@@ -2019,7 +2019,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.25,
-                "battery_discharge_rate": 0.0006000000000000001,
+                "battery_discharge_rate": 0.00012000000000000002,
                 "id": 2,
                 "local_plan": null,
                 "location": "PC Room 8",
@@ -2040,7 +2040,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.59,
-                "battery_discharge_rate": 0.0008,
+                "battery_discharge_rate": 0.00016,
                 "id": 3,
                 "local_plan": [
                     [
@@ -2181,7 +2181,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.2,
-                "battery_discharge_rate": 0.00075,
+                "battery_discharge_rate": 0.00015000000000000001,
                 "id": 4,
                 "local_plan": null,
                 "location": "IC Room 3",
@@ -2218,7 +2218,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.37,
-                "battery_discharge_rate": 0.0009000000000000001,
+                "battery_discharge_rate": 0.00018,
                 "id": 0,
                 "local_plan": [
                     [
@@ -2359,7 +2359,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.54,
-                "battery_discharge_rate": 0.0007,
+                "battery_discharge_rate": 0.00014000000000000001,
                 "id": 1,
                 "local_plan": null,
                 "location": "PC Room 8",
@@ -2381,7 +2381,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.23,
-                "battery_discharge_rate": 0.0008,
+                "battery_discharge_rate": 0.00016,
                 "id": 2,
                 "local_plan": null,
                 "location": "IC Room 6",
@@ -2402,7 +2402,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.21,
-                "battery_discharge_rate": 0.00075,
+                "battery_discharge_rate": 0.00015000000000000001,
                 "id": 3,
                 "local_plan": null,
                 "location": "IC Room 2",
@@ -2424,7 +2424,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.62,
-                "battery_discharge_rate": 0.00055,
+                "battery_discharge_rate": 0.00011,
                 "id": 4,
                 "local_plan": null,
                 "location": "PC Room 7",
@@ -2461,7 +2461,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.37,
-                "battery_discharge_rate": 0.00055,
+                "battery_discharge_rate": 0.00011,
                 "id": 0,
                 "local_plan": [
                     [
@@ -2602,7 +2602,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.54,
-                "battery_discharge_rate": 0.0005,
+                "battery_discharge_rate": 0.0001,
                 "id": 1,
                 "local_plan": null,
                 "location": "PC Room 8",
@@ -2624,7 +2624,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.23,
-                "battery_discharge_rate": 0.00075,
+                "battery_discharge_rate": 0.00015000000000000001,
                 "id": 2,
                 "local_plan": null,
                 "location": "IC Room 6",
@@ -2645,7 +2645,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.21,
-                "battery_discharge_rate": 0.00095,
+                "battery_discharge_rate": 0.00019,
                 "id": 3,
                 "local_plan": null,
                 "location": "IC Room 2",
@@ -2667,7 +2667,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.62,
-                "battery_discharge_rate": 0.0007,
+                "battery_discharge_rate": 0.00014000000000000001,
                 "id": 4,
                 "local_plan": null,
                 "location": "PC Room 7",
@@ -2704,8 +2704,73 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.37,
-                "battery_discharge_rate": 0.00055,
+                "battery_discharge_rate": 0.00011,
                 "id": 0,
+                "local_plan": null,
+                "location": "PC Room 5",
+                "position": [
+                    -21.0,
+                    18.0,
+                    -1.57
+                ],
+                "skills": [
+                    "approach_person",
+                    "approach_robot",
+                    "authenticate_person",
+                    "deposit",
+                    "navigation",
+                    "operate_drawer",
+                    "pick_up"
+                ]
+            },
+            {
+                "avg_speed": 0.15,
+                "battery_charge": 0.54,
+                "battery_discharge_rate": 0.00014000000000000001,
+                "id": 1,
+                "local_plan": null,
+                "location": "PC Room 8",
+                "position": [
+                    -11.5,
+                    18.0,
+                    -1.57
+                ],
+                "skills": [
+                    "approach_person",
+                    "approach_robot",
+                    "authenticate_person",
+                    "deposit",
+                    "navigation",
+                    "operate_drawer",
+                    "pick_up"
+                ]
+            },
+            {
+                "avg_speed": 0.15,
+                "battery_charge": 0.23,
+                "battery_discharge_rate": 0.00012000000000000002,
+                "id": 2,
+                "local_plan": null,
+                "location": "IC Room 6",
+                "position": [
+                    -33.9,
+                    18.93,
+                    3.14
+                ],
+                "skills": [
+                    "approach_person",
+                    "approach_robot",
+                    "authenticate_person",
+                    "deposit",
+                    "navigation",
+                    "pick_up"
+                ]
+            },
+            {
+                "avg_speed": 0.15,
+                "battery_charge": 0.21,
+                "battery_discharge_rate": 0.00016,
+                "id": 3,
                 "local_plan": [
                     [
                         "navigation",
@@ -2713,17 +2778,13 @@
                             "IC Room 5",
                             [
                                 [
-                                    -21.0,
-                                    18.0,
-                                    -1.57
-                                ],
-                                [
-                                    -21.0,
-                                    16.0
+                                    -38.0,
+                                    21.5,
+                                    0.0
                                 ],
                                 [
                                     -37.0,
-                                    16.0
+                                    21.5
                                 ],
                                 [
                                     -37.0,
@@ -2834,71 +2895,6 @@
                         ]
                     ]
                 ],
-                "location": "PC Room 5",
-                "position": [
-                    -21.0,
-                    18.0,
-                    -1.57
-                ],
-                "skills": [
-                    "approach_person",
-                    "approach_robot",
-                    "authenticate_person",
-                    "deposit",
-                    "navigation",
-                    "operate_drawer",
-                    "pick_up"
-                ]
-            },
-            {
-                "avg_speed": 0.15,
-                "battery_charge": 0.54,
-                "battery_discharge_rate": 0.0007,
-                "id": 1,
-                "local_plan": null,
-                "location": "PC Room 8",
-                "position": [
-                    -11.5,
-                    18.0,
-                    -1.57
-                ],
-                "skills": [
-                    "approach_person",
-                    "approach_robot",
-                    "authenticate_person",
-                    "deposit",
-                    "navigation",
-                    "operate_drawer",
-                    "pick_up"
-                ]
-            },
-            {
-                "avg_speed": 0.15,
-                "battery_charge": 0.23,
-                "battery_discharge_rate": 0.0006000000000000001,
-                "id": 2,
-                "local_plan": null,
-                "location": "IC Room 6",
-                "position": [
-                    -33.9,
-                    18.93,
-                    3.14
-                ],
-                "skills": [
-                    "approach_person",
-                    "approach_robot",
-                    "authenticate_person",
-                    "deposit",
-                    "navigation",
-                    "pick_up"
-                ]
-            },
-            {
-                "avg_speed": 0.15,
-                "battery_charge": 0.21,
-                "battery_discharge_rate": 0.0008,
-                "id": 3,
-                "local_plan": null,
                 "location": "IC Room 2",
                 "position": [
                     -38.0,
@@ -2918,7 +2914,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.62,
-                "battery_discharge_rate": 0.00075,
+                "battery_discharge_rate": 0.00015000000000000001,
                 "id": 4,
                 "local_plan": null,
                 "location": "PC Room 7",
@@ -2955,7 +2951,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.22,
-                "battery_discharge_rate": 0.0009000000000000001,
+                "battery_discharge_rate": 0.00018,
                 "id": 0,
                 "local_plan": null,
                 "location": "PC Room 5",
@@ -2977,7 +2973,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.56,
-                "battery_discharge_rate": 0.0007,
+                "battery_discharge_rate": 0.00014000000000000001,
                 "id": 1,
                 "local_plan": null,
                 "location": "PC Room 8",
@@ -2999,7 +2995,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.55,
-                "battery_discharge_rate": 0.0008,
+                "battery_discharge_rate": 0.00016,
                 "id": 2,
                 "local_plan": null,
                 "location": "IC Room 6",
@@ -3020,7 +3016,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.44,
-                "battery_discharge_rate": 0.00075,
+                "battery_discharge_rate": 0.00015000000000000001,
                 "id": 3,
                 "local_plan": [
                     [
@@ -3165,7 +3161,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.15,
-                "battery_discharge_rate": 0.00055,
+                "battery_discharge_rate": 0.00011,
                 "id": 4,
                 "local_plan": null,
                 "location": "PC Room 7",
@@ -3202,7 +3198,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.22,
-                "battery_discharge_rate": 0.00055,
+                "battery_discharge_rate": 0.00011,
                 "id": 0,
                 "local_plan": [
                     [
@@ -3343,7 +3339,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.56,
-                "battery_discharge_rate": 0.0005,
+                "battery_discharge_rate": 0.0001,
                 "id": 1,
                 "local_plan": null,
                 "location": "PC Room 8",
@@ -3365,7 +3361,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.55,
-                "battery_discharge_rate": 0.00075,
+                "battery_discharge_rate": 0.00015000000000000001,
                 "id": 2,
                 "local_plan": null,
                 "location": "IC Room 6",
@@ -3386,7 +3382,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.44,
-                "battery_discharge_rate": 0.00095,
+                "battery_discharge_rate": 0.00019,
                 "id": 3,
                 "local_plan": null,
                 "location": "IC Room 2",
@@ -3408,7 +3404,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.15,
-                "battery_discharge_rate": 0.0007,
+                "battery_discharge_rate": 0.00014000000000000001,
                 "id": 4,
                 "local_plan": null,
                 "location": "PC Room 7",
@@ -3445,7 +3441,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.22,
-                "battery_discharge_rate": 0.00055,
+                "battery_discharge_rate": 0.00011,
                 "id": 0,
                 "local_plan": null,
                 "location": "PC Room 5",
@@ -3467,7 +3463,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.56,
-                "battery_discharge_rate": 0.0007,
+                "battery_discharge_rate": 0.00014000000000000001,
                 "id": 1,
                 "local_plan": null,
                 "location": "PC Room 8",
@@ -3489,7 +3485,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.55,
-                "battery_discharge_rate": 0.0006000000000000001,
+                "battery_discharge_rate": 0.00012000000000000002,
                 "id": 2,
                 "local_plan": null,
                 "location": "IC Room 6",
@@ -3510,7 +3506,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.44,
-                "battery_discharge_rate": 0.0008,
+                "battery_discharge_rate": 0.00016,
                 "id": 3,
                 "local_plan": [
                     [
@@ -3655,7 +3651,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.15,
-                "battery_discharge_rate": 0.00075,
+                "battery_discharge_rate": 0.00015000000000000001,
                 "id": 4,
                 "local_plan": null,
                 "location": "PC Room 7",
@@ -3692,7 +3688,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.68,
-                "battery_discharge_rate": 0.0009000000000000001,
+                "battery_discharge_rate": 0.00018,
                 "id": 0,
                 "local_plan": null,
                 "location": "PC Room 5",
@@ -3714,7 +3710,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.79,
-                "battery_discharge_rate": 0.0007,
+                "battery_discharge_rate": 0.00014000000000000001,
                 "id": 1,
                 "local_plan": null,
                 "location": "PC Room 8",
@@ -3736,7 +3732,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.25,
-                "battery_discharge_rate": 0.0008,
+                "battery_discharge_rate": 0.00016,
                 "id": 2,
                 "local_plan": null,
                 "location": "IC Room 6",
@@ -3757,7 +3753,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.59,
-                "battery_discharge_rate": 0.00075,
+                "battery_discharge_rate": 0.00015000000000000001,
                 "id": 3,
                 "local_plan": [
                     [
@@ -3902,7 +3898,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.2,
-                "battery_discharge_rate": 0.00055,
+                "battery_discharge_rate": 0.00011,
                 "id": 4,
                 "local_plan": null,
                 "location": "PC Room 7",
@@ -3939,7 +3935,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.68,
-                "battery_discharge_rate": 0.00055,
+                "battery_discharge_rate": 0.00011,
                 "id": 0,
                 "local_plan": [
                     [
@@ -4080,7 +4076,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.79,
-                "battery_discharge_rate": 0.0005,
+                "battery_discharge_rate": 0.0001,
                 "id": 1,
                 "local_plan": null,
                 "location": "PC Room 8",
@@ -4102,7 +4098,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.25,
-                "battery_discharge_rate": 0.00075,
+                "battery_discharge_rate": 0.00015000000000000001,
                 "id": 2,
                 "local_plan": null,
                 "location": "IC Room 6",
@@ -4123,7 +4119,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.59,
-                "battery_discharge_rate": 0.00095,
+                "battery_discharge_rate": 0.00019,
                 "id": 3,
                 "local_plan": null,
                 "location": "IC Room 2",
@@ -4145,7 +4141,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.2,
-                "battery_discharge_rate": 0.0007,
+                "battery_discharge_rate": 0.00014000000000000001,
                 "id": 4,
                 "local_plan": null,
                 "location": "PC Room 7",
@@ -4182,7 +4178,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.68,
-                "battery_discharge_rate": 0.00055,
+                "battery_discharge_rate": 0.00011,
                 "id": 0,
                 "local_plan": [
                     [
@@ -4323,7 +4319,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.79,
-                "battery_discharge_rate": 0.0007,
+                "battery_discharge_rate": 0.00014000000000000001,
                 "id": 1,
                 "local_plan": null,
                 "location": "PC Room 8",
@@ -4345,7 +4341,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.25,
-                "battery_discharge_rate": 0.0006000000000000001,
+                "battery_discharge_rate": 0.00012000000000000002,
                 "id": 2,
                 "local_plan": null,
                 "location": "IC Room 6",
@@ -4366,7 +4362,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.59,
-                "battery_discharge_rate": 0.0008,
+                "battery_discharge_rate": 0.00016,
                 "id": 3,
                 "local_plan": null,
                 "location": "IC Room 2",
@@ -4388,7 +4384,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.2,
-                "battery_discharge_rate": 0.00075,
+                "battery_discharge_rate": 0.00015000000000000001,
                 "id": 4,
                 "local_plan": null,
                 "location": "PC Room 7",
@@ -4425,7 +4421,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.37,
-                "battery_discharge_rate": 0.0009000000000000001,
+                "battery_discharge_rate": 0.00018,
                 "id": 0,
                 "local_plan": null,
                 "location": "IC Room 4",
@@ -4447,7 +4443,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.54,
-                "battery_discharge_rate": 0.0007,
+                "battery_discharge_rate": 0.00014000000000000001,
                 "id": 1,
                 "local_plan": null,
                 "location": "PC Room 5",
@@ -4469,7 +4465,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.23,
-                "battery_discharge_rate": 0.0008,
+                "battery_discharge_rate": 0.00016,
                 "id": 2,
                 "local_plan": null,
                 "location": "PC Room 4",
@@ -4490,7 +4486,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.21,
-                "battery_discharge_rate": 0.00075,
+                "battery_discharge_rate": 0.00015000000000000001,
                 "id": 3,
                 "local_plan": null,
                 "location": "PC Room 3",
@@ -4512,7 +4508,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.62,
-                "battery_discharge_rate": 0.00055,
+                "battery_discharge_rate": 0.00011,
                 "id": 4,
                 "local_plan": [
                     [
@@ -4672,7 +4668,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.37,
-                "battery_discharge_rate": 0.00055,
+                "battery_discharge_rate": 0.00011,
                 "id": 0,
                 "local_plan": null,
                 "location": "IC Room 4",
@@ -4694,7 +4690,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.54,
-                "battery_discharge_rate": 0.0005,
+                "battery_discharge_rate": 0.0001,
                 "id": 1,
                 "local_plan": null,
                 "location": "PC Room 5",
@@ -4716,7 +4712,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.23,
-                "battery_discharge_rate": 0.00075,
+                "battery_discharge_rate": 0.00015000000000000001,
                 "id": 2,
                 "local_plan": null,
                 "location": "PC Room 4",
@@ -4737,7 +4733,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.21,
-                "battery_discharge_rate": 0.00095,
+                "battery_discharge_rate": 0.00019,
                 "id": 3,
                 "local_plan": null,
                 "location": "PC Room 3",
@@ -4759,7 +4755,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.62,
-                "battery_discharge_rate": 0.0007,
+                "battery_discharge_rate": 0.00014000000000000001,
                 "id": 4,
                 "local_plan": [
                     [
@@ -4919,7 +4915,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.37,
-                "battery_discharge_rate": 0.00055,
+                "battery_discharge_rate": 0.00011,
                 "id": 0,
                 "local_plan": null,
                 "location": "IC Room 4",
@@ -4941,7 +4937,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.54,
-                "battery_discharge_rate": 0.0007,
+                "battery_discharge_rate": 0.00014000000000000001,
                 "id": 1,
                 "local_plan": [
                     [
@@ -5082,7 +5078,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.23,
-                "battery_discharge_rate": 0.0006000000000000001,
+                "battery_discharge_rate": 0.00012000000000000002,
                 "id": 2,
                 "local_plan": null,
                 "location": "PC Room 4",
@@ -5103,7 +5099,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.21,
-                "battery_discharge_rate": 0.0008,
+                "battery_discharge_rate": 0.00016,
                 "id": 3,
                 "local_plan": null,
                 "location": "PC Room 3",
@@ -5125,7 +5121,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.62,
-                "battery_discharge_rate": 0.00075,
+                "battery_discharge_rate": 0.00015000000000000001,
                 "id": 4,
                 "local_plan": null,
                 "location": "IC Room 3",
@@ -5162,7 +5158,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.22,
-                "battery_discharge_rate": 0.0009000000000000001,
+                "battery_discharge_rate": 0.00018,
                 "id": 0,
                 "local_plan": null,
                 "location": "IC Room 4",
@@ -5184,7 +5180,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.56,
-                "battery_discharge_rate": 0.0007,
+                "battery_discharge_rate": 0.00014000000000000001,
                 "id": 1,
                 "local_plan": [
                     [
@@ -5325,7 +5321,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.55,
-                "battery_discharge_rate": 0.0008,
+                "battery_discharge_rate": 0.00016,
                 "id": 2,
                 "local_plan": null,
                 "location": "PC Room 4",
@@ -5346,7 +5342,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.44,
-                "battery_discharge_rate": 0.00075,
+                "battery_discharge_rate": 0.00015000000000000001,
                 "id": 3,
                 "local_plan": null,
                 "location": "PC Room 3",
@@ -5368,7 +5364,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.15,
-                "battery_discharge_rate": 0.00055,
+                "battery_discharge_rate": 0.00011,
                 "id": 4,
                 "local_plan": null,
                 "location": "IC Room 3",
@@ -5405,7 +5401,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.22,
-                "battery_discharge_rate": 0.00055,
+                "battery_discharge_rate": 0.00011,
                 "id": 0,
                 "local_plan": null,
                 "location": "IC Room 4",
@@ -5427,7 +5423,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.56,
-                "battery_discharge_rate": 0.0005,
+                "battery_discharge_rate": 0.0001,
                 "id": 1,
                 "local_plan": [
                     [
@@ -5568,7 +5564,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.55,
-                "battery_discharge_rate": 0.00075,
+                "battery_discharge_rate": 0.00015000000000000001,
                 "id": 2,
                 "local_plan": null,
                 "location": "PC Room 4",
@@ -5589,7 +5585,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.44,
-                "battery_discharge_rate": 0.00095,
+                "battery_discharge_rate": 0.00019,
                 "id": 3,
                 "local_plan": null,
                 "location": "PC Room 3",
@@ -5611,7 +5607,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.15,
-                "battery_discharge_rate": 0.0007,
+                "battery_discharge_rate": 0.00014000000000000001,
                 "id": 4,
                 "local_plan": null,
                 "location": "IC Room 3",
@@ -5648,8 +5644,95 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.22,
-                "battery_discharge_rate": 0.00055,
+                "battery_discharge_rate": 0.00011,
                 "id": 0,
+                "local_plan": null,
+                "location": "IC Room 4",
+                "position": [
+                    -39.44,
+                    33.95,
+                    0.0
+                ],
+                "skills": [
+                    "approach_person",
+                    "approach_robot",
+                    "authenticate_person",
+                    "deposit",
+                    "navigation",
+                    "operate_drawer",
+                    "pick_up"
+                ]
+            },
+            {
+                "avg_speed": 0.15,
+                "battery_charge": 0.56,
+                "battery_discharge_rate": 0.00014000000000000001,
+                "id": 1,
+                "local_plan": null,
+                "location": "PC Room 5",
+                "position": [
+                    -21.0,
+                    18.0,
+                    -1.57
+                ],
+                "skills": [
+                    "approach_person",
+                    "approach_robot",
+                    "authenticate_person",
+                    "deposit",
+                    "navigation",
+                    "operate_drawer",
+                    "pick_up"
+                ]
+            },
+            {
+                "avg_speed": 0.15,
+                "battery_charge": 0.55,
+                "battery_discharge_rate": 0.00012000000000000002,
+                "id": 2,
+                "local_plan": null,
+                "location": "PC Room 4",
+                "position": [
+                    -27.23,
+                    18.0,
+                    -1.57
+                ],
+                "skills": [
+                    "approach_person",
+                    "approach_robot",
+                    "authenticate_person",
+                    "deposit",
+                    "navigation",
+                    "pick_up"
+                ]
+            },
+            {
+                "avg_speed": 0.15,
+                "battery_charge": 0.44,
+                "battery_discharge_rate": 0.00016,
+                "id": 3,
+                "local_plan": null,
+                "location": "PC Room 3",
+                "position": [
+                    -28.5,
+                    18.0,
+                    -1.57
+                ],
+                "skills": [
+                    "approach_person",
+                    "approach_robot",
+                    "authenticate_person",
+                    "deposit",
+                    "navigation",
+                    "operate_drawer",
+                    "pick_up"
+                ]
+            },
+            {
+                "avg_speed": 0.15,
+                "battery_charge": 0.15,
+                "battery_discharge_rate": 0.00015000000000000001,
+                "id": 4,
                 "local_plan": [
                     [
                         "navigation",
@@ -5657,13 +5740,13 @@
                             "IC Room 2",
                             [
                                 [
-                                    -39.44,
-                                    33.95,
+                                    -40.23,
+                                    25.37,
                                     0.0
                                 ],
                                 [
                                     -37.0,
-                                    33.95
+                                    25.37
                                 ],
                                 [
                                     -37.0,
@@ -5774,93 +5857,6 @@
                         ]
                     ]
                 ],
-                "location": "IC Room 4",
-                "position": [
-                    -39.44,
-                    33.95,
-                    0.0
-                ],
-                "skills": [
-                    "approach_person",
-                    "approach_robot",
-                    "authenticate_person",
-                    "deposit",
-                    "navigation",
-                    "operate_drawer",
-                    "pick_up"
-                ]
-            },
-            {
-                "avg_speed": 0.15,
-                "battery_charge": 0.56,
-                "battery_discharge_rate": 0.0007,
-                "id": 1,
-                "local_plan": null,
-                "location": "PC Room 5",
-                "position": [
-                    -21.0,
-                    18.0,
-                    -1.57
-                ],
-                "skills": [
-                    "approach_person",
-                    "approach_robot",
-                    "authenticate_person",
-                    "deposit",
-                    "navigation",
-                    "operate_drawer",
-                    "pick_up"
-                ]
-            },
-            {
-                "avg_speed": 0.15,
-                "battery_charge": 0.55,
-                "battery_discharge_rate": 0.0006000000000000001,
-                "id": 2,
-                "local_plan": null,
-                "location": "PC Room 4",
-                "position": [
-                    -27.23,
-                    18.0,
-                    -1.57
-                ],
-                "skills": [
-                    "approach_person",
-                    "approach_robot",
-                    "authenticate_person",
-                    "deposit",
-                    "navigation",
-                    "pick_up"
-                ]
-            },
-            {
-                "avg_speed": 0.15,
-                "battery_charge": 0.44,
-                "battery_discharge_rate": 0.0008,
-                "id": 3,
-                "local_plan": null,
-                "location": "PC Room 3",
-                "position": [
-                    -28.5,
-                    18.0,
-                    -1.57
-                ],
-                "skills": [
-                    "approach_person",
-                    "approach_robot",
-                    "authenticate_person",
-                    "deposit",
-                    "navigation",
-                    "operate_drawer",
-                    "pick_up"
-                ]
-            },
-            {
-                "avg_speed": 0.15,
-                "battery_charge": 0.15,
-                "battery_discharge_rate": 0.00075,
-                "id": 4,
-                "local_plan": null,
                 "location": "IC Room 3",
                 "position": [
                     -40.23,
@@ -5895,7 +5891,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.68,
-                "battery_discharge_rate": 0.0009000000000000001,
+                "battery_discharge_rate": 0.00018,
                 "id": 0,
                 "local_plan": null,
                 "location": "IC Room 4",
@@ -5917,7 +5913,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.79,
-                "battery_discharge_rate": 0.0007,
+                "battery_discharge_rate": 0.00014000000000000001,
                 "id": 1,
                 "local_plan": null,
                 "location": "PC Room 5",
@@ -5939,7 +5935,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.25,
-                "battery_discharge_rate": 0.0008,
+                "battery_discharge_rate": 0.00016,
                 "id": 2,
                 "local_plan": null,
                 "location": "PC Room 4",
@@ -5960,7 +5956,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.59,
-                "battery_discharge_rate": 0.00075,
+                "battery_discharge_rate": 0.00015000000000000001,
                 "id": 3,
                 "local_plan": null,
                 "location": "PC Room 3",
@@ -5982,7 +5978,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.2,
-                "battery_discharge_rate": 0.00055,
+                "battery_discharge_rate": 0.00011,
                 "id": 4,
                 "local_plan": [
                     [
@@ -6142,7 +6138,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.68,
-                "battery_discharge_rate": 0.00055,
+                "battery_discharge_rate": 0.00011,
                 "id": 0,
                 "local_plan": null,
                 "location": "IC Room 4",
@@ -6164,7 +6160,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.79,
-                "battery_discharge_rate": 0.0005,
+                "battery_discharge_rate": 0.0001,
                 "id": 1,
                 "local_plan": null,
                 "location": "PC Room 5",
@@ -6186,7 +6182,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.25,
-                "battery_discharge_rate": 0.00075,
+                "battery_discharge_rate": 0.00015000000000000001,
                 "id": 2,
                 "local_plan": null,
                 "location": "PC Room 4",
@@ -6207,8 +6203,30 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.59,
-                "battery_discharge_rate": 0.00095,
+                "battery_discharge_rate": 0.00019,
                 "id": 3,
+                "local_plan": null,
+                "location": "PC Room 3",
+                "position": [
+                    -28.5,
+                    18.0,
+                    -1.57
+                ],
+                "skills": [
+                    "approach_person",
+                    "approach_robot",
+                    "authenticate_person",
+                    "deposit",
+                    "navigation",
+                    "operate_drawer",
+                    "pick_up"
+                ]
+            },
+            {
+                "avg_speed": 0.15,
+                "battery_charge": 0.2,
+                "battery_discharge_rate": 0.00014000000000000001,
+                "id": 4,
                 "local_plan": [
                     [
                         "navigation",
@@ -6216,17 +6234,13 @@
                             "IC Room 6",
                             [
                                 [
-                                    -28.5,
-                                    18.0,
-                                    -1.57
-                                ],
-                                [
-                                    -28.5,
-                                    16.0
+                                    -40.23,
+                                    25.37,
+                                    0.0
                                 ],
                                 [
                                     -37.0,
-                                    16.0
+                                    25.37
                                 ],
                                 [
                                     -37.0,
@@ -6337,28 +6351,6 @@
                         ]
                     ]
                 ],
-                "location": "PC Room 3",
-                "position": [
-                    -28.5,
-                    18.0,
-                    -1.57
-                ],
-                "skills": [
-                    "approach_person",
-                    "approach_robot",
-                    "authenticate_person",
-                    "deposit",
-                    "navigation",
-                    "operate_drawer",
-                    "pick_up"
-                ]
-            },
-            {
-                "avg_speed": 0.15,
-                "battery_charge": 0.2,
-                "battery_discharge_rate": 0.0007,
-                "id": 4,
-                "local_plan": null,
                 "location": "IC Room 3",
                 "position": [
                     -40.23,
@@ -6393,7 +6385,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.68,
-                "battery_discharge_rate": 0.00055,
+                "battery_discharge_rate": 0.00011,
                 "id": 0,
                 "local_plan": null,
                 "location": "IC Room 4",
@@ -6415,7 +6407,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.79,
-                "battery_discharge_rate": 0.0007,
+                "battery_discharge_rate": 0.00014000000000000001,
                 "id": 1,
                 "local_plan": [
                     [
@@ -6556,7 +6548,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.25,
-                "battery_discharge_rate": 0.0006000000000000001,
+                "battery_discharge_rate": 0.00012000000000000002,
                 "id": 2,
                 "local_plan": null,
                 "location": "PC Room 4",
@@ -6577,7 +6569,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.59,
-                "battery_discharge_rate": 0.0008,
+                "battery_discharge_rate": 0.00016,
                 "id": 3,
                 "local_plan": null,
                 "location": "PC Room 3",
@@ -6599,7 +6591,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.2,
-                "battery_discharge_rate": 0.00075,
+                "battery_discharge_rate": 0.00015000000000000001,
                 "id": 4,
                 "local_plan": null,
                 "location": "IC Room 3",
@@ -6636,7 +6628,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.37,
-                "battery_discharge_rate": 0.0009000000000000001,
+                "battery_discharge_rate": 0.00018,
                 "id": 0,
                 "local_plan": null,
                 "location": "PC Room 6",
@@ -6658,7 +6650,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.54,
-                "battery_discharge_rate": 0.0007,
+                "battery_discharge_rate": 0.00014000000000000001,
                 "id": 1,
                 "local_plan": null,
                 "location": "IC Room 5",
@@ -6680,7 +6672,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.23,
-                "battery_discharge_rate": 0.0008,
+                "battery_discharge_rate": 0.00016,
                 "id": 2,
                 "local_plan": null,
                 "location": "PC Room 8",
@@ -6702,7 +6694,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.21,
-                "battery_discharge_rate": 0.00075,
+                "battery_discharge_rate": 0.00015000000000000001,
                 "id": 3,
                 "local_plan": null,
                 "location": "PC Room 5",
@@ -6723,7 +6715,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.62,
-                "battery_discharge_rate": 0.00055,
+                "battery_discharge_rate": 0.00011,
                 "id": 4,
                 "local_plan": [
                     [
@@ -6883,7 +6875,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.37,
-                "battery_discharge_rate": 0.00055,
+                "battery_discharge_rate": 0.00011,
                 "id": 0,
                 "local_plan": null,
                 "location": "PC Room 6",
@@ -6905,7 +6897,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.54,
-                "battery_discharge_rate": 0.0005,
+                "battery_discharge_rate": 0.0001,
                 "id": 1,
                 "local_plan": null,
                 "location": "IC Room 5",
@@ -6927,7 +6919,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.23,
-                "battery_discharge_rate": 0.00075,
+                "battery_discharge_rate": 0.00015000000000000001,
                 "id": 2,
                 "local_plan": null,
                 "location": "PC Room 8",
@@ -6949,7 +6941,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.21,
-                "battery_discharge_rate": 0.00095,
+                "battery_discharge_rate": 0.00019,
                 "id": 3,
                 "local_plan": null,
                 "location": "PC Room 5",
@@ -6970,7 +6962,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.62,
-                "battery_discharge_rate": 0.0007,
+                "battery_discharge_rate": 0.00014000000000000001,
                 "id": 4,
                 "local_plan": [
                     [
@@ -7130,7 +7122,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.37,
-                "battery_discharge_rate": 0.00055,
+                "battery_discharge_rate": 0.00011,
                 "id": 0,
                 "local_plan": [
                     [
@@ -7271,7 +7263,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.54,
-                "battery_discharge_rate": 0.0007,
+                "battery_discharge_rate": 0.00014000000000000001,
                 "id": 1,
                 "local_plan": null,
                 "location": "IC Room 5",
@@ -7293,7 +7285,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.23,
-                "battery_discharge_rate": 0.0006000000000000001,
+                "battery_discharge_rate": 0.00012000000000000002,
                 "id": 2,
                 "local_plan": null,
                 "location": "PC Room 8",
@@ -7315,7 +7307,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.21,
-                "battery_discharge_rate": 0.0008,
+                "battery_discharge_rate": 0.00016,
                 "id": 3,
                 "local_plan": null,
                 "location": "PC Room 5",
@@ -7336,7 +7328,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.62,
-                "battery_discharge_rate": 0.00075,
+                "battery_discharge_rate": 0.00015000000000000001,
                 "id": 4,
                 "local_plan": null,
                 "location": "IC Room 3",
@@ -7373,7 +7365,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.22,
-                "battery_discharge_rate": 0.0009000000000000001,
+                "battery_discharge_rate": 0.00018,
                 "id": 0,
                 "local_plan": [
                     [
@@ -7514,7 +7506,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.56,
-                "battery_discharge_rate": 0.0007,
+                "battery_discharge_rate": 0.00014000000000000001,
                 "id": 1,
                 "local_plan": null,
                 "location": "IC Room 5",
@@ -7536,7 +7528,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.55,
-                "battery_discharge_rate": 0.0008,
+                "battery_discharge_rate": 0.00016,
                 "id": 2,
                 "local_plan": null,
                 "location": "PC Room 8",
@@ -7558,7 +7550,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.44,
-                "battery_discharge_rate": 0.00075,
+                "battery_discharge_rate": 0.00015000000000000001,
                 "id": 3,
                 "local_plan": null,
                 "location": "PC Room 5",
@@ -7579,7 +7571,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.15,
-                "battery_discharge_rate": 0.00055,
+                "battery_discharge_rate": 0.00011,
                 "id": 4,
                 "local_plan": null,
                 "location": "IC Room 3",
@@ -7616,7 +7608,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.22,
-                "battery_discharge_rate": 0.00055,
+                "battery_discharge_rate": 0.00011,
                 "id": 0,
                 "local_plan": null,
                 "location": "PC Room 6",
@@ -7638,7 +7630,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.56,
-                "battery_discharge_rate": 0.0005,
+                "battery_discharge_rate": 0.0001,
                 "id": 1,
                 "local_plan": [
                     [
@@ -7783,7 +7775,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.55,
-                "battery_discharge_rate": 0.00075,
+                "battery_discharge_rate": 0.00015000000000000001,
                 "id": 2,
                 "local_plan": null,
                 "location": "PC Room 8",
@@ -7805,7 +7797,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.44,
-                "battery_discharge_rate": 0.00095,
+                "battery_discharge_rate": 0.00019,
                 "id": 3,
                 "local_plan": null,
                 "location": "PC Room 5",
@@ -7826,7 +7818,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.15,
-                "battery_discharge_rate": 0.0007,
+                "battery_discharge_rate": 0.00014000000000000001,
                 "id": 4,
                 "local_plan": null,
                 "location": "IC Room 3",
@@ -7863,7 +7855,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.22,
-                "battery_discharge_rate": 0.00055,
+                "battery_discharge_rate": 0.00011,
                 "id": 0,
                 "local_plan": [
                     [
@@ -8004,7 +7996,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.56,
-                "battery_discharge_rate": 0.0007,
+                "battery_discharge_rate": 0.00014000000000000001,
                 "id": 1,
                 "local_plan": null,
                 "location": "IC Room 5",
@@ -8026,7 +8018,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.55,
-                "battery_discharge_rate": 0.0006000000000000001,
+                "battery_discharge_rate": 0.00012000000000000002,
                 "id": 2,
                 "local_plan": null,
                 "location": "PC Room 8",
@@ -8048,7 +8040,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.44,
-                "battery_discharge_rate": 0.0008,
+                "battery_discharge_rate": 0.00016,
                 "id": 3,
                 "local_plan": null,
                 "location": "PC Room 5",
@@ -8069,7 +8061,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.15,
-                "battery_discharge_rate": 0.00075,
+                "battery_discharge_rate": 0.00015000000000000001,
                 "id": 4,
                 "local_plan": null,
                 "location": "IC Room 3",
@@ -8106,7 +8098,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.68,
-                "battery_discharge_rate": 0.0009000000000000001,
+                "battery_discharge_rate": 0.00018,
                 "id": 0,
                 "local_plan": null,
                 "location": "PC Room 6",
@@ -8128,7 +8120,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.79,
-                "battery_discharge_rate": 0.0007,
+                "battery_discharge_rate": 0.00014000000000000001,
                 "id": 1,
                 "local_plan": [
                     [
@@ -8273,7 +8265,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.25,
-                "battery_discharge_rate": 0.0008,
+                "battery_discharge_rate": 0.00016,
                 "id": 2,
                 "local_plan": null,
                 "location": "PC Room 8",
@@ -8295,7 +8287,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.59,
-                "battery_discharge_rate": 0.00075,
+                "battery_discharge_rate": 0.00015000000000000001,
                 "id": 3,
                 "local_plan": null,
                 "location": "PC Room 5",
@@ -8316,7 +8308,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.2,
-                "battery_discharge_rate": 0.00055,
+                "battery_discharge_rate": 0.00011,
                 "id": 4,
                 "local_plan": null,
                 "location": "IC Room 3",
@@ -8353,7 +8345,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.68,
-                "battery_discharge_rate": 0.00055,
+                "battery_discharge_rate": 0.00011,
                 "id": 0,
                 "local_plan": null,
                 "location": "PC Room 6",
@@ -8375,7 +8367,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.79,
-                "battery_discharge_rate": 0.0005,
+                "battery_discharge_rate": 0.0001,
                 "id": 1,
                 "local_plan": [
                     [
@@ -8520,7 +8512,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.25,
-                "battery_discharge_rate": 0.00075,
+                "battery_discharge_rate": 0.00015000000000000001,
                 "id": 2,
                 "local_plan": null,
                 "location": "PC Room 8",
@@ -8542,7 +8534,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.59,
-                "battery_discharge_rate": 0.00095,
+                "battery_discharge_rate": 0.00019,
                 "id": 3,
                 "local_plan": null,
                 "location": "PC Room 5",
@@ -8563,7 +8555,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.2,
-                "battery_discharge_rate": 0.0007,
+                "battery_discharge_rate": 0.00014000000000000001,
                 "id": 4,
                 "local_plan": null,
                 "location": "IC Room 3",
@@ -8600,7 +8592,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.68,
-                "battery_discharge_rate": 0.00055,
+                "battery_discharge_rate": 0.00011,
                 "id": 0,
                 "local_plan": null,
                 "location": "PC Room 6",
@@ -8622,7 +8614,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.79,
-                "battery_discharge_rate": 0.0007,
+                "battery_discharge_rate": 0.00014000000000000001,
                 "id": 1,
                 "local_plan": [
                     [
@@ -8767,7 +8759,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.25,
-                "battery_discharge_rate": 0.0006000000000000001,
+                "battery_discharge_rate": 0.00012000000000000002,
                 "id": 2,
                 "local_plan": null,
                 "location": "PC Room 8",
@@ -8789,7 +8781,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.59,
-                "battery_discharge_rate": 0.0008,
+                "battery_discharge_rate": 0.00016,
                 "id": 3,
                 "local_plan": null,
                 "location": "PC Room 5",
@@ -8810,7 +8802,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.2,
-                "battery_discharge_rate": 0.00075,
+                "battery_discharge_rate": 0.00015000000000000001,
                 "id": 4,
                 "local_plan": null,
                 "location": "IC Room 3",
@@ -8847,7 +8839,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.37,
-                "battery_discharge_rate": 0.0009000000000000001,
+                "battery_discharge_rate": 0.00018,
                 "id": 0,
                 "local_plan": [
                     [
@@ -8988,7 +8980,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.54,
-                "battery_discharge_rate": 0.0007,
+                "battery_discharge_rate": 0.00014000000000000001,
                 "id": 1,
                 "local_plan": null,
                 "location": "PC Room 8",
@@ -9010,7 +9002,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.23,
-                "battery_discharge_rate": 0.0008,
+                "battery_discharge_rate": 0.00016,
                 "id": 2,
                 "local_plan": null,
                 "location": "IC Room 6",
@@ -9032,7 +9024,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.21,
-                "battery_discharge_rate": 0.00075,
+                "battery_discharge_rate": 0.00015000000000000001,
                 "id": 3,
                 "local_plan": null,
                 "location": "IC Room 2",
@@ -9053,7 +9045,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.62,
-                "battery_discharge_rate": 0.00055,
+                "battery_discharge_rate": 0.00011,
                 "id": 4,
                 "local_plan": null,
                 "location": "PC Room 7",
@@ -9090,7 +9082,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.37,
-                "battery_discharge_rate": 0.00055,
+                "battery_discharge_rate": 0.00011,
                 "id": 0,
                 "local_plan": [
                     [
@@ -9231,7 +9223,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.54,
-                "battery_discharge_rate": 0.0005,
+                "battery_discharge_rate": 0.0001,
                 "id": 1,
                 "local_plan": null,
                 "location": "PC Room 8",
@@ -9253,7 +9245,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.23,
-                "battery_discharge_rate": 0.00075,
+                "battery_discharge_rate": 0.00015000000000000001,
                 "id": 2,
                 "local_plan": null,
                 "location": "IC Room 6",
@@ -9275,7 +9267,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.21,
-                "battery_discharge_rate": 0.00095,
+                "battery_discharge_rate": 0.00019,
                 "id": 3,
                 "local_plan": null,
                 "location": "IC Room 2",
@@ -9296,7 +9288,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.62,
-                "battery_discharge_rate": 0.0007,
+                "battery_discharge_rate": 0.00014000000000000001,
                 "id": 4,
                 "local_plan": null,
                 "location": "PC Room 7",
@@ -9333,7 +9325,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.37,
-                "battery_discharge_rate": 0.00055,
+                "battery_discharge_rate": 0.00011,
                 "id": 0,
                 "local_plan": null,
                 "location": "PC Room 5",
@@ -9355,7 +9347,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.54,
-                "battery_discharge_rate": 0.0007,
+                "battery_discharge_rate": 0.00014000000000000001,
                 "id": 1,
                 "local_plan": null,
                 "location": "PC Room 8",
@@ -9377,7 +9369,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.23,
-                "battery_discharge_rate": 0.0006000000000000001,
+                "battery_discharge_rate": 0.00012000000000000002,
                 "id": 2,
                 "local_plan": [
                     [
@@ -9522,7 +9514,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.21,
-                "battery_discharge_rate": 0.0008,
+                "battery_discharge_rate": 0.00016,
                 "id": 3,
                 "local_plan": null,
                 "location": "IC Room 2",
@@ -9543,7 +9535,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.62,
-                "battery_discharge_rate": 0.00075,
+                "battery_discharge_rate": 0.00015000000000000001,
                 "id": 4,
                 "local_plan": null,
                 "location": "PC Room 7",
@@ -9580,7 +9572,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.22,
-                "battery_discharge_rate": 0.0009000000000000001,
+                "battery_discharge_rate": 0.00018,
                 "id": 0,
                 "local_plan": null,
                 "location": "PC Room 5",
@@ -9602,7 +9594,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.56,
-                "battery_discharge_rate": 0.0007,
+                "battery_discharge_rate": 0.00014000000000000001,
                 "id": 1,
                 "local_plan": null,
                 "location": "PC Room 8",
@@ -9624,7 +9616,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.55,
-                "battery_discharge_rate": 0.0008,
+                "battery_discharge_rate": 0.00016,
                 "id": 2,
                 "local_plan": [
                     [
@@ -9769,7 +9761,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.44,
-                "battery_discharge_rate": 0.00075,
+                "battery_discharge_rate": 0.00015000000000000001,
                 "id": 3,
                 "local_plan": null,
                 "location": "IC Room 2",
@@ -9790,7 +9782,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.15,
-                "battery_discharge_rate": 0.00055,
+                "battery_discharge_rate": 0.00011,
                 "id": 4,
                 "local_plan": null,
                 "location": "PC Room 7",
@@ -9827,7 +9819,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.22,
-                "battery_discharge_rate": 0.00055,
+                "battery_discharge_rate": 0.00011,
                 "id": 0,
                 "local_plan": [
                     [
@@ -9968,7 +9960,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.56,
-                "battery_discharge_rate": 0.0005,
+                "battery_discharge_rate": 0.0001,
                 "id": 1,
                 "local_plan": null,
                 "location": "PC Room 8",
@@ -9990,7 +9982,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.55,
-                "battery_discharge_rate": 0.00075,
+                "battery_discharge_rate": 0.00015000000000000001,
                 "id": 2,
                 "local_plan": null,
                 "location": "IC Room 6",
@@ -10012,7 +10004,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.44,
-                "battery_discharge_rate": 0.00095,
+                "battery_discharge_rate": 0.00019,
                 "id": 3,
                 "local_plan": null,
                 "location": "IC Room 2",
@@ -10033,7 +10025,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.15,
-                "battery_discharge_rate": 0.0007,
+                "battery_discharge_rate": 0.00014000000000000001,
                 "id": 4,
                 "local_plan": null,
                 "location": "PC Room 7",
@@ -10070,7 +10062,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.22,
-                "battery_discharge_rate": 0.00055,
+                "battery_discharge_rate": 0.00011,
                 "id": 0,
                 "local_plan": [
                     [
@@ -10211,7 +10203,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.56,
-                "battery_discharge_rate": 0.0007,
+                "battery_discharge_rate": 0.00014000000000000001,
                 "id": 1,
                 "local_plan": null,
                 "location": "PC Room 8",
@@ -10233,7 +10225,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.55,
-                "battery_discharge_rate": 0.0006000000000000001,
+                "battery_discharge_rate": 0.00012000000000000002,
                 "id": 2,
                 "local_plan": null,
                 "location": "IC Room 6",
@@ -10255,7 +10247,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.44,
-                "battery_discharge_rate": 0.0008,
+                "battery_discharge_rate": 0.00016,
                 "id": 3,
                 "local_plan": null,
                 "location": "IC Room 2",
@@ -10276,7 +10268,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.15,
-                "battery_discharge_rate": 0.00075,
+                "battery_discharge_rate": 0.00015000000000000001,
                 "id": 4,
                 "local_plan": null,
                 "location": "PC Room 7",
@@ -10313,7 +10305,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.68,
-                "battery_discharge_rate": 0.0009000000000000001,
+                "battery_discharge_rate": 0.00018,
                 "id": 0,
                 "local_plan": [
                     [
@@ -10454,7 +10446,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.79,
-                "battery_discharge_rate": 0.0007,
+                "battery_discharge_rate": 0.00014000000000000001,
                 "id": 1,
                 "local_plan": null,
                 "location": "PC Room 8",
@@ -10476,7 +10468,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.25,
-                "battery_discharge_rate": 0.0008,
+                "battery_discharge_rate": 0.00016,
                 "id": 2,
                 "local_plan": null,
                 "location": "IC Room 6",
@@ -10498,7 +10490,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.59,
-                "battery_discharge_rate": 0.00075,
+                "battery_discharge_rate": 0.00015000000000000001,
                 "id": 3,
                 "local_plan": null,
                 "location": "IC Room 2",
@@ -10519,7 +10511,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.2,
-                "battery_discharge_rate": 0.00055,
+                "battery_discharge_rate": 0.00011,
                 "id": 4,
                 "local_plan": null,
                 "location": "PC Room 7",
@@ -10556,8 +10548,52 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.68,
-                "battery_discharge_rate": 0.00055,
+                "battery_discharge_rate": 0.00011,
                 "id": 0,
+                "local_plan": null,
+                "location": "PC Room 5",
+                "position": [
+                    -21.0,
+                    18.0,
+                    -1.57
+                ],
+                "skills": [
+                    "approach_person",
+                    "approach_robot",
+                    "authenticate_person",
+                    "deposit",
+                    "navigation",
+                    "operate_drawer",
+                    "pick_up"
+                ]
+            },
+            {
+                "avg_speed": 0.15,
+                "battery_charge": 0.79,
+                "battery_discharge_rate": 0.0001,
+                "id": 1,
+                "local_plan": null,
+                "location": "PC Room 8",
+                "position": [
+                    -11.5,
+                    18.0,
+                    -1.57
+                ],
+                "skills": [
+                    "approach_person",
+                    "approach_robot",
+                    "authenticate_person",
+                    "deposit",
+                    "navigation",
+                    "operate_drawer",
+                    "pick_up"
+                ]
+            },
+            {
+                "avg_speed": 0.15,
+                "battery_charge": 0.25,
+                "battery_discharge_rate": 0.00015000000000000001,
+                "id": 2,
                 "local_plan": [
                     [
                         "navigation",
@@ -10565,17 +10601,13 @@
                             "IC Room 4",
                             [
                                 [
-                                    -21.0,
-                                    18.0,
-                                    -1.57
-                                ],
-                                [
-                                    -21.0,
-                                    16.0
+                                    -33.9,
+                                    18.93,
+                                    3.14
                                 ],
                                 [
                                     -37.0,
-                                    16.0
+                                    18.93
                                 ],
                                 [
                                     -37.0,
@@ -10686,50 +10718,6 @@
                         ]
                     ]
                 ],
-                "location": "PC Room 5",
-                "position": [
-                    -21.0,
-                    18.0,
-                    -1.57
-                ],
-                "skills": [
-                    "approach_person",
-                    "approach_robot",
-                    "authenticate_person",
-                    "deposit",
-                    "navigation",
-                    "operate_drawer",
-                    "pick_up"
-                ]
-            },
-            {
-                "avg_speed": 0.15,
-                "battery_charge": 0.79,
-                "battery_discharge_rate": 0.0005,
-                "id": 1,
-                "local_plan": null,
-                "location": "PC Room 8",
-                "position": [
-                    -11.5,
-                    18.0,
-                    -1.57
-                ],
-                "skills": [
-                    "approach_person",
-                    "approach_robot",
-                    "authenticate_person",
-                    "deposit",
-                    "navigation",
-                    "operate_drawer",
-                    "pick_up"
-                ]
-            },
-            {
-                "avg_speed": 0.15,
-                "battery_charge": 0.25,
-                "battery_discharge_rate": 0.00075,
-                "id": 2,
-                "local_plan": null,
                 "location": "IC Room 6",
                 "position": [
                     -33.9,
@@ -10749,7 +10737,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.59,
-                "battery_discharge_rate": 0.00095,
+                "battery_discharge_rate": 0.00019,
                 "id": 3,
                 "local_plan": null,
                 "location": "IC Room 2",
@@ -10770,7 +10758,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.2,
-                "battery_discharge_rate": 0.0007,
+                "battery_discharge_rate": 0.00014000000000000001,
                 "id": 4,
                 "local_plan": null,
                 "location": "PC Room 7",
@@ -10807,8 +10795,52 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.68,
-                "battery_discharge_rate": 0.00055,
+                "battery_discharge_rate": 0.00011,
                 "id": 0,
+                "local_plan": null,
+                "location": "PC Room 5",
+                "position": [
+                    -21.0,
+                    18.0,
+                    -1.57
+                ],
+                "skills": [
+                    "approach_person",
+                    "approach_robot",
+                    "authenticate_person",
+                    "deposit",
+                    "navigation",
+                    "operate_drawer",
+                    "pick_up"
+                ]
+            },
+            {
+                "avg_speed": 0.15,
+                "battery_charge": 0.79,
+                "battery_discharge_rate": 0.00014000000000000001,
+                "id": 1,
+                "local_plan": null,
+                "location": "PC Room 8",
+                "position": [
+                    -11.5,
+                    18.0,
+                    -1.57
+                ],
+                "skills": [
+                    "approach_person",
+                    "approach_robot",
+                    "authenticate_person",
+                    "deposit",
+                    "navigation",
+                    "operate_drawer",
+                    "pick_up"
+                ]
+            },
+            {
+                "avg_speed": 0.15,
+                "battery_charge": 0.25,
+                "battery_discharge_rate": 0.00012000000000000002,
+                "id": 2,
                 "local_plan": [
                     [
                         "navigation",
@@ -10816,17 +10848,13 @@
                             "IC Room 4",
                             [
                                 [
-                                    -21.0,
-                                    18.0,
-                                    -1.57
-                                ],
-                                [
-                                    -21.0,
-                                    16.0
+                                    -33.9,
+                                    18.93,
+                                    3.14
                                 ],
                                 [
                                     -37.0,
-                                    16.0
+                                    18.93
                                 ],
                                 [
                                     -37.0,
@@ -10937,50 +10965,6 @@
                         ]
                     ]
                 ],
-                "location": "PC Room 5",
-                "position": [
-                    -21.0,
-                    18.0,
-                    -1.57
-                ],
-                "skills": [
-                    "approach_person",
-                    "approach_robot",
-                    "authenticate_person",
-                    "deposit",
-                    "navigation",
-                    "operate_drawer",
-                    "pick_up"
-                ]
-            },
-            {
-                "avg_speed": 0.15,
-                "battery_charge": 0.79,
-                "battery_discharge_rate": 0.0007,
-                "id": 1,
-                "local_plan": null,
-                "location": "PC Room 8",
-                "position": [
-                    -11.5,
-                    18.0,
-                    -1.57
-                ],
-                "skills": [
-                    "approach_person",
-                    "approach_robot",
-                    "authenticate_person",
-                    "deposit",
-                    "navigation",
-                    "operate_drawer",
-                    "pick_up"
-                ]
-            },
-            {
-                "avg_speed": 0.15,
-                "battery_charge": 0.25,
-                "battery_discharge_rate": 0.0006000000000000001,
-                "id": 2,
-                "local_plan": null,
                 "location": "IC Room 6",
                 "position": [
                     -33.9,
@@ -11000,7 +10984,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.59,
-                "battery_discharge_rate": 0.0008,
+                "battery_discharge_rate": 0.00016,
                 "id": 3,
                 "local_plan": null,
                 "location": "IC Room 2",
@@ -11021,7 +11005,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.2,
-                "battery_discharge_rate": 0.00075,
+                "battery_discharge_rate": 0.00015000000000000001,
                 "id": 4,
                 "local_plan": null,
                 "location": "PC Room 7",
@@ -11058,7 +11042,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.37,
-                "battery_discharge_rate": 0.0009000000000000001,
+                "battery_discharge_rate": 0.00018,
                 "id": 0,
                 "local_plan": null,
                 "location": "IC Room 4",
@@ -11080,7 +11064,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.54,
-                "battery_discharge_rate": 0.0007,
+                "battery_discharge_rate": 0.00014000000000000001,
                 "id": 1,
                 "local_plan": [
                     [
@@ -11221,7 +11205,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.23,
-                "battery_discharge_rate": 0.0008,
+                "battery_discharge_rate": 0.00016,
                 "id": 2,
                 "local_plan": null,
                 "location": "PC Room 4",
@@ -11243,7 +11227,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.21,
-                "battery_discharge_rate": 0.00075,
+                "battery_discharge_rate": 0.00015000000000000001,
                 "id": 3,
                 "local_plan": null,
                 "location": "PC Room 3",
@@ -11264,7 +11248,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.62,
-                "battery_discharge_rate": 0.00055,
+                "battery_discharge_rate": 0.00011,
                 "id": 4,
                 "local_plan": null,
                 "location": "IC Room 3",
@@ -11301,7 +11285,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.37,
-                "battery_discharge_rate": 0.00055,
+                "battery_discharge_rate": 0.00011,
                 "id": 0,
                 "local_plan": null,
                 "location": "IC Room 4",
@@ -11323,7 +11307,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.54,
-                "battery_discharge_rate": 0.0005,
+                "battery_discharge_rate": 0.0001,
                 "id": 1,
                 "local_plan": [
                     [
@@ -11464,7 +11448,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.23,
-                "battery_discharge_rate": 0.00075,
+                "battery_discharge_rate": 0.00015000000000000001,
                 "id": 2,
                 "local_plan": null,
                 "location": "PC Room 4",
@@ -11486,7 +11470,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.21,
-                "battery_discharge_rate": 0.00095,
+                "battery_discharge_rate": 0.00019,
                 "id": 3,
                 "local_plan": null,
                 "location": "PC Room 3",
@@ -11507,7 +11491,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.62,
-                "battery_discharge_rate": 0.0007,
+                "battery_discharge_rate": 0.00014000000000000001,
                 "id": 4,
                 "local_plan": null,
                 "location": "IC Room 3",
@@ -11544,7 +11528,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.37,
-                "battery_discharge_rate": 0.00055,
+                "battery_discharge_rate": 0.00011,
                 "id": 0,
                 "local_plan": null,
                 "location": "IC Room 4",
@@ -11566,7 +11550,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.54,
-                "battery_discharge_rate": 0.0007,
+                "battery_discharge_rate": 0.00014000000000000001,
                 "id": 1,
                 "local_plan": [
                     [
@@ -11707,7 +11691,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.23,
-                "battery_discharge_rate": 0.0006000000000000001,
+                "battery_discharge_rate": 0.00012000000000000002,
                 "id": 2,
                 "local_plan": null,
                 "location": "PC Room 4",
@@ -11729,7 +11713,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.21,
-                "battery_discharge_rate": 0.0008,
+                "battery_discharge_rate": 0.00016,
                 "id": 3,
                 "local_plan": null,
                 "location": "PC Room 3",
@@ -11750,7 +11734,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.62,
-                "battery_discharge_rate": 0.00075,
+                "battery_discharge_rate": 0.00015000000000000001,
                 "id": 4,
                 "local_plan": null,
                 "location": "IC Room 3",
@@ -11787,7 +11771,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.22,
-                "battery_discharge_rate": 0.0009000000000000001,
+                "battery_discharge_rate": 0.00018,
                 "id": 0,
                 "local_plan": null,
                 "location": "IC Room 4",
@@ -11809,7 +11793,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.56,
-                "battery_discharge_rate": 0.0007,
+                "battery_discharge_rate": 0.00014000000000000001,
                 "id": 1,
                 "local_plan": null,
                 "location": "PC Room 5",
@@ -11831,8 +11815,51 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.55,
-                "battery_discharge_rate": 0.0008,
+                "battery_discharge_rate": 0.00016,
                 "id": 2,
+                "local_plan": null,
+                "location": "PC Room 4",
+                "position": [
+                    -27.23,
+                    18.0,
+                    -1.57
+                ],
+                "skills": [
+                    "approach_person",
+                    "approach_robot",
+                    "authenticate_person",
+                    "deposit",
+                    "navigation",
+                    "operate_drawer",
+                    "pick_up"
+                ]
+            },
+            {
+                "avg_speed": 0.15,
+                "battery_charge": 0.44,
+                "battery_discharge_rate": 0.00015000000000000001,
+                "id": 3,
+                "local_plan": null,
+                "location": "PC Room 3",
+                "position": [
+                    -28.5,
+                    18.0,
+                    -1.57
+                ],
+                "skills": [
+                    "approach_person",
+                    "approach_robot",
+                    "authenticate_person",
+                    "deposit",
+                    "navigation",
+                    "pick_up"
+                ]
+            },
+            {
+                "avg_speed": 0.15,
+                "battery_charge": 0.15,
+                "battery_discharge_rate": 0.00011,
+                "id": 4,
                 "local_plan": [
                     [
                         "navigation",
@@ -11840,17 +11867,13 @@
                             "IC Room 6",
                             [
                                 [
-                                    -27.23,
-                                    18.0,
-                                    -1.57
-                                ],
-                                [
-                                    -27.23,
-                                    16.0
+                                    -40.23,
+                                    25.37,
+                                    0.0
                                 ],
                                 [
                                     -37.0,
-                                    16.0
+                                    25.37
                                 ],
                                 [
                                     -37.0,
@@ -11961,49 +11984,6 @@
                         ]
                     ]
                 ],
-                "location": "PC Room 4",
-                "position": [
-                    -27.23,
-                    18.0,
-                    -1.57
-                ],
-                "skills": [
-                    "approach_person",
-                    "approach_robot",
-                    "authenticate_person",
-                    "deposit",
-                    "navigation",
-                    "operate_drawer",
-                    "pick_up"
-                ]
-            },
-            {
-                "avg_speed": 0.15,
-                "battery_charge": 0.44,
-                "battery_discharge_rate": 0.00075,
-                "id": 3,
-                "local_plan": null,
-                "location": "PC Room 3",
-                "position": [
-                    -28.5,
-                    18.0,
-                    -1.57
-                ],
-                "skills": [
-                    "approach_person",
-                    "approach_robot",
-                    "authenticate_person",
-                    "deposit",
-                    "navigation",
-                    "pick_up"
-                ]
-            },
-            {
-                "avg_speed": 0.15,
-                "battery_charge": 0.15,
-                "battery_discharge_rate": 0.00055,
-                "id": 4,
-                "local_plan": null,
                 "location": "IC Room 3",
                 "position": [
                     -40.23,
@@ -12038,7 +12018,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.22,
-                "battery_discharge_rate": 0.00055,
+                "battery_discharge_rate": 0.00011,
                 "id": 0,
                 "local_plan": null,
                 "location": "IC Room 4",
@@ -12060,7 +12040,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.56,
-                "battery_discharge_rate": 0.0005,
+                "battery_discharge_rate": 0.0001,
                 "id": 1,
                 "local_plan": null,
                 "location": "PC Room 5",
@@ -12082,8 +12062,51 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.55,
-                "battery_discharge_rate": 0.00075,
+                "battery_discharge_rate": 0.00015000000000000001,
                 "id": 2,
+                "local_plan": null,
+                "location": "PC Room 4",
+                "position": [
+                    -27.23,
+                    18.0,
+                    -1.57
+                ],
+                "skills": [
+                    "approach_person",
+                    "approach_robot",
+                    "authenticate_person",
+                    "deposit",
+                    "navigation",
+                    "operate_drawer",
+                    "pick_up"
+                ]
+            },
+            {
+                "avg_speed": 0.15,
+                "battery_charge": 0.44,
+                "battery_discharge_rate": 0.00019,
+                "id": 3,
+                "local_plan": null,
+                "location": "PC Room 3",
+                "position": [
+                    -28.5,
+                    18.0,
+                    -1.57
+                ],
+                "skills": [
+                    "approach_person",
+                    "approach_robot",
+                    "authenticate_person",
+                    "deposit",
+                    "navigation",
+                    "pick_up"
+                ]
+            },
+            {
+                "avg_speed": 0.15,
+                "battery_charge": 0.15,
+                "battery_discharge_rate": 0.00014000000000000001,
+                "id": 4,
                 "local_plan": [
                     [
                         "navigation",
@@ -12091,17 +12114,13 @@
                             "IC Room 6",
                             [
                                 [
-                                    -27.23,
-                                    18.0,
-                                    -1.57
-                                ],
-                                [
-                                    -27.23,
-                                    16.0
+                                    -40.23,
+                                    25.37,
+                                    0.0
                                 ],
                                 [
                                     -37.0,
-                                    16.0
+                                    25.37
                                 ],
                                 [
                                     -37.0,
@@ -12212,49 +12231,6 @@
                         ]
                     ]
                 ],
-                "location": "PC Room 4",
-                "position": [
-                    -27.23,
-                    18.0,
-                    -1.57
-                ],
-                "skills": [
-                    "approach_person",
-                    "approach_robot",
-                    "authenticate_person",
-                    "deposit",
-                    "navigation",
-                    "operate_drawer",
-                    "pick_up"
-                ]
-            },
-            {
-                "avg_speed": 0.15,
-                "battery_charge": 0.44,
-                "battery_discharge_rate": 0.00095,
-                "id": 3,
-                "local_plan": null,
-                "location": "PC Room 3",
-                "position": [
-                    -28.5,
-                    18.0,
-                    -1.57
-                ],
-                "skills": [
-                    "approach_person",
-                    "approach_robot",
-                    "authenticate_person",
-                    "deposit",
-                    "navigation",
-                    "pick_up"
-                ]
-            },
-            {
-                "avg_speed": 0.15,
-                "battery_charge": 0.15,
-                "battery_discharge_rate": 0.0007,
-                "id": 4,
-                "local_plan": null,
                 "location": "IC Room 3",
                 "position": [
                     -40.23,
@@ -12289,7 +12265,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.22,
-                "battery_discharge_rate": 0.00055,
+                "battery_discharge_rate": 0.00011,
                 "id": 0,
                 "local_plan": null,
                 "location": "IC Room 4",
@@ -12311,7 +12287,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.56,
-                "battery_discharge_rate": 0.0007,
+                "battery_discharge_rate": 0.00014000000000000001,
                 "id": 1,
                 "local_plan": [
                     [
@@ -12452,7 +12428,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.55,
-                "battery_discharge_rate": 0.0006000000000000001,
+                "battery_discharge_rate": 0.00012000000000000002,
                 "id": 2,
                 "local_plan": null,
                 "location": "PC Room 4",
@@ -12474,7 +12450,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.44,
-                "battery_discharge_rate": 0.0008,
+                "battery_discharge_rate": 0.00016,
                 "id": 3,
                 "local_plan": null,
                 "location": "PC Room 3",
@@ -12495,7 +12471,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.15,
-                "battery_discharge_rate": 0.00075,
+                "battery_discharge_rate": 0.00015000000000000001,
                 "id": 4,
                 "local_plan": null,
                 "location": "IC Room 3",
@@ -12532,7 +12508,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.68,
-                "battery_discharge_rate": 0.0009000000000000001,
+                "battery_discharge_rate": 0.00018,
                 "id": 0,
                 "local_plan": null,
                 "location": "IC Room 4",
@@ -12554,7 +12530,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.79,
-                "battery_discharge_rate": 0.0007,
+                "battery_discharge_rate": 0.00014000000000000001,
                 "id": 1,
                 "local_plan": [
                     [
@@ -12695,7 +12671,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.25,
-                "battery_discharge_rate": 0.0008,
+                "battery_discharge_rate": 0.00016,
                 "id": 2,
                 "local_plan": null,
                 "location": "PC Room 4",
@@ -12717,7 +12693,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.59,
-                "battery_discharge_rate": 0.00075,
+                "battery_discharge_rate": 0.00015000000000000001,
                 "id": 3,
                 "local_plan": null,
                 "location": "PC Room 3",
@@ -12738,7 +12714,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.2,
-                "battery_discharge_rate": 0.00055,
+                "battery_discharge_rate": 0.00011,
                 "id": 4,
                 "local_plan": null,
                 "location": "IC Room 3",
@@ -12775,7 +12751,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.68,
-                "battery_discharge_rate": 0.00055,
+                "battery_discharge_rate": 0.00011,
                 "id": 0,
                 "local_plan": null,
                 "location": "IC Room 4",
@@ -12797,7 +12773,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.79,
-                "battery_discharge_rate": 0.0005,
+                "battery_discharge_rate": 0.0001,
                 "id": 1,
                 "local_plan": null,
                 "location": "PC Room 5",
@@ -12819,7 +12795,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.25,
-                "battery_discharge_rate": 0.00075,
+                "battery_discharge_rate": 0.00015000000000000001,
                 "id": 2,
                 "local_plan": null,
                 "location": "PC Room 4",
@@ -12841,7 +12817,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.59,
-                "battery_discharge_rate": 0.00095,
+                "battery_discharge_rate": 0.00019,
                 "id": 3,
                 "local_plan": null,
                 "location": "PC Room 3",
@@ -12862,7 +12838,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.2,
-                "battery_discharge_rate": 0.0007,
+                "battery_discharge_rate": 0.00014000000000000001,
                 "id": 4,
                 "local_plan": [
                     [
@@ -13022,7 +12998,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.68,
-                "battery_discharge_rate": 0.00055,
+                "battery_discharge_rate": 0.00011,
                 "id": 0,
                 "local_plan": [
                     [
@@ -13167,7 +13143,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.79,
-                "battery_discharge_rate": 0.0007,
+                "battery_discharge_rate": 0.00014000000000000001,
                 "id": 1,
                 "local_plan": null,
                 "location": "PC Room 5",
@@ -13189,7 +13165,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.25,
-                "battery_discharge_rate": 0.0006000000000000001,
+                "battery_discharge_rate": 0.00012000000000000002,
                 "id": 2,
                 "local_plan": null,
                 "location": "PC Room 4",
@@ -13211,7 +13187,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.59,
-                "battery_discharge_rate": 0.0008,
+                "battery_discharge_rate": 0.00016,
                 "id": 3,
                 "local_plan": null,
                 "location": "PC Room 3",
@@ -13232,7 +13208,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.2,
-                "battery_discharge_rate": 0.00075,
+                "battery_discharge_rate": 0.00015000000000000001,
                 "id": 4,
                 "local_plan": null,
                 "location": "IC Room 3",
@@ -13269,7 +13245,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.37,
-                "battery_discharge_rate": 0.0009000000000000001,
+                "battery_discharge_rate": 0.00018,
                 "id": 0,
                 "local_plan": null,
                 "location": "PC Room 6",
@@ -13291,7 +13267,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.54,
-                "battery_discharge_rate": 0.0007,
+                "battery_discharge_rate": 0.00014000000000000001,
                 "id": 1,
                 "local_plan": null,
                 "location": "IC Room 5",
@@ -13313,7 +13289,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.23,
-                "battery_discharge_rate": 0.0008,
+                "battery_discharge_rate": 0.00016,
                 "id": 2,
                 "local_plan": [
                     [
@@ -13454,7 +13430,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.21,
-                "battery_discharge_rate": 0.00075,
+                "battery_discharge_rate": 0.00015000000000000001,
                 "id": 3,
                 "local_plan": null,
                 "location": "PC Room 5",
@@ -13476,7 +13452,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.62,
-                "battery_discharge_rate": 0.00055,
+                "battery_discharge_rate": 0.00011,
                 "id": 4,
                 "local_plan": null,
                 "location": "IC Room 3",
@@ -13513,7 +13489,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.37,
-                "battery_discharge_rate": 0.00055,
+                "battery_discharge_rate": 0.00011,
                 "id": 0,
                 "local_plan": null,
                 "location": "PC Room 6",
@@ -13535,7 +13511,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.54,
-                "battery_discharge_rate": 0.0005,
+                "battery_discharge_rate": 0.0001,
                 "id": 1,
                 "local_plan": null,
                 "location": "IC Room 5",
@@ -13557,7 +13533,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.23,
-                "battery_discharge_rate": 0.00075,
+                "battery_discharge_rate": 0.00015000000000000001,
                 "id": 2,
                 "local_plan": null,
                 "location": "PC Room 8",
@@ -13579,7 +13555,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.21,
-                "battery_discharge_rate": 0.00095,
+                "battery_discharge_rate": 0.00019,
                 "id": 3,
                 "local_plan": null,
                 "location": "PC Room 5",
@@ -13601,7 +13577,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.62,
-                "battery_discharge_rate": 0.0007,
+                "battery_discharge_rate": 0.00014000000000000001,
                 "id": 4,
                 "local_plan": [
                     [
@@ -13761,7 +13737,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.37,
-                "battery_discharge_rate": 0.00055,
+                "battery_discharge_rate": 0.00011,
                 "id": 0,
                 "local_plan": null,
                 "location": "PC Room 6",
@@ -13783,7 +13759,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.54,
-                "battery_discharge_rate": 0.0007,
+                "battery_discharge_rate": 0.00014000000000000001,
                 "id": 1,
                 "local_plan": [
                     [
@@ -13928,7 +13904,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.23,
-                "battery_discharge_rate": 0.0006000000000000001,
+                "battery_discharge_rate": 0.00012000000000000002,
                 "id": 2,
                 "local_plan": null,
                 "location": "PC Room 8",
@@ -13950,7 +13926,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.21,
-                "battery_discharge_rate": 0.0008,
+                "battery_discharge_rate": 0.00016,
                 "id": 3,
                 "local_plan": null,
                 "location": "PC Room 5",
@@ -13972,7 +13948,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.62,
-                "battery_discharge_rate": 0.00075,
+                "battery_discharge_rate": 0.00015000000000000001,
                 "id": 4,
                 "local_plan": null,
                 "location": "IC Room 3",
@@ -14009,7 +13985,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.22,
-                "battery_discharge_rate": 0.0009000000000000001,
+                "battery_discharge_rate": 0.00018,
                 "id": 0,
                 "local_plan": null,
                 "location": "PC Room 6",
@@ -14031,8 +14007,74 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.56,
-                "battery_discharge_rate": 0.0007,
+                "battery_discharge_rate": 0.00014000000000000001,
                 "id": 1,
+                "local_plan": null,
+                "location": "IC Room 5",
+                "position": [
+                    -32.88,
+                    33.98,
+                    3.14
+                ],
+                "skills": [
+                    "approach_person",
+                    "approach_robot",
+                    "authenticate_person",
+                    "deposit",
+                    "navigation",
+                    "operate_drawer",
+                    "pick_up"
+                ]
+            },
+            {
+                "avg_speed": 0.15,
+                "battery_charge": 0.55,
+                "battery_discharge_rate": 0.00016,
+                "id": 2,
+                "local_plan": null,
+                "location": "PC Room 8",
+                "position": [
+                    -11.5,
+                    18.0,
+                    -1.57
+                ],
+                "skills": [
+                    "approach_person",
+                    "approach_robot",
+                    "authenticate_person",
+                    "deposit",
+                    "navigation",
+                    "operate_drawer",
+                    "pick_up"
+                ]
+            },
+            {
+                "avg_speed": 0.15,
+                "battery_charge": 0.44,
+                "battery_discharge_rate": 0.00015000000000000001,
+                "id": 3,
+                "local_plan": null,
+                "location": "PC Room 5",
+                "position": [
+                    -21.0,
+                    18.0,
+                    -1.57
+                ],
+                "skills": [
+                    "approach_person",
+                    "approach_robot",
+                    "authenticate_person",
+                    "deposit",
+                    "navigation",
+                    "operate_drawer",
+                    "pick_up"
+                ]
+            },
+            {
+                "avg_speed": 0.15,
+                "battery_charge": 0.15,
+                "battery_discharge_rate": 0.00011,
+                "id": 4,
                 "local_plan": [
                     [
                         "navigation",
@@ -14040,13 +14082,13 @@
                             "IC Room 6",
                             [
                                 [
-                                    -32.88,
-                                    33.98,
-                                    3.14
+                                    -40.23,
+                                    25.37,
+                                    0.0
                                 ],
                                 [
                                     -37.0,
-                                    33.98
+                                    25.37
                                 ],
                                 [
                                     -37.0,
@@ -14157,72 +14199,6 @@
                         ]
                     ]
                 ],
-                "location": "IC Room 5",
-                "position": [
-                    -32.88,
-                    33.98,
-                    3.14
-                ],
-                "skills": [
-                    "approach_person",
-                    "approach_robot",
-                    "authenticate_person",
-                    "deposit",
-                    "navigation",
-                    "operate_drawer",
-                    "pick_up"
-                ]
-            },
-            {
-                "avg_speed": 0.15,
-                "battery_charge": 0.55,
-                "battery_discharge_rate": 0.0008,
-                "id": 2,
-                "local_plan": null,
-                "location": "PC Room 8",
-                "position": [
-                    -11.5,
-                    18.0,
-                    -1.57
-                ],
-                "skills": [
-                    "approach_person",
-                    "approach_robot",
-                    "authenticate_person",
-                    "deposit",
-                    "navigation",
-                    "operate_drawer",
-                    "pick_up"
-                ]
-            },
-            {
-                "avg_speed": 0.15,
-                "battery_charge": 0.44,
-                "battery_discharge_rate": 0.00075,
-                "id": 3,
-                "local_plan": null,
-                "location": "PC Room 5",
-                "position": [
-                    -21.0,
-                    18.0,
-                    -1.57
-                ],
-                "skills": [
-                    "approach_person",
-                    "approach_robot",
-                    "authenticate_person",
-                    "deposit",
-                    "navigation",
-                    "operate_drawer",
-                    "pick_up"
-                ]
-            },
-            {
-                "avg_speed": 0.15,
-                "battery_charge": 0.15,
-                "battery_discharge_rate": 0.00055,
-                "id": 4,
-                "local_plan": null,
                 "location": "IC Room 3",
                 "position": [
                     -40.23,
@@ -14257,7 +14233,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.22,
-                "battery_discharge_rate": 0.00055,
+                "battery_discharge_rate": 0.00011,
                 "id": 0,
                 "local_plan": null,
                 "location": "PC Room 6",
@@ -14279,8 +14255,74 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.56,
-                "battery_discharge_rate": 0.0005,
+                "battery_discharge_rate": 0.0001,
                 "id": 1,
+                "local_plan": null,
+                "location": "IC Room 5",
+                "position": [
+                    -32.88,
+                    33.98,
+                    3.14
+                ],
+                "skills": [
+                    "approach_person",
+                    "approach_robot",
+                    "authenticate_person",
+                    "deposit",
+                    "navigation",
+                    "operate_drawer",
+                    "pick_up"
+                ]
+            },
+            {
+                "avg_speed": 0.15,
+                "battery_charge": 0.55,
+                "battery_discharge_rate": 0.00015000000000000001,
+                "id": 2,
+                "local_plan": null,
+                "location": "PC Room 8",
+                "position": [
+                    -11.5,
+                    18.0,
+                    -1.57
+                ],
+                "skills": [
+                    "approach_person",
+                    "approach_robot",
+                    "authenticate_person",
+                    "deposit",
+                    "navigation",
+                    "operate_drawer",
+                    "pick_up"
+                ]
+            },
+            {
+                "avg_speed": 0.15,
+                "battery_charge": 0.44,
+                "battery_discharge_rate": 0.00019,
+                "id": 3,
+                "local_plan": null,
+                "location": "PC Room 5",
+                "position": [
+                    -21.0,
+                    18.0,
+                    -1.57
+                ],
+                "skills": [
+                    "approach_person",
+                    "approach_robot",
+                    "authenticate_person",
+                    "deposit",
+                    "navigation",
+                    "operate_drawer",
+                    "pick_up"
+                ]
+            },
+            {
+                "avg_speed": 0.15,
+                "battery_charge": 0.15,
+                "battery_discharge_rate": 0.00014000000000000001,
+                "id": 4,
                 "local_plan": [
                     [
                         "navigation",
@@ -14288,13 +14330,13 @@
                             "IC Room 6",
                             [
                                 [
-                                    -32.88,
-                                    33.98,
-                                    3.14
+                                    -40.23,
+                                    25.37,
+                                    0.0
                                 ],
                                 [
                                     -37.0,
-                                    33.98
+                                    25.37
                                 ],
                                 [
                                     -37.0,
@@ -14405,72 +14447,6 @@
                         ]
                     ]
                 ],
-                "location": "IC Room 5",
-                "position": [
-                    -32.88,
-                    33.98,
-                    3.14
-                ],
-                "skills": [
-                    "approach_person",
-                    "approach_robot",
-                    "authenticate_person",
-                    "deposit",
-                    "navigation",
-                    "operate_drawer",
-                    "pick_up"
-                ]
-            },
-            {
-                "avg_speed": 0.15,
-                "battery_charge": 0.55,
-                "battery_discharge_rate": 0.00075,
-                "id": 2,
-                "local_plan": null,
-                "location": "PC Room 8",
-                "position": [
-                    -11.5,
-                    18.0,
-                    -1.57
-                ],
-                "skills": [
-                    "approach_person",
-                    "approach_robot",
-                    "authenticate_person",
-                    "deposit",
-                    "navigation",
-                    "operate_drawer",
-                    "pick_up"
-                ]
-            },
-            {
-                "avg_speed": 0.15,
-                "battery_charge": 0.44,
-                "battery_discharge_rate": 0.00095,
-                "id": 3,
-                "local_plan": null,
-                "location": "PC Room 5",
-                "position": [
-                    -21.0,
-                    18.0,
-                    -1.57
-                ],
-                "skills": [
-                    "approach_person",
-                    "approach_robot",
-                    "authenticate_person",
-                    "deposit",
-                    "navigation",
-                    "operate_drawer",
-                    "pick_up"
-                ]
-            },
-            {
-                "avg_speed": 0.15,
-                "battery_charge": 0.15,
-                "battery_discharge_rate": 0.0007,
-                "id": 4,
-                "local_plan": null,
                 "location": "IC Room 3",
                 "position": [
                     -40.23,
@@ -14505,7 +14481,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.22,
-                "battery_discharge_rate": 0.00055,
+                "battery_discharge_rate": 0.00011,
                 "id": 0,
                 "local_plan": null,
                 "location": "PC Room 6",
@@ -14527,8 +14503,74 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.56,
-                "battery_discharge_rate": 0.0007,
+                "battery_discharge_rate": 0.00014000000000000001,
                 "id": 1,
+                "local_plan": null,
+                "location": "IC Room 5",
+                "position": [
+                    -32.88,
+                    33.98,
+                    3.14
+                ],
+                "skills": [
+                    "approach_person",
+                    "approach_robot",
+                    "authenticate_person",
+                    "deposit",
+                    "navigation",
+                    "operate_drawer",
+                    "pick_up"
+                ]
+            },
+            {
+                "avg_speed": 0.15,
+                "battery_charge": 0.55,
+                "battery_discharge_rate": 0.00012000000000000002,
+                "id": 2,
+                "local_plan": null,
+                "location": "PC Room 8",
+                "position": [
+                    -11.5,
+                    18.0,
+                    -1.57
+                ],
+                "skills": [
+                    "approach_person",
+                    "approach_robot",
+                    "authenticate_person",
+                    "deposit",
+                    "navigation",
+                    "operate_drawer",
+                    "pick_up"
+                ]
+            },
+            {
+                "avg_speed": 0.15,
+                "battery_charge": 0.44,
+                "battery_discharge_rate": 0.00016,
+                "id": 3,
+                "local_plan": null,
+                "location": "PC Room 5",
+                "position": [
+                    -21.0,
+                    18.0,
+                    -1.57
+                ],
+                "skills": [
+                    "approach_person",
+                    "approach_robot",
+                    "authenticate_person",
+                    "deposit",
+                    "navigation",
+                    "operate_drawer",
+                    "pick_up"
+                ]
+            },
+            {
+                "avg_speed": 0.15,
+                "battery_charge": 0.15,
+                "battery_discharge_rate": 0.00015000000000000001,
+                "id": 4,
                 "local_plan": [
                     [
                         "navigation",
@@ -14536,13 +14578,13 @@
                             "IC Room 2",
                             [
                                 [
-                                    -32.88,
-                                    33.98,
-                                    3.14
+                                    -40.23,
+                                    25.37,
+                                    0.0
                                 ],
                                 [
                                     -37.0,
-                                    33.98
+                                    25.37
                                 ],
                                 [
                                     -37.0,
@@ -14653,72 +14695,6 @@
                         ]
                     ]
                 ],
-                "location": "IC Room 5",
-                "position": [
-                    -32.88,
-                    33.98,
-                    3.14
-                ],
-                "skills": [
-                    "approach_person",
-                    "approach_robot",
-                    "authenticate_person",
-                    "deposit",
-                    "navigation",
-                    "operate_drawer",
-                    "pick_up"
-                ]
-            },
-            {
-                "avg_speed": 0.15,
-                "battery_charge": 0.55,
-                "battery_discharge_rate": 0.0006000000000000001,
-                "id": 2,
-                "local_plan": null,
-                "location": "PC Room 8",
-                "position": [
-                    -11.5,
-                    18.0,
-                    -1.57
-                ],
-                "skills": [
-                    "approach_person",
-                    "approach_robot",
-                    "authenticate_person",
-                    "deposit",
-                    "navigation",
-                    "operate_drawer",
-                    "pick_up"
-                ]
-            },
-            {
-                "avg_speed": 0.15,
-                "battery_charge": 0.44,
-                "battery_discharge_rate": 0.0008,
-                "id": 3,
-                "local_plan": null,
-                "location": "PC Room 5",
-                "position": [
-                    -21.0,
-                    18.0,
-                    -1.57
-                ],
-                "skills": [
-                    "approach_person",
-                    "approach_robot",
-                    "authenticate_person",
-                    "deposit",
-                    "navigation",
-                    "operate_drawer",
-                    "pick_up"
-                ]
-            },
-            {
-                "avg_speed": 0.15,
-                "battery_charge": 0.15,
-                "battery_discharge_rate": 0.00075,
-                "id": 4,
-                "local_plan": null,
                 "location": "IC Room 3",
                 "position": [
                     -40.23,
@@ -14753,7 +14729,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.68,
-                "battery_discharge_rate": 0.0009000000000000001,
+                "battery_discharge_rate": 0.00018,
                 "id": 0,
                 "local_plan": null,
                 "location": "PC Room 6",
@@ -14775,7 +14751,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.79,
-                "battery_discharge_rate": 0.0007,
+                "battery_discharge_rate": 0.00014000000000000001,
                 "id": 1,
                 "local_plan": null,
                 "location": "IC Room 5",
@@ -14797,7 +14773,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.25,
-                "battery_discharge_rate": 0.0008,
+                "battery_discharge_rate": 0.00016,
                 "id": 2,
                 "local_plan": null,
                 "location": "PC Room 8",
@@ -14819,7 +14795,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.59,
-                "battery_discharge_rate": 0.00075,
+                "battery_discharge_rate": 0.00015000000000000001,
                 "id": 3,
                 "local_plan": [
                     [
@@ -14960,7 +14936,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.2,
-                "battery_discharge_rate": 0.00055,
+                "battery_discharge_rate": 0.00011,
                 "id": 4,
                 "local_plan": null,
                 "location": "IC Room 3",
@@ -14997,7 +14973,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.68,
-                "battery_discharge_rate": 0.00055,
+                "battery_discharge_rate": 0.00011,
                 "id": 0,
                 "local_plan": null,
                 "location": "PC Room 6",
@@ -15019,7 +14995,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.79,
-                "battery_discharge_rate": 0.0005,
+                "battery_discharge_rate": 0.0001,
                 "id": 1,
                 "local_plan": [
                     [
@@ -15164,7 +15140,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.25,
-                "battery_discharge_rate": 0.00075,
+                "battery_discharge_rate": 0.00015000000000000001,
                 "id": 2,
                 "local_plan": null,
                 "location": "PC Room 8",
@@ -15186,7 +15162,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.59,
-                "battery_discharge_rate": 0.00095,
+                "battery_discharge_rate": 0.00019,
                 "id": 3,
                 "local_plan": null,
                 "location": "PC Room 5",
@@ -15208,7 +15184,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.2,
-                "battery_discharge_rate": 0.0007,
+                "battery_discharge_rate": 0.00014000000000000001,
                 "id": 4,
                 "local_plan": null,
                 "location": "IC Room 3",
@@ -15245,7 +15221,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.68,
-                "battery_discharge_rate": 0.00055,
+                "battery_discharge_rate": 0.00011,
                 "id": 0,
                 "local_plan": null,
                 "location": "PC Room 6",
@@ -15267,7 +15243,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.79,
-                "battery_discharge_rate": 0.0007,
+                "battery_discharge_rate": 0.00014000000000000001,
                 "id": 1,
                 "local_plan": null,
                 "location": "IC Room 5",
@@ -15289,7 +15265,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.25,
-                "battery_discharge_rate": 0.0006000000000000001,
+                "battery_discharge_rate": 0.00012000000000000002,
                 "id": 2,
                 "local_plan": [
                     [
@@ -15430,7 +15406,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.59,
-                "battery_discharge_rate": 0.0008,
+                "battery_discharge_rate": 0.00016,
                 "id": 3,
                 "local_plan": null,
                 "location": "PC Room 5",
@@ -15452,7 +15428,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.2,
-                "battery_discharge_rate": 0.00075,
+                "battery_discharge_rate": 0.00015000000000000001,
                 "id": 4,
                 "local_plan": null,
                 "location": "IC Room 3",
@@ -15489,7 +15465,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.37,
-                "battery_discharge_rate": 0.0009000000000000001,
+                "battery_discharge_rate": 0.00018,
                 "id": 0,
                 "local_plan": null,
                 "location": "PC Room 5",
@@ -15511,7 +15487,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.54,
-                "battery_discharge_rate": 0.0007,
+                "battery_discharge_rate": 0.00014000000000000001,
                 "id": 1,
                 "local_plan": null,
                 "location": "PC Room 8",
@@ -15533,7 +15509,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.23,
-                "battery_discharge_rate": 0.0008,
+                "battery_discharge_rate": 0.00016,
                 "id": 2,
                 "local_plan": null,
                 "location": "IC Room 6",
@@ -15555,30 +15531,8 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.21,
-                "battery_discharge_rate": 0.00075,
+                "battery_discharge_rate": 0.00015000000000000001,
                 "id": 3,
-                "local_plan": null,
-                "location": "IC Room 2",
-                "position": [
-                    -38.0,
-                    21.5,
-                    0.0
-                ],
-                "skills": [
-                    "approach_person",
-                    "approach_robot",
-                    "authenticate_person",
-                    "deposit",
-                    "navigation",
-                    "operate_drawer",
-                    "pick_up"
-                ]
-            },
-            {
-                "avg_speed": 0.15,
-                "battery_charge": 0.62,
-                "battery_discharge_rate": 0.00055,
-                "id": 4,
                 "local_plan": [
                     [
                         "navigation",
@@ -15586,17 +15540,13 @@
                             "IC Room 4",
                             [
                                 [
-                                    -13.5,
-                                    18.0,
-                                    -1.57
-                                ],
-                                [
-                                    -13.5,
-                                    16.0
+                                    -38.0,
+                                    21.5,
+                                    0.0
                                 ],
                                 [
                                     -37.0,
-                                    16.0
+                                    21.5
                                 ],
                                 [
                                     -37.0,
@@ -15707,6 +15657,28 @@
                         ]
                     ]
                 ],
+                "location": "IC Room 2",
+                "position": [
+                    -38.0,
+                    21.5,
+                    0.0
+                ],
+                "skills": [
+                    "approach_person",
+                    "approach_robot",
+                    "authenticate_person",
+                    "deposit",
+                    "navigation",
+                    "operate_drawer",
+                    "pick_up"
+                ]
+            },
+            {
+                "avg_speed": 0.15,
+                "battery_charge": 0.62,
+                "battery_discharge_rate": 0.00011,
+                "id": 4,
+                "local_plan": null,
                 "location": "PC Room 7",
                 "position": [
                     -13.5,
@@ -15741,7 +15713,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.37,
-                "battery_discharge_rate": 0.00055,
+                "battery_discharge_rate": 0.00011,
                 "id": 0,
                 "local_plan": [
                     [
@@ -15882,7 +15854,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.54,
-                "battery_discharge_rate": 0.0005,
+                "battery_discharge_rate": 0.0001,
                 "id": 1,
                 "local_plan": null,
                 "location": "PC Room 8",
@@ -15904,7 +15876,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.23,
-                "battery_discharge_rate": 0.00075,
+                "battery_discharge_rate": 0.00015000000000000001,
                 "id": 2,
                 "local_plan": null,
                 "location": "IC Room 6",
@@ -15926,7 +15898,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.21,
-                "battery_discharge_rate": 0.00095,
+                "battery_discharge_rate": 0.00019,
                 "id": 3,
                 "local_plan": null,
                 "location": "IC Room 2",
@@ -15948,7 +15920,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.62,
-                "battery_discharge_rate": 0.0007,
+                "battery_discharge_rate": 0.00014000000000000001,
                 "id": 4,
                 "local_plan": null,
                 "location": "PC Room 7",
@@ -15985,7 +15957,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.37,
-                "battery_discharge_rate": 0.00055,
+                "battery_discharge_rate": 0.00011,
                 "id": 0,
                 "local_plan": [
                     [
@@ -16126,7 +16098,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.54,
-                "battery_discharge_rate": 0.0007,
+                "battery_discharge_rate": 0.00014000000000000001,
                 "id": 1,
                 "local_plan": null,
                 "location": "PC Room 8",
@@ -16148,7 +16120,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.23,
-                "battery_discharge_rate": 0.0006000000000000001,
+                "battery_discharge_rate": 0.00012000000000000002,
                 "id": 2,
                 "local_plan": null,
                 "location": "IC Room 6",
@@ -16170,7 +16142,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.21,
-                "battery_discharge_rate": 0.0008,
+                "battery_discharge_rate": 0.00016,
                 "id": 3,
                 "local_plan": null,
                 "location": "IC Room 2",
@@ -16192,7 +16164,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.62,
-                "battery_discharge_rate": 0.00075,
+                "battery_discharge_rate": 0.00015000000000000001,
                 "id": 4,
                 "local_plan": null,
                 "location": "PC Room 7",
@@ -16229,7 +16201,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.22,
-                "battery_discharge_rate": 0.0009000000000000001,
+                "battery_discharge_rate": 0.00018,
                 "id": 0,
                 "local_plan": [
                     [
@@ -16370,7 +16342,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.56,
-                "battery_discharge_rate": 0.0007,
+                "battery_discharge_rate": 0.00014000000000000001,
                 "id": 1,
                 "local_plan": null,
                 "location": "PC Room 8",
@@ -16392,7 +16364,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.55,
-                "battery_discharge_rate": 0.0008,
+                "battery_discharge_rate": 0.00016,
                 "id": 2,
                 "local_plan": null,
                 "location": "IC Room 6",
@@ -16414,7 +16386,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.44,
-                "battery_discharge_rate": 0.00075,
+                "battery_discharge_rate": 0.00015000000000000001,
                 "id": 3,
                 "local_plan": null,
                 "location": "IC Room 2",
@@ -16436,7 +16408,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.15,
-                "battery_discharge_rate": 0.00055,
+                "battery_discharge_rate": 0.00011,
                 "id": 4,
                 "local_plan": null,
                 "location": "PC Room 7",
@@ -16473,7 +16445,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.22,
-                "battery_discharge_rate": 0.00055,
+                "battery_discharge_rate": 0.00011,
                 "id": 0,
                 "local_plan": [
                     [
@@ -16614,7 +16586,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.56,
-                "battery_discharge_rate": 0.0005,
+                "battery_discharge_rate": 0.0001,
                 "id": 1,
                 "local_plan": null,
                 "location": "PC Room 8",
@@ -16636,7 +16608,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.55,
-                "battery_discharge_rate": 0.00075,
+                "battery_discharge_rate": 0.00015000000000000001,
                 "id": 2,
                 "local_plan": null,
                 "location": "IC Room 6",
@@ -16658,7 +16630,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.44,
-                "battery_discharge_rate": 0.00095,
+                "battery_discharge_rate": 0.00019,
                 "id": 3,
                 "local_plan": null,
                 "location": "IC Room 2",
@@ -16680,7 +16652,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.15,
-                "battery_discharge_rate": 0.0007,
+                "battery_discharge_rate": 0.00014000000000000001,
                 "id": 4,
                 "local_plan": null,
                 "location": "PC Room 7",
@@ -16717,7 +16689,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.22,
-                "battery_discharge_rate": 0.00055,
+                "battery_discharge_rate": 0.00011,
                 "id": 0,
                 "local_plan": [
                     [
@@ -16858,7 +16830,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.56,
-                "battery_discharge_rate": 0.0007,
+                "battery_discharge_rate": 0.00014000000000000001,
                 "id": 1,
                 "local_plan": null,
                 "location": "PC Room 8",
@@ -16880,7 +16852,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.55,
-                "battery_discharge_rate": 0.0006000000000000001,
+                "battery_discharge_rate": 0.00012000000000000002,
                 "id": 2,
                 "local_plan": null,
                 "location": "IC Room 6",
@@ -16902,7 +16874,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.44,
-                "battery_discharge_rate": 0.0008,
+                "battery_discharge_rate": 0.00016,
                 "id": 3,
                 "local_plan": null,
                 "location": "IC Room 2",
@@ -16924,7 +16896,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.15,
-                "battery_discharge_rate": 0.00075,
+                "battery_discharge_rate": 0.00015000000000000001,
                 "id": 4,
                 "local_plan": null,
                 "location": "PC Room 7",
@@ -16961,7 +16933,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.68,
-                "battery_discharge_rate": 0.0009000000000000001,
+                "battery_discharge_rate": 0.00018,
                 "id": 0,
                 "local_plan": [
                     [
@@ -17102,7 +17074,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.79,
-                "battery_discharge_rate": 0.0007,
+                "battery_discharge_rate": 0.00014000000000000001,
                 "id": 1,
                 "local_plan": null,
                 "location": "PC Room 8",
@@ -17124,7 +17096,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.25,
-                "battery_discharge_rate": 0.0008,
+                "battery_discharge_rate": 0.00016,
                 "id": 2,
                 "local_plan": null,
                 "location": "IC Room 6",
@@ -17146,7 +17118,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.59,
-                "battery_discharge_rate": 0.00075,
+                "battery_discharge_rate": 0.00015000000000000001,
                 "id": 3,
                 "local_plan": null,
                 "location": "IC Room 2",
@@ -17168,7 +17140,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.2,
-                "battery_discharge_rate": 0.00055,
+                "battery_discharge_rate": 0.00011,
                 "id": 4,
                 "local_plan": null,
                 "location": "PC Room 7",
@@ -17205,7 +17177,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.68,
-                "battery_discharge_rate": 0.00055,
+                "battery_discharge_rate": 0.00011,
                 "id": 0,
                 "local_plan": [
                     [
@@ -17346,7 +17318,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.79,
-                "battery_discharge_rate": 0.0005,
+                "battery_discharge_rate": 0.0001,
                 "id": 1,
                 "local_plan": null,
                 "location": "PC Room 8",
@@ -17368,7 +17340,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.25,
-                "battery_discharge_rate": 0.00075,
+                "battery_discharge_rate": 0.00015000000000000001,
                 "id": 2,
                 "local_plan": null,
                 "location": "IC Room 6",
@@ -17390,7 +17362,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.59,
-                "battery_discharge_rate": 0.00095,
+                "battery_discharge_rate": 0.00019,
                 "id": 3,
                 "local_plan": null,
                 "location": "IC Room 2",
@@ -17412,7 +17384,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.2,
-                "battery_discharge_rate": 0.0007,
+                "battery_discharge_rate": 0.00014000000000000001,
                 "id": 4,
                 "local_plan": null,
                 "location": "PC Room 7",
@@ -17449,7 +17421,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.68,
-                "battery_discharge_rate": 0.00055,
+                "battery_discharge_rate": 0.00011,
                 "id": 0,
                 "local_plan": null,
                 "location": "PC Room 5",
@@ -17471,7 +17443,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.79,
-                "battery_discharge_rate": 0.0007,
+                "battery_discharge_rate": 0.00014000000000000001,
                 "id": 1,
                 "local_plan": null,
                 "location": "PC Room 8",
@@ -17493,7 +17465,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.25,
-                "battery_discharge_rate": 0.0006000000000000001,
+                "battery_discharge_rate": 0.00012000000000000002,
                 "id": 2,
                 "local_plan": null,
                 "location": "IC Room 6",
@@ -17515,7 +17487,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.59,
-                "battery_discharge_rate": 0.0008,
+                "battery_discharge_rate": 0.00016,
                 "id": 3,
                 "local_plan": [
                     [
@@ -17660,7 +17632,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.2,
-                "battery_discharge_rate": 0.00075,
+                "battery_discharge_rate": 0.00015000000000000001,
                 "id": 4,
                 "local_plan": null,
                 "location": "PC Room 7",
@@ -17697,7 +17669,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.37,
-                "battery_discharge_rate": 0.0009000000000000001,
+                "battery_discharge_rate": 0.00018,
                 "id": 0,
                 "local_plan": [
                     [
@@ -17842,7 +17814,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.54,
-                "battery_discharge_rate": 0.0007,
+                "battery_discharge_rate": 0.00014000000000000001,
                 "id": 1,
                 "local_plan": null,
                 "location": "PC Room 5",
@@ -17864,7 +17836,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.23,
-                "battery_discharge_rate": 0.0008,
+                "battery_discharge_rate": 0.00016,
                 "id": 2,
                 "local_plan": null,
                 "location": "PC Room 4",
@@ -17886,7 +17858,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.21,
-                "battery_discharge_rate": 0.00075,
+                "battery_discharge_rate": 0.00015000000000000001,
                 "id": 3,
                 "local_plan": null,
                 "location": "PC Room 3",
@@ -17908,7 +17880,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.62,
-                "battery_discharge_rate": 0.00055,
+                "battery_discharge_rate": 0.00011,
                 "id": 4,
                 "local_plan": null,
                 "location": "IC Room 3",
@@ -17945,7 +17917,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.37,
-                "battery_discharge_rate": 0.00055,
+                "battery_discharge_rate": 0.00011,
                 "id": 0,
                 "local_plan": null,
                 "location": "IC Room 4",
@@ -17967,7 +17939,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.54,
-                "battery_discharge_rate": 0.0005,
+                "battery_discharge_rate": 0.0001,
                 "id": 1,
                 "local_plan": [
                     [
@@ -18108,7 +18080,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.23,
-                "battery_discharge_rate": 0.00075,
+                "battery_discharge_rate": 0.00015000000000000001,
                 "id": 2,
                 "local_plan": null,
                 "location": "PC Room 4",
@@ -18130,7 +18102,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.21,
-                "battery_discharge_rate": 0.00095,
+                "battery_discharge_rate": 0.00019,
                 "id": 3,
                 "local_plan": null,
                 "location": "PC Room 3",
@@ -18152,7 +18124,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.62,
-                "battery_discharge_rate": 0.0007,
+                "battery_discharge_rate": 0.00014000000000000001,
                 "id": 4,
                 "local_plan": null,
                 "location": "IC Room 3",
@@ -18189,7 +18161,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.37,
-                "battery_discharge_rate": 0.00055,
+                "battery_discharge_rate": 0.00011,
                 "id": 0,
                 "local_plan": null,
                 "location": "IC Room 4",
@@ -18211,7 +18183,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.54,
-                "battery_discharge_rate": 0.0007,
+                "battery_discharge_rate": 0.00014000000000000001,
                 "id": 1,
                 "local_plan": [
                     [
@@ -18352,7 +18324,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.23,
-                "battery_discharge_rate": 0.0006000000000000001,
+                "battery_discharge_rate": 0.00012000000000000002,
                 "id": 2,
                 "local_plan": null,
                 "location": "PC Room 4",
@@ -18374,7 +18346,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.21,
-                "battery_discharge_rate": 0.0008,
+                "battery_discharge_rate": 0.00016,
                 "id": 3,
                 "local_plan": null,
                 "location": "PC Room 3",
@@ -18396,7 +18368,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.62,
-                "battery_discharge_rate": 0.00075,
+                "battery_discharge_rate": 0.00015000000000000001,
                 "id": 4,
                 "local_plan": null,
                 "location": "IC Room 3",
@@ -18433,74 +18405,8 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.22,
-                "battery_discharge_rate": 0.0009000000000000001,
+                "battery_discharge_rate": 0.00018,
                 "id": 0,
-                "local_plan": null,
-                "location": "IC Room 4",
-                "position": [
-                    -39.44,
-                    33.95,
-                    0.0
-                ],
-                "skills": [
-                    "approach_person",
-                    "approach_robot",
-                    "authenticate_person",
-                    "deposit",
-                    "navigation",
-                    "operate_drawer",
-                    "pick_up"
-                ]
-            },
-            {
-                "avg_speed": 0.15,
-                "battery_charge": 0.56,
-                "battery_discharge_rate": 0.0007,
-                "id": 1,
-                "local_plan": null,
-                "location": "PC Room 5",
-                "position": [
-                    -21.0,
-                    18.0,
-                    -1.57
-                ],
-                "skills": [
-                    "approach_person",
-                    "approach_robot",
-                    "authenticate_person",
-                    "deposit",
-                    "navigation",
-                    "operate_drawer",
-                    "pick_up"
-                ]
-            },
-            {
-                "avg_speed": 0.15,
-                "battery_charge": 0.55,
-                "battery_discharge_rate": 0.0008,
-                "id": 2,
-                "local_plan": null,
-                "location": "PC Room 4",
-                "position": [
-                    -27.23,
-                    18.0,
-                    -1.57
-                ],
-                "skills": [
-                    "approach_person",
-                    "approach_robot",
-                    "authenticate_person",
-                    "deposit",
-                    "navigation",
-                    "operate_drawer",
-                    "pick_up"
-                ]
-            },
-            {
-                "avg_speed": 0.15,
-                "battery_charge": 0.44,
-                "battery_discharge_rate": 0.00075,
-                "id": 3,
                 "local_plan": [
                     [
                         "navigation",
@@ -18508,17 +18414,13 @@
                             "IC Room 5",
                             [
                                 [
-                                    -28.5,
-                                    18.0,
-                                    -1.57
-                                ],
-                                [
-                                    -28.5,
-                                    16.0
+                                    -39.44,
+                                    33.95,
+                                    0.0
                                 ],
                                 [
                                     -37.0,
-                                    16.0
+                                    33.95
                                 ],
                                 [
                                     -37.0,
@@ -18629,6 +18531,72 @@
                         ]
                     ]
                 ],
+                "location": "IC Room 4",
+                "position": [
+                    -39.44,
+                    33.95,
+                    0.0
+                ],
+                "skills": [
+                    "approach_person",
+                    "approach_robot",
+                    "authenticate_person",
+                    "deposit",
+                    "navigation",
+                    "operate_drawer",
+                    "pick_up"
+                ]
+            },
+            {
+                "avg_speed": 0.15,
+                "battery_charge": 0.56,
+                "battery_discharge_rate": 0.00014000000000000001,
+                "id": 1,
+                "local_plan": null,
+                "location": "PC Room 5",
+                "position": [
+                    -21.0,
+                    18.0,
+                    -1.57
+                ],
+                "skills": [
+                    "approach_person",
+                    "approach_robot",
+                    "authenticate_person",
+                    "deposit",
+                    "navigation",
+                    "operate_drawer",
+                    "pick_up"
+                ]
+            },
+            {
+                "avg_speed": 0.15,
+                "battery_charge": 0.55,
+                "battery_discharge_rate": 0.00016,
+                "id": 2,
+                "local_plan": null,
+                "location": "PC Room 4",
+                "position": [
+                    -27.23,
+                    18.0,
+                    -1.57
+                ],
+                "skills": [
+                    "approach_person",
+                    "approach_robot",
+                    "authenticate_person",
+                    "deposit",
+                    "navigation",
+                    "operate_drawer",
+                    "pick_up"
+                ]
+            },
+            {
+                "avg_speed": 0.15,
+                "battery_charge": 0.44,
+                "battery_discharge_rate": 0.00015000000000000001,
+                "id": 3,
+                "local_plan": null,
                 "location": "PC Room 3",
                 "position": [
                     -28.5,
@@ -18648,7 +18616,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.15,
-                "battery_discharge_rate": 0.00055,
+                "battery_discharge_rate": 0.00011,
                 "id": 4,
                 "local_plan": null,
                 "location": "IC Room 3",
@@ -18685,7 +18653,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.22,
-                "battery_discharge_rate": 0.00055,
+                "battery_discharge_rate": 0.00011,
                 "id": 0,
                 "local_plan": null,
                 "location": "IC Room 4",
@@ -18707,7 +18675,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.56,
-                "battery_discharge_rate": 0.0005,
+                "battery_discharge_rate": 0.0001,
                 "id": 1,
                 "local_plan": [
                     [
@@ -18848,7 +18816,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.55,
-                "battery_discharge_rate": 0.00075,
+                "battery_discharge_rate": 0.00015000000000000001,
                 "id": 2,
                 "local_plan": null,
                 "location": "PC Room 4",
@@ -18870,7 +18838,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.44,
-                "battery_discharge_rate": 0.00095,
+                "battery_discharge_rate": 0.00019,
                 "id": 3,
                 "local_plan": null,
                 "location": "PC Room 3",
@@ -18892,7 +18860,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.15,
-                "battery_discharge_rate": 0.0007,
+                "battery_discharge_rate": 0.00014000000000000001,
                 "id": 4,
                 "local_plan": null,
                 "location": "IC Room 3",
@@ -18929,7 +18897,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.22,
-                "battery_discharge_rate": 0.00055,
+                "battery_discharge_rate": 0.00011,
                 "id": 0,
                 "local_plan": null,
                 "location": "IC Room 4",
@@ -18951,7 +18919,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.56,
-                "battery_discharge_rate": 0.0007,
+                "battery_discharge_rate": 0.00014000000000000001,
                 "id": 1,
                 "local_plan": null,
                 "location": "PC Room 5",
@@ -18973,7 +18941,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.55,
-                "battery_discharge_rate": 0.0006000000000000001,
+                "battery_discharge_rate": 0.00012000000000000002,
                 "id": 2,
                 "local_plan": null,
                 "location": "PC Room 4",
@@ -18995,8 +18963,30 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.44,
-                "battery_discharge_rate": 0.0008,
+                "battery_discharge_rate": 0.00016,
                 "id": 3,
+                "local_plan": null,
+                "location": "PC Room 3",
+                "position": [
+                    -28.5,
+                    18.0,
+                    -1.57
+                ],
+                "skills": [
+                    "approach_person",
+                    "approach_robot",
+                    "authenticate_person",
+                    "deposit",
+                    "navigation",
+                    "operate_drawer",
+                    "pick_up"
+                ]
+            },
+            {
+                "avg_speed": 0.15,
+                "battery_charge": 0.15,
+                "battery_discharge_rate": 0.00015000000000000001,
+                "id": 4,
                 "local_plan": [
                     [
                         "navigation",
@@ -19004,17 +18994,13 @@
                             "IC Room 6",
                             [
                                 [
-                                    -28.5,
-                                    18.0,
-                                    -1.57
-                                ],
-                                [
-                                    -28.5,
-                                    16.0
+                                    -40.23,
+                                    25.37,
+                                    0.0
                                 ],
                                 [
                                     -37.0,
-                                    16.0
+                                    25.37
                                 ],
                                 [
                                     -37.0,
@@ -19125,28 +19111,6 @@
                         ]
                     ]
                 ],
-                "location": "PC Room 3",
-                "position": [
-                    -28.5,
-                    18.0,
-                    -1.57
-                ],
-                "skills": [
-                    "approach_person",
-                    "approach_robot",
-                    "authenticate_person",
-                    "deposit",
-                    "navigation",
-                    "operate_drawer",
-                    "pick_up"
-                ]
-            },
-            {
-                "avg_speed": 0.15,
-                "battery_charge": 0.15,
-                "battery_discharge_rate": 0.00075,
-                "id": 4,
-                "local_plan": null,
                 "location": "IC Room 3",
                 "position": [
                     -40.23,
@@ -19181,7 +19145,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.68,
-                "battery_discharge_rate": 0.0009000000000000001,
+                "battery_discharge_rate": 0.00018,
                 "id": 0,
                 "local_plan": [
                     [
@@ -19326,7 +19290,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.79,
-                "battery_discharge_rate": 0.0007,
+                "battery_discharge_rate": 0.00014000000000000001,
                 "id": 1,
                 "local_plan": null,
                 "location": "PC Room 5",
@@ -19348,7 +19312,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.25,
-                "battery_discharge_rate": 0.0008,
+                "battery_discharge_rate": 0.00016,
                 "id": 2,
                 "local_plan": null,
                 "location": "PC Room 4",
@@ -19370,7 +19334,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.59,
-                "battery_discharge_rate": 0.00075,
+                "battery_discharge_rate": 0.00015000000000000001,
                 "id": 3,
                 "local_plan": null,
                 "location": "PC Room 3",
@@ -19392,7 +19356,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.2,
-                "battery_discharge_rate": 0.00055,
+                "battery_discharge_rate": 0.00011,
                 "id": 4,
                 "local_plan": null,
                 "location": "IC Room 3",
@@ -19429,7 +19393,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.68,
-                "battery_discharge_rate": 0.00055,
+                "battery_discharge_rate": 0.00011,
                 "id": 0,
                 "local_plan": [
                     [
@@ -19574,7 +19538,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.79,
-                "battery_discharge_rate": 0.0005,
+                "battery_discharge_rate": 0.0001,
                 "id": 1,
                 "local_plan": null,
                 "location": "PC Room 5",
@@ -19596,7 +19560,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.25,
-                "battery_discharge_rate": 0.00075,
+                "battery_discharge_rate": 0.00015000000000000001,
                 "id": 2,
                 "local_plan": null,
                 "location": "PC Room 4",
@@ -19618,7 +19582,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.59,
-                "battery_discharge_rate": 0.00095,
+                "battery_discharge_rate": 0.00019,
                 "id": 3,
                 "local_plan": null,
                 "location": "PC Room 3",
@@ -19640,7 +19604,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.2,
-                "battery_discharge_rate": 0.0007,
+                "battery_discharge_rate": 0.00014000000000000001,
                 "id": 4,
                 "local_plan": null,
                 "location": "IC Room 3",
@@ -19677,7 +19641,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.68,
-                "battery_discharge_rate": 0.00055,
+                "battery_discharge_rate": 0.00011,
                 "id": 0,
                 "local_plan": null,
                 "location": "IC Room 4",
@@ -19699,7 +19663,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.79,
-                "battery_discharge_rate": 0.0007,
+                "battery_discharge_rate": 0.00014000000000000001,
                 "id": 1,
                 "local_plan": null,
                 "location": "PC Room 5",
@@ -19721,7 +19685,7 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.25,
-                "battery_discharge_rate": 0.0006000000000000001,
+                "battery_discharge_rate": 0.00012000000000000002,
                 "id": 2,
                 "local_plan": null,
                 "location": "PC Room 4",
@@ -19743,8 +19707,30 @@
             {
                 "avg_speed": 0.15,
                 "battery_charge": 0.59,
-                "battery_discharge_rate": 0.0008,
+                "battery_discharge_rate": 0.00016,
                 "id": 3,
+                "local_plan": null,
+                "location": "PC Room 3",
+                "position": [
+                    -28.5,
+                    18.0,
+                    -1.57
+                ],
+                "skills": [
+                    "approach_person",
+                    "approach_robot",
+                    "authenticate_person",
+                    "deposit",
+                    "navigation",
+                    "operate_drawer",
+                    "pick_up"
+                ]
+            },
+            {
+                "avg_speed": 0.15,
+                "battery_charge": 0.2,
+                "battery_discharge_rate": 0.00015000000000000001,
+                "id": 4,
                 "local_plan": [
                     [
                         "navigation",
@@ -19752,17 +19738,13 @@
                             "IC Room 6",
                             [
                                 [
-                                    -28.5,
-                                    18.0,
-                                    -1.57
-                                ],
-                                [
-                                    -28.5,
-                                    16.0
+                                    -40.23,
+                                    25.37,
+                                    0.0
                                 ],
                                 [
                                     -37.0,
-                                    16.0
+                                    25.37
                                 ],
                                 [
                                     -37.0,
@@ -19873,28 +19855,6 @@
                         ]
                     ]
                 ],
-                "location": "PC Room 3",
-                "position": [
-                    -28.5,
-                    18.0,
-                    -1.57
-                ],
-                "skills": [
-                    "approach_person",
-                    "approach_robot",
-                    "authenticate_person",
-                    "deposit",
-                    "navigation",
-                    "operate_drawer",
-                    "pick_up"
-                ]
-            },
-            {
-                "avg_speed": 0.15,
-                "battery_charge": 0.2,
-                "battery_discharge_rate": 0.00075,
-                "id": 4,
-                "local_plan": null,
                 "location": "IC Room 3",
                 "position": [
                     -40.23,
