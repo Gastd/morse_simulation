@@ -337,7 +337,7 @@ class Experiment(object):
         start = time.time()
         runtime = time.time()
         self.clear_log_file()
-        call simulation and watch timeout
+        # call simulation and watch timeout
         while (runtime - start) <= self.simulation_timeout_s and self.endsim == False:
            time.sleep(1)
            runtime = time.time()
