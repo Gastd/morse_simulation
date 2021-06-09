@@ -454,7 +454,7 @@ class Experiment(object):
         with open(current_path+'/log/experiment.log', 'r') as file:
             print("Checking simulation...")
             lines = file.readlines()
-            print(lines)
+            # print(lines)
             alllines = ''
             for line in lines:
                 alllines = alllines+line
