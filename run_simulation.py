@@ -285,6 +285,22 @@ class Experiment(object):
         self.config_file = config_file
         self.simulation_timeout_s = 15*60
         self.load_trials(self.config_file)
+        self.relocate_nurse = {
+            "PC Room 1": [-2, -2],
+            "PC Room 2": [-2, -2],
+            "PC Room 3": [-2, +2],
+            "PC Room 4": [+2, +2],
+            "PC Room 5": [-2, +2],
+            "PC Room 6": [+2, +2],
+            "PC Room 7": [-2, +2],
+            "PC Room 8": [+2, +2],
+            "IC Room 1": [-2, +2],
+            "IC Room 2": [-2, -2],
+            "IC Room 3": [-2, +2],
+            "IC Room 4": [-2, -2],
+            "IC Room 5": [+2, -2],
+            "IC Room 6": [+2, +2],
+        }
         self.endsim = ''
         self.chose_robot = ""
         self.n_timeout = 0
@@ -451,6 +467,20 @@ class Experiment(object):
             # if alllines.count('LOW BATTERY') >= 5:
             #     self.endsim = True
 
+    def get_nurse_new_pos(nurse_idx):
+        nurse_pos = self.nurses_config[0]["position"]
+        nurse_loc = self.nurses_config[0]["location"]
+        x = 0
+        y = 1
+        new_nurse_pos = []
+        new_nurse_pos.append(nurse_pos[x] + self.relocate_nurse[nurse_loc][x])
+        new_nurse_pos.append(nurse_pos[y] + self.relocate_nurse[nurse_loc][y])
+
+        print("Relocating nurse from "+str(nurse_pos)+" to "+str(new_nurse_pos))
+        nurse_pos[x] = new_nurse_pos[x]
+        nurse_pos[y] = new_nurse_pos[y]
+        return nurse_pos
+
     def create_env_file(self, n_trial):
         self.env_name = "sim.env"
         curr_path = os.getcwd()+'/'
@@ -462,10 +492,8 @@ class Experiment(object):
             if r_config["local_plan"] != None:  self.chose_robot = "turtlebot"+str(r_id)
         
         with open(file_path, "w") as ef:
-            nurse_pos = self.nurses_config[0]["position"]
+            nurse_pos = self.get_nurse_new_pos(0)
             print(str(nurse_pos))
-            nurse_pos[0] = nurse_pos[0] + 1.0
-            nurse_pos[1] = nurse_pos[1] + 1.0
             nurse_str = str(nurse_pos).replace(',',';')
             ef.write("TRIAL="+str(n_trial)+'\n')
             ef.write('\n')
