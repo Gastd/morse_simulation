@@ -467,7 +467,7 @@ class Experiment(object):
             # if alllines.count('LOW BATTERY') >= 5:
             #     self.endsim = True
 
-    def get_nurse_new_pos(nurse_idx):
+    def get_nurse_new_pos(self, nurse_idx):
         nurse_pos = self.nurses_config[0]["position"]
         nurse_loc = self.nurses_config[0]["location"]
         x = 0
