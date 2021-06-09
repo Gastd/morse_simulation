@@ -687,9 +687,9 @@ def choose_poses(n_robots):
 
 xp1 = Experiment("experiment_baseline_trials.json")
 # xp1 = Experiment("experiment_planned_trials.json")
-xp1.run_simulation()
+# xp1.run_simulation()
 # xp1.run_some_simulations([9, 17, 34, 63, 73, 75])
-# xp1.run_all_simulations()
+xp1.run_all_simulations()
 
 # print(str(r1))
 # print(str(r2))
