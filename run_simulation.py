@@ -333,6 +333,7 @@ class Experiment(object):
         self.create_robots()
         self.save_compose_file()
         print("STARTING SIMULATION...")
+        '''
         self.start_simulation()
         start = time.time()
         runtime = time.time()
@@ -348,6 +349,7 @@ class Experiment(object):
         print(f"Runtime of the simulation is {end - start}")
         self.save_log_file(idx, end - start)
         self.save_table_file()
+        '''
 
     def run_some_simulations(self, sim_list):
         print("RUNNING %d TRIALS FOR THIS EXPERIMENT"%len(self.config))
@@ -687,9 +689,9 @@ def choose_poses(n_robots):
 
 xp1 = Experiment("experiment_baseline_trials.json")
 # xp1 = Experiment("experiment_planned_trials.json")
-# xp1.run_simulation()
+xp1.run_simulation()
 # xp1.run_some_simulations([9, 17, 34, 63, 73, 75])
-xp1.run_all_simulations()
+# xp1.run_all_simulations()
 
 # print(str(r1))
 # print(str(r2))
