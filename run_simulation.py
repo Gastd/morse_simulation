@@ -256,7 +256,7 @@ class Robot(object):
                 '~/.config/pulse/cookie:/root/.config/pulse/cookie',
                 './docker/py_trees_ros_behaviors:/ros_ws/src/py_trees_ros_behaviors/'
                 ],
-            'environment': ["ROS_HOSTNAME="+cointainer_name, "ROS_MASTER_URI=http://master:11311", "ROBOT_NAME=turtlebot"+str(self.id), "SKILLS="+str(self.skills), "ROBOT_CONFIG="+json.dumps(self.config)],
+            'environment': ["ROS_HOSTNAME="+cointainer_name, "ROS_MASTER_URI=http://master:11311", "ROBOT_NAME=r"+str(self.id), "SKILLS="+str(self.skills), "ROBOT_CONFIG="+json.dumps(self.config)],
             # 'command': '/bin/bash -c "source /ros_ws/devel/setup.bash && roslaunch motion_ctrl base_navigation.launch & rosrun topic_tools relay /move_base_simple/goal /turtlebot1/move_base_simple/goal"'
             'command': '/bin/bash -c "colcon build && source /ros_ws/install/setup.bash && ros2 launch py_trees_ros_behaviors tutorial_seven_docking_cancelling_failing_launch.py"',
             'tty': True,
@@ -276,11 +276,11 @@ class Trials(object):
         
 class Experiment(object):
     """docstring for Experiment"""
-    def __init__(self, config_file="experiment_trials.json"):
+    def __init__(self, config_file="experiment_trials.json", xp_id=0):
         super(Experiment, self).__init__()
         self.sim_process = None
         self.docker_compose = dict()
-        self.xp_id = 0
+        self.xp_id = xp_id
         self.nrobots = 0
         self.config_file = config_file
         self.simulation_timeout_s = 15*60
@@ -426,7 +426,8 @@ class Experiment(object):
         with open(current_path+'/log/experiment.log', 'r') as file:
             print("Saving log file as: " + current_path+f'/log/experiment1_trial{run}.log')
             lines = file.readlines()
-            file_path = current_path+f'/log/experiment1_trial{run}.log' if run > 10 else current_path+f'/log/experiment1_trial0{run}.log'
+            # file_path = current_path+f'/log/experiment1_trial{run}.log' if run > 10 else current_path+f'/log/experiment1_trial0{run}.log'
+            file_path = current_path+'/log/experiment{:0>2d}_trial{:0>2d}.log'.format(self.xp_id, run)
             with open(file_path, 'w') as logfile:
                 for line in lines:
                     logfile.write(line)
@@ -448,7 +449,7 @@ class Experiment(object):
 
     def save_bag_file(self, run):
         current_date = datetime.datetime.today().strftime('%H-%M-%S-%d-%b-%Y')
-        os.rename(current_path+'/log/bag.bag', current_path+f'/log/exp1_trial{run}_{current_date}.bag')
+        os.rename(current_path+'/log/bag.bag', current_path+f'/log/exp{self.xp_id}_trial{run}_{current_date}.bag')
 
     def check_end_simulation(self):
         with open(current_path+'/log/experiment.log', 'r') as file:
@@ -489,7 +490,7 @@ class Experiment(object):
         self.chose_robot = ""
         for r_config in self.robots_config:
             r_id = r_config["id"]+1
-            if r_config["local_plan"] != None:  self.chose_robot = "turtlebot"+str(r_id)
+            if r_config["local_plan"] != None:  self.chose_robot = "r"+str(r_id)
         
         with open(file_path, "w") as ef:
             nurse_pos = self.get_nurse_new_pos(0)
@@ -506,7 +507,7 @@ class Experiment(object):
             for robot in self.robots_config:
                 # name
                 id_str = (robot["id"]+1)
-                ef.write('ROBOT_NAME_%d=turtlebot%d\n'%(id_str,id_str))
+                ef.write('ROBOT_NAME_%d=r%d\n'%(id_str,id_str))
                 # pose
                 yaw = random.uniform(-math.pi, math.pi)
                 # pose_str = str(get_pose(robot["location"])).replace(',',';')
@@ -685,11 +686,11 @@ def choose_poses(n_robots):
 # r5 = Robot(5, robot_pose[4], robot_batt_levels[0][4], available_capabilities)
 # robots = [r1, r2, r3]
 
-xp1 = Experiment("experiment_baseline_trials.json")
-# xp1 = Experiment("experiment_planned_trials.json")
+# xp1 = Experiment("experiment_baseline_trials.json")
+xp1 = Experiment("experiment_planned_trials.json", 1)
 # xp1.run_simulation()
-# xp1.run_some_simulations([9, 17, 34, 63, 73, 75])
-xp1.run_all_simulations()
+xp1.run_some_simulations([49])
+# xp1.run_all_simulations()
 
 # print(str(r1))
 # print(str(r2))
