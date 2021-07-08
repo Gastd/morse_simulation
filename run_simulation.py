@@ -323,6 +323,16 @@ class Experiment(object):
         self.nurses_config = self.config[0]["nurses"]
         self.robots_config = self.config[0]["robots"]
 
+    def prepare_environment(self):
+        self.endsim = False
+        idx = 0
+        self.nurses_config = self.config[idx]["nurses"]
+        self.robots_config = self.config[idx]["robots"]
+        self.create_env_file(self.config[idx]["id"])
+        self.create_dockers()
+        self.create_robots()
+        self.save_compose_file()
+
     def run_simulation(self):
         self.endsim = False
         idx = 0
@@ -688,9 +698,10 @@ def choose_poses(n_robots):
 
 xp1 = Experiment("experiment_baseline_trials.json")
 # xp1 = Experiment("experiment_planned_trials.json")
-xp1.run_simulation()
+xp1.prepare_environment()
+# xp1.run_simulation()
 # xp1.run_some_simulations([9, 17, 34, 63, 73, 75])
-# xp1.run_all_simulations()
+xp1.run_all_simulations()
 
 # print(str(r1))
 # print(str(r2))
