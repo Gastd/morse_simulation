@@ -256,7 +256,7 @@ class Robot(object):
                 '~/.config/pulse/cookie:/root/.config/pulse/cookie',
                 './docker/py_trees_ros_behaviors:/ros_ws/src/py_trees_ros_behaviors/'
                 ],
-            'environment': ["ROS_HOSTNAME="+cointainer_name, "ROS_MASTER_URI=http://master:11311", "ROBOT_NAME=r"+str(self.id), "SKILLS="+str(self.skills), "ROBOT_CONFIG="+json.dumps(self.config)],
+            'environment': ["ROS_HOSTNAME="+cointainer_name, "ROS_MASTER_URI=http://master:11311", "ROBOT_NAME=turtlebot"+str(self.id), "SKILLS="+str(self.skills), "ROBOT_CONFIG="+json.dumps(self.config)],
             # 'command': '/bin/bash -c "source /ros_ws/devel/setup.bash && roslaunch motion_ctrl base_navigation.launch & rosrun topic_tools relay /move_base_simple/goal /turtlebot1/move_base_simple/goal"'
             'command': '/bin/bash -c "colcon build && source /ros_ws/install/setup.bash && ros2 launch py_trees_ros_behaviors tutorial_seven_docking_cancelling_failing_launch.py"',
             'tty': True,
@@ -286,20 +286,20 @@ class Experiment(object):
         self.simulation_timeout_s = 15*60
         self.load_trials(self.config_file)
         self.relocate_nurse = {
-            "PC Room 1": [-2, -2],
-            "PC Room 2": [-2, -2],
-            "PC Room 3": [-2, +2],
-            "PC Room 4": [+2, +2],
-            "PC Room 5": [-2, +2],
-            "PC Room 6": [+2, +2],
-            "PC Room 7": [-2, +2],
-            "PC Room 8": [+2, +2],
-            "IC Room 1": [-2, +2],
-            "IC Room 2": [-2, -2],
-            "IC Room 3": [-2, +2],
-            "IC Room 4": [-2, -2],
-            "IC Room 5": [+2, -2],
-            "IC Room 6": [+2, +2],
+            "PC Room 1": [-1, -1],
+            "PC Room 2": [-1, -1],
+            "PC Room 3": [-1, +1],
+            "PC Room 4": [+1, +1],
+            "PC Room 5": [-1, +1],
+            "PC Room 6": [+1, +1],
+            "PC Room 7": [-1, +1],
+            "PC Room 8": [+1, +1],
+            "IC Room 1": [-1, +1],
+            "IC Room 2": [-1, -1],
+            "IC Room 3": [-1, +1],
+            "IC Room 4": [-1, -1],
+            "IC Room 5": [+1, -1],
+            "IC Room 6": [+1, +1],
         }
         self.endsim = ''
         self.chose_robot = ""
@@ -500,7 +500,7 @@ class Experiment(object):
         self.chose_robot = ""
         for r_config in self.robots_config:
             r_id = r_config["id"]+1
-            if r_config["local_plan"] != None:  self.chose_robot = "r"+str(r_id)
+            if r_config["local_plan"] != None:  self.chose_robot = "turtlebot"+str(r_id)
         
         with open(file_path, "w") as ef:
             nurse_pos = self.get_nurse_new_pos(0)
@@ -517,7 +517,7 @@ class Experiment(object):
             for robot in self.robots_config:
                 # name
                 id_str = (robot["id"]+1)
-                ef.write('ROBOT_NAME_%d=r%d\n'%(id_str,id_str))
+                ef.write('ROBOT_NAME_%d=turtlebot%d\n'%(id_str,id_str))
                 # pose
                 yaw = random.uniform(-math.pi, math.pi)
                 # pose_str = str(get_pose(robot["location"])).replace(',',';')
@@ -696,12 +696,12 @@ def choose_poses(n_robots):
 # r5 = Robot(5, robot_pose[4], robot_batt_levels[0][4], available_capabilities)
 # robots = [r1, r2, r3]
 
-xp1 = Experiment("experiment_baseline_trials.json")
-# xp1 = Experiment("experiment_planned_trials.json")
+xp1 = Experiment("experiment_baseline_trials_2021_07_09_10_03_24.json", 9)
+# xp1 = Experiment("experiment_planned_trials_2021_07_09_10_03_24.json", 9)
 xp1.prepare_environment()
 # xp1.run_simulation()
 # xp1.run_some_simulations([9, 17, 34, 63, 73, 75])
-xp1.run_all_simulations()
+# xp1.run_all_simulations()
 
 # print(str(r1))
 # print(str(r2))
