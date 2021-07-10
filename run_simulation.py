@@ -701,7 +701,7 @@ xp1 = Experiment("experiment_baseline_trials_2021_07_09_10_03_24.json", 9)
 xp1.prepare_environment()
 # xp1.run_simulation()
 # xp1.run_some_simulations([9, 17, 34, 63, 73, 75])
-# xp1.run_all_simulations()
+xp1.run_all_simulations()
 
 # print(str(r1))
 # print(str(r2))
