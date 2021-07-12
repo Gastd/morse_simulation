@@ -283,7 +283,7 @@ class Experiment(object):
         self.xp_id = xp_id
         self.nrobots = 0
         self.config_file = config_file
-        self.simulation_timeout_s = 15*60
+        self.simulation_timeout_s = 45*60
         self.load_trials(self.config_file)
         self.relocate_nurse = {
             "PC Room 1": [-1, -1],
@@ -303,7 +303,8 @@ class Experiment(object):
         }
         self.endsim = ''
         self.chose_robot = ""
-        self.n_timeout = 0
+        self.n_timeout_wall = 0
+        self.n_timeout_sim = 0
         self.n_successes = 0
         self.n_bt_failures = 0
         self.n_low_battery = 0
@@ -421,9 +422,10 @@ class Experiment(object):
 
     def save_table_file(self):
         with open(current_path+'/log/experiment-'+self.current_date+'.csv', 'w') as file:
-            file.write('Type,Quantity,\n')
+            file.write('Type,Quantity\n')
             file.write('BT Failure,'+str(self.n_bt_failures)+'\n')
-            file.write('Timeout,'+str(self.n_timeout)+'\n')
+            file.write('Timeout Wall,'+str(self.n_timeout_wall)+'\n')
+            file.write('Timeout Sim,'+str(self.n_timeout_sim)+'\n')
             file.write('Low Battery,'+str(self.n_low_battery)+'\n')
             file.write('Success,'+str(self.n_successes)+'\n')
             file.write('Total,'+str(self.total)+'\n')
@@ -450,9 +452,12 @@ class Experiment(object):
                 elif self.endsim == 'low-battery':
                     logfile.write("0.0,[debug],simulation closed,"+self.endsim+',execution-wall-clock='+str(execution_time)+"\n")
                     self.n_low_battery = self.n_low_battery + 1
+                elif self.endsim == 'timeout-sim':
+                    logfile.write("0.0,[debug],simulation closed,"+self.endsim+',execution-wall-clock='+str(execution_time)+"\n")
+                    self.n_timeout_sim = self.n_timeout_sim + 1
                 else:
-                    logfile.write("0.0,[debug],simulation closed,timeout,execution-wall-clock="+str(execution_time)+"\n")
-                    self.n_timeout = self.n_timeout + 1
+                    logfile.write("0.0,[debug],simulation closed,timeout-wall,execution-wall-clock="+str(execution_time)+"\n")
+                    self.n_timeout_wall = self.n_timeout_wall + 1
                 self.total = self.total + 1
         self.clear_log_file()
         # self.save_bag_file(run)
@@ -475,6 +480,8 @@ class Experiment(object):
                     self.endsim = 'failure-bt'
                 if "ENDLOWBATT" in line:
                     self.endsim = 'low-battery'
+                if "ENDTIMEOUTSIM" in line:
+                    self.endsim = 'timeout-sim'
             # if alllines.count('LOW BATTERY') >= 5:
             #     self.endsim = True
 
@@ -696,64 +703,9 @@ def choose_poses(n_robots):
 # r5 = Robot(5, robot_pose[4], robot_batt_levels[0][4], available_capabilities)
 # robots = [r1, r2, r3]
 
-# xp1 = Experiment("experiment_baseline_trials_2021_07_09_10_03_24.json", 9)
-xp1 = Experiment("experiment_planned_trials_2021_07_09_10_03_24.json", 9)
+xp1 = Experiment("experiment_baseline_trials_2021_07_09_10_03_24.json", 9)
+# xp1 = Experiment("experiment_planned_trials_2021_07_09_10_03_24.json", 9)
 xp1.prepare_environment()
 # xp1.run_simulation()
 # xp1.run_some_simulations([9, 17, 34, 63, 73, 75])
 xp1.run_all_simulations()
-
-# print(str(r1))
-# print(str(r2))
-# print(str(r3))
-
-# print(env_path)
-# env_file = open(env_path, "w")
-# env_file.write('N_ROBOTS='+str(n_robots)+'\n')
-# for i in range(0, n_robots):
-#     # name
-#     id_str = robots[i].get_id()
-#     env_file.write('ROBOT_NAME_%d=turtlebot%d\n'%(id_str,id_str))
-#     # pose
-#     pose_str = str(robots[i].get_pose()).replace(',',';')
-#     pose_env = ("ROBOT_POSE_%d="%(id_str))+pose_str
-#     env_file.write(pose_env+'\n')
-#     # batt level
-#     batt_level_str = robots[i].get_batt_level()
-#     batt_level_env = "BATT_INIT_STATE_%d=%.2f"%(id_str,batt_level_str)
-#     env_file.write(batt_level_env+'\n')
-#     batt_slope_env = "BATT_SLOPE_STATE_%d=0.05"%(id_str)
-#     env_file.write(batt_slope_env+'\n')
-#     env_file.write('\n')
-
-# env_file.close()
-# with open(current_path+'/experiment_trials.yaml', 'w') as file:
-#     documents = yaml.dump(xp1.get_compose_file(), file)
-
-# xp1.start_simulation()
-
-# xp1.close_simulation()
-
-
-# up_docker_str = 'docker-compose -f experiment_trials.yaml up -d'
-# print('Run Simulation')
-# up_docker_tk = shlex.split(up_docker_str)
-# print(up_docker_tk)
-
-# process = subprocess.run(up_docker_tk,
-#                      stdout=subprocess.PIPE, 
-#                      stderr=subprocess.PIPE,
-#                      universal_newlines=True)
-# print(process.stdout)
-# print(process.stderr)
-
-# stop_docker_str = 'docker-compose -f experiment_trials.yaml stop'
-# stop_docker_tk = shlex.split(stop_docker_str)
-
-# print('Close Simulation')
-# process = subprocess.run(stop_docker_tk,
-#                      stdout=subprocess.PIPE, 
-#                      stderr=subprocess.PIPE,
-#                      universal_newlines=True)
-# print(process.stdout)
-# print(process.stderr)
