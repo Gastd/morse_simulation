@@ -703,8 +703,8 @@ def choose_poses(n_robots):
 # r5 = Robot(5, robot_pose[4], robot_batt_levels[0][4], available_capabilities)
 # robots = [r1, r2, r3]
 
-# xp1 = Experiment("experiment_baseline_trials_2021_07_09_10_03_24.json", 9)
-xp1 = Experiment("experiment_planned_trials_2021_07_09_10_03_24.json", 9)
+xp1 = Experiment("experiment_baseline_trials_2021_07_09_10_03_24.json", 9)
+# xp1 = Experiment("experiment_planned_trials_2021_07_09_10_03_24.json", 9)
 xp1.prepare_environment()
 # xp1.run_simulation()
 # xp1.run_some_simulations([9, 17, 34, 63, 73, 75])
