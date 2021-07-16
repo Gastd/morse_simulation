@@ -416,8 +416,8 @@ class Experiment(object):
             end = time.time()
             self.close_simulation()
             print("ENDING SIMULATION #%d..."%i)
-            print(f"Runtime of the simulation #{i} is {end - start}")
-            self.save_log_file(i, end - start)
+            print(f"Runtime of the simulation #{self.config[i]["id"]} is {end - start}")
+            self.save_log_file(self.config[i]["id"], self.config[i]["code"], end - start)
             self.save_table_file()
 
     def save_table_file(self):
@@ -434,12 +434,13 @@ class Experiment(object):
         with open(current_path+'/log/experiment.log', 'w') as file:
             file.write('')
 
-    def save_log_file(self, run, execution_time):
+    def save_log_file(self, trial_id, trial_code, execution_time):
         with open(current_path+'/log/experiment.log', 'r') as file:
-            print("Saving log file as: " + current_path+f'/log/experiment1_trial{run}.log')
+            print("Saving log file as: " + current_path+'/log/{:0>2d}_{}.log'.format(trial_id, trial_code))
             lines = file.readlines()
-            # file_path = current_path+f'/log/experiment1_trial{run}.log' if run > 10 else current_path+f'/log/experiment1_trial0{run}.log'
-            file_path = current_path+'/log/experiment{:0>2d}_trial{:0>2d}.log'.format(self.xp_id, run)
+            # file_path = current_path+f'/log/experiment1_trial{trial_id}.log' if trial_id > 10 else current_path+f'/log/experiment1_trial0{trial_id}.log'
+            # file_path = current_path+'/log/experiment{:0>2d}_trial{:0>2d}.log'.format(self.xp_id, trial_id)
+            file_path = current_path+'/log/{:0>2d}_{}.log'.format(trial_id, trial_code)
             with open(file_path, 'w') as logfile:
                 for line in lines:
                     logfile.write(line)
@@ -460,7 +461,7 @@ class Experiment(object):
                     self.n_timeout_wall = self.n_timeout_wall + 1
                 self.total = self.total + 1
         self.clear_log_file()
-        # self.save_bag_file(run)
+        # self.save_bag_file(trial_id)
 
     def save_bag_file(self, run):
         current_date = datetime.datetime.today().strftime('%H-%M-%S-%d-%b-%Y')
@@ -468,7 +469,7 @@ class Experiment(object):
 
     def check_end_simulation(self):
         with open(current_path+'/log/experiment.log', 'r') as file:
-            print("Checking simulation...")
+            # print("Checking simulation...")
             lines = file.readlines()
             # print(lines)
             alllines = ''
