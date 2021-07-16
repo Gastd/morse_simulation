@@ -398,7 +398,8 @@ class Experiment(object):
             print("RUNNING TRIALS #%d"%i)
             self.nurses_config = self.config[i]["nurses"]
             self.robots_config = self.config[i]["robots"]
-            self.create_env_file(self.config[i]["id"])
+            self.trial_id      = self.config[i]["id"]
+            self.create_env_file(self.trial_id)
             self.create_dockers()
             self.create_robots()
             self.save_compose_file()
@@ -415,8 +416,8 @@ class Experiment(object):
                 # check simulation end
             end = time.time()
             self.close_simulation()
-            print("ENDING SIMULATION #%d..."%i)
-            print(f"Runtime of the simulation #{self.config[i]["id"]} is {end - start}")
+            print(f"ENDING SIMULATION #{i}...")
+            print(f"Runtime of the simulation #{self.trial_id} is {end - start}")
             self.save_log_file(self.config[i]["id"], self.config[i]["code"], end - start)
             self.save_table_file()
 
@@ -694,18 +695,8 @@ def choose_poses(n_robots):
         # TODO: check if the choosed pose is already taken
     return poses
 
-# n_robots = 3
-# poses = choose_poses(n_robots)
 
-# r1 = Robot(1, poses[0], random.uniform(0, 100), available_capabilities + random.choice([0, 1])*handle_capability)
-# r2 = Robot(2, poses[1], random.uniform(0, 100), available_capabilities + random.choice([0, 1])*handle_capability)
-# r3 = Robot(3, poses[2], random.uniform(0, 100), available_capabilities + random.choice([0, 1])*handle_capability)
-# r4 = Robot(4, robot_pose[3], robot_batt_levels[0][3], available_capabilities)
-# r5 = Robot(5, robot_pose[4], robot_batt_levels[0][4], available_capabilities)
-# robots = [r1, r2, r3]
-
-xp1 = Experiment("experiment_baseline_trials_2021_07_09_10_03_24.json", 9)
-# xp1 = Experiment("experiment_planned_trials_2021_07_09_10_03_24.json", 9)
+xp1 = Experiment("trials.json", 9)
 xp1.prepare_environment()
 # xp1.run_simulation()
 # xp1.run_some_simulations([9, 17, 34, 63, 73, 75])
