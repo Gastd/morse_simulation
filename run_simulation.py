@@ -432,11 +432,11 @@ class Experiment(object):
             file.write('Total,'+str(self.total)+'\n')
 
     def clear_log_file(self):
-        with open(current_path+'/log/experiment.log', 'w') as file:
+        with open(current_path+'/log/trial.log', 'w') as file:
             file.write('')
 
     def save_log_file(self, trial_id, trial_code, execution_time):
-        with open(current_path+'/log/experiment.log', 'r') as file:
+        with open(current_path+'/log/trial.log', 'r') as file:
             print("Saving log file as: " + current_path+'/log/{:0>2d}_{}.log'.format(trial_id, trial_code))
             lines = file.readlines()
             # file_path = current_path+f'/log/experiment1_trial{trial_id}.log' if trial_id > 10 else current_path+f'/log/experiment1_trial0{trial_id}.log'
@@ -469,7 +469,7 @@ class Experiment(object):
         os.rename(current_path+'/log/bag.bag', current_path+f'/log/exp{self.xp_id}_trial{run}_{current_date}.bag')
 
     def check_end_simulation(self):
-        with open(current_path+'/log/experiment.log', 'r') as file:
+        with open(current_path+'/log/trial.log', 'r') as file:
             # print("Checking simulation...")
             lines = file.readlines()
             # print(lines)
