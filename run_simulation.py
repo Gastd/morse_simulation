@@ -442,23 +442,21 @@ class Experiment(object):
             # file_path = current_path+f'/log/experiment1_trial{trial_id}.log' if trial_id > 10 else current_path+f'/log/experiment1_trial0{trial_id}.log'
             # file_path = current_path+'/log/experiment{:0>2d}_trial{:0>2d}.log'.format(self.xp_id, trial_id)
             file_path = current_path+'/log/{:0>2d}_{}.log'.format(trial_id, trial_code)
+            # text = '{0:2d}, {}, {}, {}\n'.format(log_entry.time, log_entry.log_level.value, log_entry.entity, log_entry.content)
             with open(file_path, 'w') as logfile:
                 for line in lines:
                     logfile.write(line)
+                text = '00.00, [DEBUG], trial-watcher, {self.endsim}: wall-clock={execution_time}\n'
+                logfile.write(text)
                 if self.endsim == 'reach-target':
-                    logfile.write("0.0,[debug],simulation closed,"+self.endsim+',execution-wall-clock='+str(execution_time)+"\n")
                     self.n_successes = self.n_successes + 1
                 elif self.endsim == 'failure-bt':
-                    logfile.write("0.0,[debug],simulation closed,"+self.endsim+',execution-wall-clock='+str(execution_time)+"\n")
                     self.n_bt_failures = self.n_bt_failures + 1
                 elif self.endsim == 'low-battery':
-                    logfile.write("0.0,[debug],simulation closed,"+self.endsim+',execution-wall-clock='+str(execution_time)+"\n")
                     self.n_low_battery = self.n_low_battery + 1
                 elif self.endsim == 'timeout-sim':
-                    logfile.write("0.0,[debug],simulation closed,"+self.endsim+',execution-wall-clock='+str(execution_time)+"\n")
                     self.n_timeout_sim = self.n_timeout_sim + 1
                 else:
-                    logfile.write("0.0,[debug],simulation closed,timeout-wall,execution-wall-clock="+str(execution_time)+"\n")
                     self.n_timeout_wall = self.n_timeout_wall + 1
                 self.total = self.total + 1
         self.clear_log_file()
