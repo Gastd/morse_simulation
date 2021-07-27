@@ -55,9 +55,38 @@ services:
       context: ./docker
       dockerfile: Dockerfile.motion
     container_name: master
+    environment:
+    - 'ROBOTS_CONFIG=[{"avg_speed": 0.15, "battery_charge": 0.22, "battery_discharge_rate":
+      0.00011, "id": 0, "local_plan": null, "location": "IC Room 4", "position": [-39.44,
+      33.95, 0.0], "skills": ["approach_person", "approach_robot", "authenticate_person",
+      "deposit", "navigation", "operate_drawer", "pick_up"]}, {"avg_speed": 0.15,
+      "battery_charge": 0.56, "battery_discharge_rate": 0.0001, "id": 1, "local_plan":
+      null, "location": "PC Room 5", "position": [-21.0, 18.0, -1.57], "skills": ["approach_person",
+      "approach_robot", "authenticate_person", "deposit", "navigation", "operate_drawer",
+      "pick_up"]}, {"avg_speed": 0.15, "battery_charge": 0.55, "battery_discharge_rate":
+      0.00015000000000000001, "id": 2, "local_plan": null, "location": "PC Room 4",
+      "position": [-27.23, 18.0, -1.57], "skills": ["approach_person", "approach_robot",
+      "authenticate_person", "deposit", "navigation", "operate_drawer", "pick_up"]},
+      {"avg_speed": 0.15, "battery_charge": 0.44, "battery_discharge_rate": 0.00019,
+      "id": 3, "local_plan": null, "location": "PC Room 3", "position": [-28.5, 18.0,
+      -1.57], "skills": ["approach_person", "approach_robot", "authenticate_person",
+      "deposit", "navigation", "pick_up"]}, {"avg_speed": 0.15, "battery_charge":
+      0.15, "battery_discharge_rate": 0.00014000000000000001, "id": 4, "local_plan":
+      [["navigation", ["IC Room 6", [[-40.23, 25.37, 0.0], [-37.0, 25.37], [-37.0,
+      18.93], [-33.9, 18.93, 3.14]]]], ["approach_person", ["nurse"]], ["authenticate_person",
+      ["nurse"]], ["operate_drawer", ["open"]], ["send_message", ["nurse"]], ["wait_message",
+      ["r1"]], ["operate_drawer", ["close"]], ["navigation", ["Laboratory", [[-33.9,
+      18.93, 3.14], [-37.0, 18.93], [-37.0, 16.0], [-26.0, 16.0], [-26.0, 13.0, 1.57]]]],
+      ["approach_robot", ["lab_arm"]], ["operate_drawer", ["open"]], ["send_message",
+      ["lab_arm"]], ["wait_message", ["r1"]], ["operate_drawer", ["close"]]], "location":
+      "IC Room 3", "position": [-40.23, 25.37, 0.0], "skills": ["approach_person",
+      "approach_robot", "authenticate_person", "deposit", "navigation", "operate_drawer",
+      "pick_up"]}]'
+    - 'NURSES_CONFIG=[{"location": "IC Room 6", "position": [-31.9, 20.93, 3.14]}]'
     volumes:
+    - ./docker/motion_ctrl:/ros_ws/src/motion_ctrl/
     - ./log/:/root/.ros/logger_sim/
-    command: /bin/bash -c "source /ros_ws/devel/setup.bash && roscore"
+    command: /bin/bash -c "source /ros_ws/devel/setup.bash && roslaunch src/motion_ctrl/launch/log.launch"
     networks:
       morsesimnet:
         ipv4_address: 10.6.0.5
@@ -109,17 +138,17 @@ services:
   #     morsesimnet:
   #       ipv4_address: 10.6.0.106
 
-  webviz:
-    image: cruise/webviz
-    ports:
-      - "8080:8080"
-    depends_on:
-      - motion_ctrl
-      # http://10.6.0.12:8080/?rosbridge-websocket-url=ws://10.6.0.106:9090
-      # http://10.6.0.12:8080/?rosbridge-websocket-url=ws://10.6.0.6:9090&layout-url=/home/gastd/Downloads/layout.json
-    networks:
-      morsesimnet:
-        ipv4_address: 10.6.0.12
+  # webviz:
+  #   image: cruise/webviz
+  #   ports:
+  #     - "8080:8080"
+  #   depends_on:
+  #     - motion_ctrl
+  #     # http://10.6.0.12:8080/?rosbridge-websocket-url=ws://10.6.0.106:9090
+  #     # http://10.6.0.12:8080/?rosbridge-websocket-url=ws://10.6.0.6:9090&layout-url=/home/gastd/Downloads/layout.json
+  #   networks:
+  #     morsesimnet:
+  #       ipv4_address: 10.6.0.12
 
   rviz:
     build:
@@ -202,20 +231,18 @@ services:
     - ROS_HOSTNAME=pytree_test1
     - ROS_MASTER_URI=http://master:11311
     - ROBOT_NAME=turtlebot1
-    - SKILLS=['approach_person', 'approach_robot', 'authenticate_person', 'deposit',
-      'navigation', 'operate_drawer', 'pick_up']
-    - 'ROBOT_CONFIG={"avg_speed": 0.8, "battery_consumption_rate": 0.0022, "battery_level":
-      0.23, "id": 2, "local_plan": [["navigation", ["IC Room 3", [[-33.9, 18.93, 3.14],
-      [-37.0, 18.93], [-37.0, 21.5], [-37.0, 25.37], [-40.23, 25.37, 0.0]]]], ["approach_person",
-      ["nurse"]], ["authenticate_person", ["nurse"]], ["operate_drawer", ["open"]],
-      ["send_message", ["nurse"]], ["wait_message", ["r1"]], ["operate_drawer", ["close"]],
-      ["navigation", ["Laboratory", [[-40.23, 25.37, 0.0], [-37.0, 25.37], [-37.0,
-      21.5], [-37.0, 18.93], [-37.0, 16.0], [-28.5, 16.0], [-27.25, 16.0], [-27.23,
-      16.0], [-26.0, 16.0], [-26.0, 13.0, 1.57]]]], ["approach_robot", ["lab_arm"]],
+    - SKILLS=['approach_person', 'approach_robot', 'authenticate_person', 'deposit', 'navigation', 'operate_drawer', 'pick_up']
+    - 'ROBOT_CONFIG={"avg_speed": 0.15, "battery_charge": 0.15, "battery_discharge_rate":
+      0.00014000000000000001, "id": 4, "local_plan": [["navigation", ["IC Room 6",
+      [[-40.23, 25.37, 0.0], [-37.0, 25.37], [-37.0, 18.93], [-33.9, 18.93, 3.14]]]],
+      ["approach_person", ["nurse"]], ["authenticate_person", ["nurse"]], ["operate_drawer",
+      ["open"]], ["send_message", ["nurse"]], ["wait_message", ["r1"]], ["operate_drawer",
+      ["close"]], ["navigation", ["Laboratory", [[-33.9, 18.93, 3.14], [-37.0, 18.93],
+      [-37.0, 16.0], [-26.0, 16.0], [-26.0, 13.0, 1.57]]]], ["approach_robot", ["lab_arm"]],
       ["operate_drawer", ["open"]], ["send_message", ["lab_arm"]], ["wait_message",
-      ["r1"]], ["operate_drawer", ["close"]]], "location": "IC Room 6", "position":
-      [-33.9, 18.93, 3.14], "skills": ["approach_person", "approach_robot", "authenticate_person",
-      "deposit", "navigation", "operate_drawer", "pick_up"]}'
+      ["r1"]], ["operate_drawer", ["close"]]], "location": "IC Room 3", "position":
+      [-40.23, 25.37, 0.0], "skills": ["approach_person", "approach_robot", "authenticate_person",
+      "deposit", "operate_drawer", "pick_up"]}'
     - morsegatonet
     runtime: runc
     tty: true
@@ -254,18 +281,6 @@ services:
       - "QT_GRAPHICSSYSTEM=native"
       - "PULSE_SERVER=unix:${XDG_RUNTIME_DIR}/pulse/native"
       - "ROBOT_NAME=turtlebot1"
-      - 'ROBOT_CONFIG={"avg_speed": 0.8, "battery_consumption_rate": 0.0027, "battery_level":
-      0.37, "id": 0, "local_plan": [["navigation", ["PC Room 7", [[-19.0, 18.0, -1.57],
-      [-19.0, 16.0], [-18.0, 16.0], [-13.5, 16.0], [-13.5, 18.0, -1.57]]]], ["approach_person",
-      ["nurse"]], ["authenticate_person", ["nurse"]], ["operate_drawer", ["open"]],
-      ["send_message", ["nurse"]], ["wait_message", ["r1"]], ["operate_drawer", ["close"]],
-      ["navigation", ["Laboratory", [[-13.5, 18.0, -1.57], [-13.5, 16.0], [-18.0,
-      16.0], [-19.0, 16.0], [-21.0, 16.0], [-26.0, 16.0], [-26.0, 13.0, 1.57]]]],
-      ["approach_robot", ["lab_arm"]], ["operate_drawer", ["open"]], ["send_message",
-      ["lab_arm"]], ["wait_message", ["r1"]], ["operate_drawer", ["close"]]], "location":
-      "PC Room 6", "position": [-19.0, 18.0, -1.57], "skills": ["approach_person",
-      "approach_robot", "authenticate_person", "deposit", "navigation", "operate_drawer",
-      "pick_up"]}'
     volumes:
       - /tmp/.docker.xauth:/tmp/.docker.xauth:rw
       - /tmp/.X11-unix:/tmp/.X11-unix:rw
