@@ -663,6 +663,14 @@ class Experiment(object):
 
     def close_simulation(self):
         # stop_docker_str = 'docker-compose down'
+        start = time.time()
+        runtime = time.time()
+        self.clear_log_file()
+        timeout_to_wait_for_s = 30
+        while (runtime - start) <= timeout_to_wait_for_s:
+            time.sleep(1)
+            runtime = time.time()
+        end = time.time()
         stop_docker_str = 'docker-compose -f experiment_trials.yaml down'
         stop_docker_tk = shlex.split(stop_docker_str)
 
