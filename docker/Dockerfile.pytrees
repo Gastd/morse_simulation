@@ -1,6 +1,6 @@
 FROM amd64/ros:foxy-ros1-bridge-focal
 
-# RUN apt-key adv --refresh-keys --keyserver keyserver.ubuntu.com
+RUN apt-key adv --refresh-keys --keyserver keyserver.ubuntu.com
 RUN apt-get update
 RUN apt-get -y upgrade
 RUN apt-get install -y apt-utils
