@@ -444,8 +444,7 @@ class Experiment(object):
             file_path = current_path+'/log/{:0>2d}_{}.log'.format(trial_id, trial_code)
             # text = '{0:2d}, {}, {}, {}\n'.format(log_entry.time, log_entry.log_level.value, log_entry.entity, log_entry.content)
             with open(file_path, 'w') as logfile:
-                for line in lines:
-                    logfile.write(line)
+                logfile.write(lines)
                 text = '00.00, [DEBUG], trial-watcher, {self.endsim}: wall-clock={execution_time}\n'
                 logfile.write(text)
                 if self.endsim == 'reach-target':
