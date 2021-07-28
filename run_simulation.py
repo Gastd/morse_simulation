@@ -400,7 +400,8 @@ class Experiment(object):
             self.nurses_config = self.config[i]["nurses"]
             self.robots_config = self.config[i]["robots"]
             self.trial_id      = self.config[i]["id"]
-            self.create_env_file(self.trial_id)
+            self.trial_code    = self.config[i]["code"]
+            self.create_env_file(self.trial_id, self.config[i]["code"])
             self.create_dockers()
             self.create_robots()
             self.save_compose_file()
@@ -440,7 +441,18 @@ class Experiment(object):
         print("Saving log file as: " + current_path+'/log/{:0>2d}_{}.log'.format(trial_id, trial_code))
         old_path  = current_path+'/log/trial.log'
         new_path = current_path+'/log/{:0>2d}_{}.log'.format(trial_id, trial_code)
-        shutil.copy(old_path, new_path)
+        cp_cmd = 'cp /log/trial.log /log/{:0>2d}_{}.log'.format(trial_id, trial_code)
+        cp_tk = shlex.split(cp_cmd)
+
+        print('Closing Simulation')
+        cp_process = subprocess.run(cp_tk,
+                             stdout=subprocess.PIPE,
+                             stderr=subprocess.PIPE,
+                             universal_newlines=True)
+        print(cp_process.stdout)
+        print(cp_process.stderr)
+
+        # shutil.copy(old_path, new_path)
         with open(new_path, 'a') as logfile:
             text = '00.00, [DEBUG], trial-watcher, {self.endsim}: wall-clock={execution_time}\n'
             logfile.write(text)
@@ -495,7 +507,7 @@ class Experiment(object):
         nurse_pos[y] = new_nurse_pos[y]
         return nurse_pos
 
-    def create_env_file(self, n_trial):
+    def create_env_file(self, n_trial, trial_code):
         self.env_name = "sim.env"
         curr_path = os.getcwd()+'/'
         file_path = curr_path + self.env_name
@@ -510,6 +522,8 @@ class Experiment(object):
             print(str(nurse_pos))
             nurse_str = str(nurse_pos).replace(',',';')
             ef.write("TRIAL="+str(n_trial)+'\n')
+            ef.write('\n')
+            ef.write("TRIAL_CODE="+str(trial_code)+'\n')
             ef.write('\n')
             ef.write("NURSE_POSE="+nurse_str+'\n')
             ef.write('\n')
