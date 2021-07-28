@@ -7,6 +7,7 @@ import yaml
 import copy
 import time
 import shlex
+import shutil
 import random
 import datetime
 import subprocess
@@ -436,28 +437,24 @@ class Experiment(object):
             file.write('')
 
     def save_log_file(self, trial_id, trial_code, execution_time):
-        with open(current_path+'/log/trial.log', 'r') as file:
-            print("Saving log file as: " + current_path+'/log/{:0>2d}_{}.log'.format(trial_id, trial_code))
-            lines = file.readlines()
-            # file_path = current_path+f'/log/experiment1_trial{trial_id}.log' if trial_id > 10 else current_path+f'/log/experiment1_trial0{trial_id}.log'
-            # file_path = current_path+'/log/experiment{:0>2d}_trial{:0>2d}.log'.format(self.xp_id, trial_id)
-            file_path = current_path+'/log/{:0>2d}_{}.log'.format(trial_id, trial_code)
-            # text = '{0:2d}, {}, {}, {}\n'.format(log_entry.time, log_entry.log_level.value, log_entry.entity, log_entry.content)
-            with open(file_path, 'w') as logfile:
-                logfile.write(lines)
-                text = '00.00, [DEBUG], trial-watcher, {self.endsim}: wall-clock={execution_time}\n'
-                logfile.write(text)
-                if self.endsim == 'reach-target':
-                    self.n_successes = self.n_successes + 1
-                elif self.endsim == 'failure-bt':
-                    self.n_bt_failures = self.n_bt_failures + 1
-                elif self.endsim == 'low-battery':
-                    self.n_low_battery = self.n_low_battery + 1
-                elif self.endsim == 'timeout-sim':
-                    self.n_timeout_sim = self.n_timeout_sim + 1
-                else:
-                    self.n_timeout_wall = self.n_timeout_wall + 1
-                self.total = self.total + 1
+        print("Saving log file as: " + current_path+'/log/{:0>2d}_{}.log'.format(trial_id, trial_code))
+        old_path  = current_path+'/log/trial.log'
+        new_path = current_path+'/log/{:0>2d}_{}.log'.format(trial_id, trial_code)
+        shutil.copy(old_path, new_path)
+        with open(new_path, 'a') as logfile:
+            text = '00.00, [DEBUG], trial-watcher, {self.endsim}: wall-clock={execution_time}\n'
+            logfile.write(text)
+            if self.endsim == 'reach-target':
+                self.n_successes = self.n_successes + 1
+            elif self.endsim == 'failure-bt':
+                self.n_bt_failures = self.n_bt_failures + 1
+            elif self.endsim == 'low-battery':
+                self.n_low_battery = self.n_low_battery + 1
+            elif self.endsim == 'timeout-sim':
+                self.n_timeout_sim = self.n_timeout_sim + 1
+            else:
+                self.n_timeout_wall = self.n_timeout_wall + 1
+            self.total = self.total + 1
         self.clear_log_file()
         # self.save_bag_file(trial_id)
 
