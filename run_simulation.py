@@ -448,7 +448,7 @@ class Experiment(object):
         end = time.time()
         old_path  = current_path+'/log/trial.log'
         new_path = current_path+'/log/{:0>2d}_{}.log'.format(trial_id, trial_code)
-        cp_cmd = 'cp /log/trial.log /log/{:0>2d}_{}.log'.format(trial_id, trial_code)
+        cp_cmd = 'cp log/trial.log log/{:0>2d}_{}.log'.format(trial_id, trial_code)
         cp_tk = shlex.split(cp_cmd)
 
         print('Closing Simulation')
@@ -463,6 +463,8 @@ class Experiment(object):
         with open(new_path+'.bkp', 'a') as logfile:
             for line in self.lines:
                 logfile.write(line)
+            text = '00.00, [DEBUG], trial-watcher, {self.endsim}: wall-clock={execution_time}\n'
+            logfile.write(text)
 
         with open(new_path, 'a') as logfile:
             text = '00.00, [DEBUG], trial-watcher, {self.endsim}: wall-clock={execution_time}\n'
