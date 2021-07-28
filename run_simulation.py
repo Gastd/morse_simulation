@@ -491,7 +491,7 @@ class Experiment(object):
             self.lines = file.readlines()
             # print(lines)
             alllines = ''
-            for line in lines:
+            for line in self.lines:
                 alllines = alllines+line
                 if "ENDSIM" in line:
                     self.endsim = 'reach-target'
