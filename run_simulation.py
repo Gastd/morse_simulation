@@ -527,7 +527,7 @@ class Experiment(object):
         
         self.chose_robot = ""
         for r_config in self.robots_config:
-            r_id = r_config["id"]+1
+            r_id = r_config["id"]
             if r_config["local_plan"] != None:  self.chose_robot = "turtlebot"+str(r_id)
         
         with open(file_path, "w") as ef:
@@ -546,7 +546,7 @@ class Experiment(object):
             ef.write('\n')
             for robot in self.robots_config:
                 # name
-                id_str = (robot["id"]+1)
+                id_str = (robot["id"])
                 ef.write('ROBOT_NAME_%d=turtlebot%d\n'%(id_str,id_str))
                 # pose
                 yaw = random.uniform(-math.pi, math.pi)
