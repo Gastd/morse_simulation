@@ -567,7 +567,7 @@ class Experiment(object):
         robots_servs = []
         # build robots
         for r_config in self.robots_config:
-            r_id = r_config["id"]+1
+            r_id = r_config["id"]
             r_loc = r_config["location"]
             robot = Robot(r_id, r_loc, r_config["battery_charge"], r_config["skills"], r_config)
             print(robot)
