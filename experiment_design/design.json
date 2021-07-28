@@ -1,0 +1,129 @@
+{
+    "0": {
+        "a": [
+            "0.15",
+            "0.15",
+            "0.15",
+            "0.15",
+            "0.15",
+            "0.15"
+        ],
+        "factor": "avg_speed"
+    },
+    "1": {
+        "a": [
+            "0.23995139509475963",
+            "0.634952869577942",
+            "0.08039941318304296",
+            "0.17496190705907763",
+            "0.7179616530181877",
+            "0.5408465660492595"
+        ],
+        "b": [
+            "0.5914703710515797",
+            "0.8344531419634984",
+            "0.462681764358839",
+            "0.6520875066754872",
+            "0.2817995261312799",
+            "0.5080169438370433"
+        ],
+        "c": [
+            "0.3020349930380309",
+            "0.5779176354739738",
+            "0.7232396784987936",
+            "0.4863040833267539",
+            "0.7258412726774711",
+            "0.9109794326728246"
+        ],
+        "factor": "battery_charge"
+    },
+    "2": {
+        "a": [
+            "0.00048000000000000007",
+            "0.00054",
+            "0.00036",
+            "0.0006000000000000001",
+            "0.0002",
+            "0.00072"
+        ],
+        "b": [
+            "0.0006600000000000001",
+            "0.00026000000000000003",
+            "0.00064",
+            "0.0005600000000000001",
+            "0.00076",
+            "0.00038"
+        ],
+        "c": [
+            "0.00068",
+            "0.0006000000000000001",
+            "0.0004",
+            "0.00026000000000000003",
+            "0.00042",
+            "0.0005200000000000001"
+        ],
+        "factor": "battery_discharge_rate"
+    },
+    "3": {
+        "a": [
+            "[operate_drawer, approach_person, navigation, authenticate_person]",
+            "[operate_drawer, approach_person, navigation, authenticate_person, approach_robot]",
+            "[operate_drawer, approach_person, navigation, authenticate_person]",
+            "[operate_drawer, approach_person, navigation, authenticate_person, approach_robot]",
+            "[operate_drawer, navigation, authenticate_person, approach_robot]",
+            "[operate_drawer, approach_person, navigation, authenticate_person]"
+        ],
+        "b": [
+            "[operate_drawer, approach_person, navigation, approach_robot]",
+            "[operate_drawer, approach_person, authenticate_person, approach_robot]",
+            "[operate_drawer, approach_person, navigation, authenticate_person, approach_robot]",
+            "[operate_drawer, approach_person, navigation, authenticate_person, approach_robot]",
+            "[operate_drawer, approach_person, navigation, authenticate_person, approach_robot]",
+            "[operate_drawer, approach_person, navigation, authenticate_person, approach_robot]"
+        ],
+        "c": [
+            "[operate_drawer, approach_person, navigation, authenticate_person, approach_robot]",
+            "[operate_drawer, approach_person, navigation, authenticate_person, approach_robot]",
+            "[operate_drawer, approach_person, navigation, authenticate_person, approach_robot]",
+            "[operate_drawer, approach_person, navigation, authenticate_person, approach_robot]",
+            "[operate_drawer, approach_person, navigation, authenticate_person, approach_robot]",
+            "[operate_drawer, approach_person, navigation, authenticate_person, approach_robot]"
+        ],
+        "factor": "skills"
+    },
+    "4": {
+        "a": [
+            "PC Room 8",
+            "PC Room 6",
+            "IC Room 2",
+            "IC Room 4",
+            "PC Room 7",
+            "IC Room 5",
+            "IC Room 6"
+        ],
+        "b": [
+            "PC Room 4",
+            "PC Room 6",
+            "PC Room 7",
+            "IC Room 5",
+            "PC Room 8",
+            "IC Room 6",
+            "IC Room 2"
+        ],
+        "c": [
+            "IC Room 4",
+            "PC Room 5",
+            "IC Room 2",
+            "PC Room 7",
+            "IC Room 6",
+            "PC Room 4",
+            "PC Room 3"
+        ],
+        "factor": "location"
+    },
+    "5": {
+        "b": "baseline",
+        "factor": "treatment",
+        "p": "planned"
+    }
+}
