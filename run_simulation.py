@@ -330,7 +330,7 @@ class Experiment(object):
         idx = 0
         self.nurses_config = self.config[idx]["nurses"]
         self.robots_config = self.config[idx]["robots"]
-        self.create_env_file(self.config[idx]["id"], self.config[i]["code"])
+        self.create_env_file(self.config[idx]["id"], self.config[idx]["code"])
         self.create_dockers()
         self.create_robots()
         self.save_compose_file()
@@ -340,7 +340,7 @@ class Experiment(object):
         idx = 0
         self.nurses_config = self.config[idx]["nurses"]
         self.robots_config = self.config[idx]["robots"]
-        self.create_env_file(self.config[idx]["id"]. self.config[i]["code"])
+        self.create_env_file(self.config[idx]["id"]. self.config[idx]["code"])
         self.create_dockers()
         self.create_robots()
         self.save_compose_file()
@@ -369,7 +369,7 @@ class Experiment(object):
             print("RUNNING TRIALS #%d"%idx)
             self.nurses_config = self.config[idx]["nurses"]
             self.robots_config = self.config[idx]["robots"]
-            self.create_env_file(self.config[idx]["id"], self.config[i]["code"])
+            self.create_env_file(self.config[idx]["id"], self.config[idx]["code"])
             self.create_dockers()
             self.create_robots()
             self.save_compose_file()
