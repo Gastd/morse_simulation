@@ -439,6 +439,11 @@ class Experiment(object):
 
     def save_log_file(self, trial_id, trial_code, execution_time):
         print("Saving log file as: " + current_path+'/log/{:0>2d}_{}.log'.format(trial_id, trial_code))
+        timeout_to_wait_for_s = 60
+        while (runtime - start) <= timeout_to_wait_for_s:
+            time.sleep(1)
+            runtime = time.time()
+        end = time.time()
         old_path  = current_path+'/log/trial.log'
         new_path = current_path+'/log/{:0>2d}_{}.log'.format(trial_id, trial_code)
         cp_cmd = 'cp /log/trial.log /log/{:0>2d}_{}.log'.format(trial_id, trial_code)
