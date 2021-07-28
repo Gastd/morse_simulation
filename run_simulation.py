@@ -460,6 +460,10 @@ class Experiment(object):
         print(cp_process.stderr)
 
         # shutil.copy(old_path, new_path)
+        with open(new_path+'.bkp', 'a') as logfile:
+            for line in lines:
+                logfile.write(line)
+
         with open(new_path, 'a') as logfile:
             text = '00.00, [DEBUG], trial-watcher, {self.endsim}: wall-clock={execution_time}\n'
             logfile.write(text)
@@ -484,7 +488,7 @@ class Experiment(object):
     def check_end_simulation(self):
         with open(current_path+'/log/trial.log', 'r') as file:
             # print("Checking simulation...")
-            lines = file.readlines()
+            self.lines = file.readlines()
             # print(lines)
             alllines = ''
             for line in lines:
