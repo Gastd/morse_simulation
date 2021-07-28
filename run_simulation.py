@@ -461,7 +461,7 @@ class Experiment(object):
 
         # shutil.copy(old_path, new_path)
         with open(new_path+'.bkp', 'a') as logfile:
-            for line in lines:
+            for line in self.lines:
                 logfile.write(line)
 
         with open(new_path, 'a') as logfile:
