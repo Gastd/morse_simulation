@@ -284,7 +284,7 @@ class Experiment(object):
         self.xp_id = xp_id
         self.nrobots = 0
         self.config_file = config_file
-        self.simulation_timeout_s = 10*60
+        self.simulation_timeout_s = 45*60
         self.load_trials(self.config_file)
         self.relocate_nurse = {
             "PC Room 1": [-1, -1],
@@ -459,7 +459,7 @@ class Experiment(object):
         print(cp_process.stderr)
 
         # shutil.copy(old_path, new_path)
-        with open(new_path+'.bkp', 'a') as logfile:
+        with open(new_path+'.done', 'a') as logfile:
             for line in self.lines:
                 logfile.write(line)
             text = f'00.00, [DEBUG], trial-watcher, {self.endsim}: wall-clock={execution_time}\n'
