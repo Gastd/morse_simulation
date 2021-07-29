@@ -462,11 +462,11 @@ class Experiment(object):
         with open(new_path+'.done', 'a') as logfile:
             for line in self.lines:
                 logfile.write(line)
-            text = f'{:02.2f}, [DEBUG], trial-watcher, {self.endsim}: wall-clock={execution_time}\n'.format(execution_time)
+            text = '{:02.2f}, [DEBUG], trial-watcher, {}: wall-clock={}\n'.format(execution_time,self.endsim,execution_time)
             logfile.write(text)
 
         with open(new_path+'.bkp', 'a') as logfile:
-            text = f'{:02.2f}, [DEBUG], trial-watcher, {self.endsim}: wall-clock={execution_time}\n'.format(execution_time)
+            text = '{:02.2f}, [DEBUG], trial-watcher, {}: wall-clock={}\n'.format(execution_time,self.endsim,execution_time)
             logfile.write(text)
             if self.endsim == 'reach-target':
                 self.n_successes = self.n_successes + 1
