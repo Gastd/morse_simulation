@@ -284,7 +284,7 @@ class Experiment(object):
         self.xp_id = xp_id
         self.nrobots = 0
         self.config_file = config_file
-        self.simulation_timeout_s = 45*60
+        self.simulation_timeout_s = 10*60
         self.load_trials(self.config_file)
         self.relocate_nurse = {
             "PC Room 1": [-1, -1],
@@ -424,7 +424,7 @@ class Experiment(object):
             self.save_table_file()
 
     def save_table_file(self):
-        with open(current_path+'/log/experiment-'+self.current_date+'.csv', 'w') as file:
+        with open(current_path+f'/log/experiment-{self.current_date}.csv', 'w') as file:
             file.write('Type,Quantity\n')
             file.write('BT Failure,'+str(self.n_bt_failures)+'\n')
             file.write('Timeout Wall,'+str(self.n_timeout_wall)+'\n')
@@ -447,11 +447,10 @@ class Experiment(object):
             runtime = time.time()
         end = time.time()
         old_path  = current_path+'/log/trial.log'
-        new_path = current_path+'/log/{:0>2d}_{}.log'.format(trial_id, trial_code)
-        cp_cmd = 'cp log/trial.log log/{:0>2d}_{}.log'.format(trial_id, trial_code)
+        new_path = current_path+'/log/{:0>2d}_{}.bkp'.format(trial_id, trial_code)
+        cp_cmd = 'cp log/trial.log log/{:0>2d}_{}.bkp'.format(trial_id, trial_code)
         cp_tk = shlex.split(cp_cmd)
 
-        print('Closing Simulation')
         cp_process = subprocess.run(cp_tk,
                              stdout=subprocess.PIPE,
                              stderr=subprocess.PIPE,
@@ -503,8 +502,6 @@ class Experiment(object):
                     self.endsim = 'low-battery'
                 if "ENDTIMEOUTSIM" in line:
                     self.endsim = 'timeout-sim'
-            # if alllines.count('LOW BATTERY') >= 5:
-            #     self.endsim = True
 
     def get_nurse_new_pos(self, nurse_idx):
         nurse_pos = self.nurses_config[0]["position"]
@@ -678,7 +675,7 @@ class Experiment(object):
         # print(up_docker_tk)
 
         self.sim_process = subprocess.run(up_docker_tk,
-                                     stdout=subprocess.PIPE, 
+                                     stdout=subprocess.PIPE,
                                      stderr=subprocess.PIPE,
                                      universal_newlines=True)
         print(self.sim_process.stdout)
@@ -699,7 +696,7 @@ class Experiment(object):
 
         print('Closing Simulation')
         self.sim_process = subprocess.run(stop_docker_tk,
-                             stdout=subprocess.PIPE, 
+                             stdout=subprocess.PIPE,
                              stderr=subprocess.PIPE,
                              universal_newlines=True)
         print(self.sim_process.stdout)
