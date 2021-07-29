@@ -388,7 +388,7 @@ class Experiment(object):
             self.close_simulation()
             print("ENDING SIMULATION #%d..."%idx)
             print(f"Runtime of the simulation #{idx} is {end - start}")
-            self.save_log_file(idx, end - start)
+            self.save_log_file(self.config[idx]["id"], self.config[idx]["code"], end - start)
             self.save_table_file()
 
     def run_all_simulations(self):
@@ -462,11 +462,11 @@ class Experiment(object):
         with open(new_path+'.done', 'a') as logfile:
             for line in self.lines:
                 logfile.write(line)
-            text = f'00.00, [DEBUG], trial-watcher, {self.endsim}: wall-clock={execution_time}\n'
+            text = f'{:02.2f}, [DEBUG], trial-watcher, {self.endsim}: wall-clock={execution_time}\n'.format(execution_time)
             logfile.write(text)
 
         with open(new_path+'.bkp', 'a') as logfile:
-            text = f'00.00, [DEBUG], trial-watcher, {self.endsim}: wall-clock={execution_time}\n'
+            text = f'{:02.2f}, [DEBUG], trial-watcher, {self.endsim}: wall-clock={execution_time}\n'.format(execution_time)
             logfile.write(text)
             if self.endsim == 'reach-target':
                 self.n_successes = self.n_successes + 1
@@ -725,5 +725,5 @@ def choose_poses(n_robots):
 xp1 = Experiment("trials.json", 9)
 xp1.prepare_environment()
 # xp1.run_simulation()
-# xp1.run_some_simulations([9, 17, 34, 63, 73, 75])
+xp1.run_some_simulations([0, 2, 3, 4, 6])
 xp1.run_all_simulations()
