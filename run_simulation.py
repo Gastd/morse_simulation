@@ -447,7 +447,7 @@ class Experiment(object):
             runtime = time.time()
         end = time.time()
         old_path  = current_path+'/log/trial.log'
-        new_path = current_path+'/log/{:0>2d}_{}.bkp'.format(trial_id, trial_code)
+        new_path = current_path+'/log/{:0>2d}_{}'.format(trial_id, trial_code)
         cp_cmd = 'cp log/trial.log log/{:0>2d}_{}.bkp'.format(trial_id, trial_code)
         cp_tk = shlex.split(cp_cmd)
 
@@ -465,7 +465,7 @@ class Experiment(object):
             text = f'00.00, [DEBUG], trial-watcher, {self.endsim}: wall-clock={execution_time}\n'
             logfile.write(text)
 
-        with open(new_path, 'a') as logfile:
+        with open(new_path+'.bkp', 'a') as logfile:
             text = f'00.00, [DEBUG], trial-watcher, {self.endsim}: wall-clock={execution_time}\n'
             logfile.write(text)
             if self.endsim == 'reach-target':
