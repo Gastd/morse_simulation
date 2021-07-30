@@ -725,5 +725,5 @@ def choose_poses(n_robots):
 xp1 = Experiment("trials.json", 9)
 xp1.prepare_environment()
 # xp1.run_simulation()
-xp1.run_some_simulations([0, 2, 3, 4, 6])
+xp1.run_some_simulations([3, 0, 2, 4, 6])
 xp1.run_all_simulations()
