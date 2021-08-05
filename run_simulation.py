@@ -357,13 +357,14 @@ class Orchestrator(object):
 
     def save_table_file(self):
         with open(f'{current_path}/log/experiment-{self.current_date}.csv', 'w') as file:
-            file.write('Type,Quantity\n')
-            file.write('BT Failure,'+str(self.n_bt_failures)+'\n')
-            file.write('Timeout Wall,'+str(self.n_timeout_wall)+'\n')
-            file.write('Timeout Sim,'+str(self.n_timeout_sim)+'\n')
-            file.write('Low Battery,'+str(self.n_low_battery)+'\n')
-            file.write('Success,'+str(self.n_successes)+'\n')
-            file.write('Total,'+str(self.total)+'\n')
+            file.write('Type, Quantity\n')
+            file.write(f'BT Failure, {self.n_bt_failures}\n')
+            file.write(f'Timeout Wall, {self.n_timeout_wall}\n')
+            file.write(f'Timeout Sim, {self.n_timeout_sim}\n')
+            file.write(f'Low Battery, {self.n_low_battery}\n')
+            file.write(f'Success, {self.n_successes}\n')
+            file.write(f'Total, {self.total}\n')
+            file.write(f'\n')
 
     def clear_log_file(self):
         with open(f'{current_path}/log/trial.log', 'w') as file:
