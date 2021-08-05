@@ -12,96 +12,7 @@ import random
 import datetime
 import subprocess
 
-current_path = os.getcwd()
-print(current_path)
-simulation_path = current_path+'/simulation_files'
-env_path = current_path+'/sim.env'
-print(simulation_path)
-
-try:
-    os.mkdir(simulation_path)
-except OSError:
-    print ("Creation of the directory %s failed" % simulation_path)
-else:
-    print ("Successfully created the directory %s" % simulation_path)
-
-GOALS = ['ROBOT', 'ENVIRONMENT', 'MODEL/STATE']
-METRICS = ['MissionSuccRate', 'AverageTimespan', 'LowBattFailure']
-
-# No primeiro goal(robot uncertainty) teremos 5 robôs, esse numero será constante entre os trials.
-# Características que serão mudadas durante cada trial: 
-#   - Posição
-#   - Bateria
-#   - skills
-
-
-#               #  x,   y,     yaw 
-# robot_pose = [[0.0, 0.0,        0.0],       # r1
-#               [1.0, 1.0,    math.pi],       # r2
-#               [2.0, 2.0,        0.0],       # r3
-#               [3.0, 3.0,        0.0],       # r4
-#               [4.0, 4.0,  math.pi/2]]       # r5
-
-
-                    #  r1    r2    r3    r4    r5
-# robot_batt_levels = [[1.00, 0.90, 0.90, 0.90, 1.00],    # set 1 
-#                      [1.00, 0.90, 0.90, 0.90, 1.00],    # set 2
-#                      [1.00, 0.90, 0.90, 0.90, 1.00],    # set 3
-#                      [1.00, 0.90, 0.90, 0.90, 1.00],    # set 4
-#                      [1.00, 0.90, 0.90, 0.90, 1.00]]    # set 5
-
-            # x     y
-rooms = [[-39.74, 32.52], # 1
-         [-39.55, 26.26], # 2
-         [-39.92, 19.31], # 3
-         [-40.00, 13.02], # 4
-         [-32.90, 31.06], # 5
-         [-32.94, 22.06], # 6
-         [-28.70, 19.79], # 7
-         [-28.70, 12.02], # 8
-         [-25.38, 19.78], # 9
-         [-24.32, 11.91], # 10
-         [-21.81, 19.59], # 11
-         [-19.18, 12.15], # 12
-         [-17.91, 19.77], # 13
-         [-14.31, 19.52], # 14
-         [-14.31, 19.52], # 15
-         [-10.00, 19.81], # 16
-         [-06.37, 24.87], # 17
-         [-05.72, 28.96], # 18
-         [-00.29, 28.55], # 19
-         [-00.57, 24.25]] # 20
-
-def get_pose(loc):
-    poses = {
-        "IC Corridor": [-37, 15],
-        "IC Room 1": [-39.44, 33.98, 0.00],
-        "IC Room 2": [-32.88, 33.95, 3.14],
-        "IC Room 3": [-40.23, 25.37, 0.00],
-        "IC Room 4": [-33.90, 18.93, 3.14],
-        "IC Room 5": [-38.00, 21.50, 0.00],
-        "IC Room 6": [-38.00, 10.00, 0.00],
-        "PC Corridor": [-19, 16],
-        "PC Room 1": [-28.50, 18.00,-1.57],
-        "PC Room 2": [-27.23, 18.00,-1.57],
-        "PC Room 3": [-21.00, 18.00,-1.57],
-        "PC Room 4": [-19.00, 18.00,-1.57],
-        "PC Room 5": [-13.50, 18.00,-1.57],
-        "PC Room 6": [-11.50, 18,-1.57],
-        "PC Room 7": [-4, 18,-1.57],
-        "PC Room 8": [-27.23, 13.00, 1.57],
-        "PC Room 9": [-26.00, 13.00, 1.57],
-        "PC Room 10": [-18.00, 13.00, 1.57],
-        "Reception": [-1, 20],
-        "Pharmacy Corridor": [0, 8],
-        "Pharmacy": [-2, 2.6],
-    }
-    return poses[loc]
-
-available_capabilities = ['NavToRoom', 'ApproachNurse', 'AuthenticateNurse', 'WaitForMessage', 'SendMessage']
-handle_capability = ['HandleDrawer']
-
-
+env_path = None
 
 class Robot(object):
     """docstring for Robot"""
@@ -269,16 +180,10 @@ class Robot(object):
             'networks': ['morsegatonet']
         }
 
-class Trials(object):
-    """docstring for Trials"""
-    def __init__(self, arg):
-        super(Trials, self).__init__()
-        self.arg = arg
-        
-class Experiment(object):
-    """docstring for Experiment"""
-    def __init__(self, config_file="experiment_trials.json", xp_id=0):
-        super(Experiment, self).__init__()
+class Orchestrator(object):
+    """docstring for Orchestrator"""
+    def __init__(self, config_file="trials.json", exp_id=0):
+        super(Orchestrator, self).__init__()
         self.sim_process = None
         self.docker_compose = dict()
         self.xp_id = xp_id
@@ -721,9 +626,22 @@ def choose_poses(n_robots):
         # TODO: check if the choosed pose is already taken
     return poses
 
+if __name__ == '__main__':
+    global env_path
+    current_path = os.getcwd()
+    print(f'current running path = {current_path}')
+    env_path = current_path+'/sim.env'
+    print(f'env file will be written in = {env_path}')
 
-xp1 = Experiment("trials.json", 9)
-xp1.prepare_environment()
-# xp1.run_simulation()
-# xp1.run_some_simulations([3, 0, 2, 4, 6])
-xp1.run_all_simulations()
+    try:
+        os.mkdir(simulation_path)
+    except OSError:
+        print ("Creation of the directory %s failed" % simulation_path)
+    else:
+        print ("Successfully created the directory %s" % simulation_path)
+
+    trials_runner = Orchestrator("trials.json", 9)
+    trials_runner.prepare_environment()
+    # trials_runner.run_simulation()
+    # trials_runner.run_some_simulations([9, 17, 34, 63, 73, 75])
+    trials_runner.run_all_simulations()
