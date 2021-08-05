@@ -12,14 +12,15 @@ import random
 import datetime
 import subprocess
 
-env_path = None
+
+
 
 class Robot(object):
     """docstring for Robot"""
     def __init__(self, n, loc, batt_level, skills, config):
         super(Robot, self).__init__()
         self.id = n
-        self.pose = get_pose(loc)
+        self.pose = self.get_pose_from_loc(loc)
         self.batt_level = batt_level
         self.skills = skills
         self.config = config
@@ -34,6 +35,32 @@ class Robot(object):
         self.pytreesd = None
         self.build_motion_docker()
         self.build_pytrees_docker()
+
+    def get_pose_from_loc(self, loc):
+        poses = {
+            "IC Corridor": [-37, 15],
+            "IC Room 1": [-39.44, 33.98, 0.00],
+            "IC Room 2": [-32.88, 33.95, 3.14],
+            "IC Room 3": [-40.23, 25.37, 0.00],
+            "IC Room 4": [-33.90, 18.93, 3.14],
+            "IC Room 5": [-38.00, 21.50, 0.00],
+            "IC Room 6": [-38.00, 10.00, 0.00],
+            "PC Corridor": [-19, 16],
+            "PC Room 1": [-28.50, 18.00,-1.57],
+            "PC Room 2": [-27.23, 18.00,-1.57],
+            "PC Room 3": [-21.00, 18.00,-1.57],
+            "PC Room 4": [-19.00, 18.00,-1.57],
+            "PC Room 5": [-13.50, 18.00,-1.57],
+            "PC Room 6": [-11.50, 18,-1.57],
+            "PC Room 7": [-4, 18,-1.57],
+            "PC Room 8": [-27.23, 13.00, 1.57],
+            "PC Room 9": [-26.00, 13.00, 1.57],
+            "PC Room 10": [-18.00, 13.00, 1.57],
+            "Reception": [-1, 20],
+            "Pharmacy Corridor": [0, 8],
+            "Pharmacy": [-2, 2.6],
+        }
+        return poses[loc]
 
     def get_id(self):
         return self.id
@@ -185,7 +212,7 @@ class Orchestrator(object):
         super(Orchestrator, self).__init__()
         self.sim_process = None
         self.docker_compose = dict()
-        self.xp_id = xp_id
+        self.xp_id = exp_id
         self.nrobots = 0
         self.config_file = config_file
         self.simulation_timeout_s = 45*60
@@ -451,10 +478,10 @@ class Orchestrator(object):
                 ef.write(pose_env+'\n')
                 # batt level
                 batt_level_str = robot["battery_charge"]*100
-                batt_level_env = "BATT_INIT_STATE_{%d}={%.2f}".format(id_str,batt_level_str)
+                batt_level_env = "BATT_INIT_STATE_{}={:02.2f}".format(id_str,batt_level_str)
                 ef.write(batt_level_env+'\n')
                 batt_slope_str = robot["battery_discharge_rate"]*100
-                batt_slope_env = "BATT_SLOPE_STATE_{%d}={%.2f}".format(id_str, batt_slope_str)
+                batt_slope_env = "BATT_SLOPE_STATE_{}={:02.2f}".format(id_str, batt_slope_str)
                 ef.write(batt_slope_env+'\n')
                 ef.write('\n')
 
@@ -619,22 +646,16 @@ def choose_poses(n_robots):
         # TODO: check if the choosed pose is already taken
     return poses
 
+env_path = None
+
 if __name__ == '__main__':
-    global env_path
     current_path = os.getcwd()
     print(f'current running path = {current_path}')
     env_path = current_path+'/sim.env'
     print(f'env file will be written in = {env_path}')
 
-    try:
-        os.mkdir(simulation_path)
-    except OSError:
-        print (f"Creation of the directory {simulation_path} failed")
-    else:
-        print (f"Successfully created the directory {simulation_path}")
-
     trials_runner = Orchestrator("trials.json", 9)
     trials_runner.prepare_environment()
     # trials_runner.run_simulation()
     # trials_runner.run_some_simulations([9, 17, 34, 63, 73, 75])
-    trials_runner.run_all_simulations()
+    # trials_runner.run_all_simulations()
