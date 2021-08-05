@@ -22,7 +22,6 @@ class Robot(object):
         self.pose = get_pose(loc)
         self.batt_level = batt_level
         self.skills = skills
-        # self.plan = plan
         self.config = config
         self.repre = {'id': self.id,
                       'pose': self.pose,
@@ -86,19 +85,19 @@ class Robot(object):
         #       morsegatonet:
         #         ipv4_address: 10.2.0.6
         package_name = 'motion_ctrl'
-        cointainer_name = self.motion_pkg_name+str(self.id)
+        container_name = self.motion_pkg_name+str(self.id)
         self.motiond = {
             'build': {
                 'context' : './docker',
                 'dockerfile': 'Dockerfile.motion',
             },
-            'container_name': cointainer_name,
+            'container_name': container_name,
             'runtime': 'runc',
             'depends_on': ['master'],
             # 'ports': ["9090:9090"],
             'env_file': [env_path],
-            'volumes': ['./docker/'+self.motion_pkg_name+':/ros_ws/src/'+self.motion_pkg_name+'/', './docker/turtlebot3_hospital_sim:/ros_ws/src/turtlebot3_hospital_sim/', './log/:/root/.ros/logger_sim/'],
-            'environment': ["ROS_HOSTNAME="+cointainer_name, "ROS_MASTER_URI=http://master:11311", "ROBOT_NAME=turtlebot"+str(self.id)],
+            'volumes': [f'./docker/{self.motion_pkg_name}:/ros_ws/src/{self.motion_pkg_name}/', './docker/turtlebot3_hospital_sim:/ros_ws/src/turtlebot3_hospital_sim/', './log/:/root/.ros/logger_sim/'],
+            'environment': [f"ROS_HOSTNAME={container_name}", "ROS_MASTER_URI=http://master:11311", f"ROBOT_NAME=turtlebot{self.id}"],
             # 'command': '/bin/bash -c "source /ros_ws/devel/setup.bash && roslaunch motion_ctrl base_navigation.launch & rosrun topic_tools relay /move_base_simple/goal /turtlebot1/move_base_simple/goal"'
             'command': '/bin/bash -c "source /ros_ws/devel/setup.bash && roslaunch motion_ctrl base_navigation.launch --wait"',
             'tty': True,
@@ -150,15 +149,15 @@ class Robot(object):
         #       morsegatonet:
         #         ipv4_address: 10.2.0.8
         package_name = 'py_trees'
-        cointainer_name = self.pytrees_pkg_name+str(self.id)
+        container_name = self.pytrees_pkg_name+str(self.id)
         self.pytreesd = {
             'build': {
                 'context' : './docker',
                 'dockerfile': 'Dockerfile.pytrees',
             },
-            'container_name': cointainer_name,
+            'container_name': container_name,
             'runtime': 'runc',
-            'depends_on': ['motion_ctrl'+str(self.id)],
+            'depends_on': ['master', f'motion_ctrl{self.id}'],
             'env_file': [env_path],
             'volumes': ['/tmp/.docker.xauth:/tmp/.docker.xauth:rw',
                 '/tmp/.X11-unix:/tmp/.X11-unix:rw',
@@ -168,7 +167,7 @@ class Robot(object):
                 '~/.config/pulse/cookie:/root/.config/pulse/cookie',
                 './docker/py_trees_ros_behaviors:/ros_ws/src/py_trees_ros_behaviors/'
                 ],
-            'environment': ["ROS_HOSTNAME="+cointainer_name, "ROS_MASTER_URI=http://master:11311", "ROBOT_NAME=turtlebot"+str(self.id), "SKILLS="+str(self.skills), "ROBOT_CONFIG="+json.dumps(self.config)],
+            'environment': [f"ROS_HOSTNAME={container_name}", "ROS_MASTER_URI=http://master:11311", f"ROBOT_NAME=turtlebot{self.id}", f"SKILLS={self.skills}", f"ROBOT_CONFIG={json.dumps(self.config)}"],
             # 'command': '/bin/bash -c "source /ros_ws/devel/setup.bash && roslaunch motion_ctrl base_navigation.launch & rosrun topic_tools relay /move_base_simple/goal /turtlebot1/move_base_simple/goal"'
             'command': '/bin/bash -c "colcon build && source /ros_ws/install/setup.bash && ros2 launch py_trees_ros_behaviors tutorial_seven_docking_cancelling_failing_launch.py"',
             'tty': True,
@@ -278,7 +277,7 @@ class Orchestrator(object):
             self.create_dockers()
             self.create_robots()
             self.save_compose_file()
-            print("STARTING SIMULATION #%d..."%idx)
+            print(f"STARTING SIMULATION #{idx}...")
             self.start_simulation()
             start = time.time()
             runtime = time.time()
@@ -291,7 +290,7 @@ class Orchestrator(object):
                 # check simulation end
             end = time.time()
             self.close_simulation()
-            print("ENDING SIMULATION #%d..."%idx)
+            print(f"ENDING SIMULATION #{idx}...")
             print(f"Runtime of the simulation #{idx} is {end - start}")
             self.save_log_file(self.config[idx]["id"], self.config[idx]["code"], end - start)
             self.save_table_file()
@@ -301,7 +300,7 @@ class Orchestrator(object):
         # create files
         for i in range(0, len(self.config)):
             self.endsim = False
-            print("RUNNING TRIALS #%d"%i)
+            print(f"RUNNING TRIALS #{i}")
             self.nurses_config = self.config[i]["nurses"]
             self.robots_config = self.config[i]["robots"]
             self.trial_id      = self.config[i]["id"]
@@ -310,7 +309,7 @@ class Orchestrator(object):
             self.create_dockers()
             self.create_robots()
             self.save_compose_file()
-            print("STARTING SIMULATION #%d..."%i)
+            print(f"STARTING SIMULATION #{i}...")
             self.start_simulation()
             start = time.time()
             runtime = time.time()
@@ -329,7 +328,7 @@ class Orchestrator(object):
             self.save_table_file()
 
     def save_table_file(self):
-        with open(current_path+f'/log/experiment-{self.current_date}.csv', 'w') as file:
+        with open(f'{current_path}/log/experiment-{self.current_date}.csv', 'w') as file:
             file.write('Type,Quantity\n')
             file.write('BT Failure,'+str(self.n_bt_failures)+'\n')
             file.write('Timeout Wall,'+str(self.n_timeout_wall)+'\n')
@@ -339,11 +338,11 @@ class Orchestrator(object):
             file.write('Total,'+str(self.total)+'\n')
 
     def clear_log_file(self):
-        with open(current_path+'/log/trial.log', 'w') as file:
+        with open(f'{current_path}/log/trial.log', 'w') as file:
             file.write('')
 
     def save_log_file(self, trial_id, trial_code, execution_time):
-        print("Saving log file as: " + current_path+'/log/{:0>2d}_{}.log'.format(trial_id, trial_code))
+        print("Saving log file as: {}/log/{:0>2d}_{}.log".format(current_path,trial_id, trial_code))
         timeout_to_wait_for_s = 60
         start = time.time()
         runtime = time.time()
@@ -351,8 +350,8 @@ class Orchestrator(object):
             time.sleep(1)
             runtime = time.time()
         end = time.time()
-        old_path  = current_path+'/log/trial.log'
-        new_path = current_path+'/log/{:0>2d}_{}'.format(trial_id, trial_code)
+        old_path  = f'{current_path}/log/trial.log'
+        new_path = '{}/log/{:0>2d}_{}'.format(current_path,trial_id, trial_code)
         cp_cmd = 'cp log/trial.log log/{:0>2d}_{}.bkp'.format(trial_id, trial_code)
         cp_tk = shlex.split(cp_cmd)
 
@@ -364,13 +363,13 @@ class Orchestrator(object):
         print(cp_process.stderr)
 
         # shutil.copy(old_path, new_path)
-        with open(new_path+'.done', 'a') as logfile:
+        with open(f'{new_path}.done', 'a') as logfile:
             for line in self.lines:
                 logfile.write(line)
             text = '{:02.2f}, [DEBUG], trial-watcher, {}: wall-clock={}\n'.format(execution_time,self.endsim,execution_time)
             logfile.write(text)
 
-        with open(new_path+'.bkp', 'a') as logfile:
+        with open(f'{new_path}.bkp', 'a') as logfile:
             text = '{:02.2f}, [DEBUG], trial-watcher, {}: wall-clock={}\n'.format(execution_time,self.endsim,execution_time)
             logfile.write(text)
             if self.endsim == 'reach-target':
@@ -389,10 +388,10 @@ class Orchestrator(object):
 
     def save_bag_file(self, run):
         current_date = datetime.datetime.today().strftime('%H-%M-%S-%d-%b-%Y')
-        os.rename(current_path+'/log/bag.bag', current_path+f'/log/exp{self.xp_id}_trial{run}_{current_date}.bag')
+        os.rename(f'{current_path}/log/bag.bag', f'{current_path}/log/exp{self.xp_id}_trial{run}_{current_date}.bag')
 
     def check_end_simulation(self):
-        with open(current_path+'/log/trial.log', 'r') as file:
+        with open(f'{current_path}/log/trial.log', 'r') as file:
             # print("Checking simulation...")
             self.lines = file.readlines()
             # print(lines)
@@ -417,7 +416,7 @@ class Orchestrator(object):
         new_nurse_pos.append(nurse_pos[x] + self.relocate_nurse[nurse_loc][x])
         new_nurse_pos.append(nurse_pos[y] + self.relocate_nurse[nurse_loc][y])
 
-        print("Relocating nurse from "+str(nurse_pos)+" to "+str(new_nurse_pos))
+        print(f"Relocating nurse from {nurse_pos} to {new_nurse_pos}")
         nurse_pos[x] = new_nurse_pos[x]
         nurse_pos[y] = new_nurse_pos[y]
         return nurse_pos
@@ -436,32 +435,26 @@ class Orchestrator(object):
             nurse_pos = self.get_nurse_new_pos(0)
             print(str(nurse_pos))
             nurse_str = str(nurse_pos).replace(',',';')
-            ef.write("TRIAL="+str(n_trial)+'\n')
-            ef.write('\n')
-            ef.write("TRIAL_CODE="+str(trial_code)+'\n')
-            ef.write('\n')
-            ef.write("NURSE_POSE="+nurse_str+'\n')
-            ef.write('\n')
-            ef.write("CHOSE_ROBOT="+self.chose_robot+'\n')
-            ef.write('\n')
-            ef.write('N_ROBOTS='+str(len(self.robots_config))+'\n')
-            ef.write('\n')
+            ef.write(f"TRIAL={n_trial}\n\n")
+            ef.write(f"TRIAL_CODE={trial_code}\n\n")
+            ef.write(f"NURSE_POSE={nurse_str}\n\n")
+            ef.write(f"CHOSE_ROBOT={self.chose_robot}\n\n")
+            ef.write(f'N_ROBOTS={len(self.robots_config)}\n\n')
             for robot in self.robots_config:
                 # name
                 id_str = (robot["id"])
-                ef.write('ROBOT_NAME_%d=turtlebot%d\n'%(id_str,id_str))
+                ef.write(f'ROBOT_NAME_{id_str}=turtlebot{id_str}\n')
                 # pose
                 yaw = random.uniform(-math.pi, math.pi)
-                # pose_str = str(get_pose(robot["location"])).replace(',',';')
                 pose_str = str(robot["position"]).replace(',',';')
-                pose_env = ("ROBOT_POSE_%d="%(id_str))+pose_str
+                pose_env = (f"ROBOT_POSE_{id_str}={pose_str}")
                 ef.write(pose_env+'\n')
                 # batt level
                 batt_level_str = robot["battery_charge"]*100
-                batt_level_env = "BATT_INIT_STATE_%d=%.2f"%(id_str,batt_level_str)
+                batt_level_env = "BATT_INIT_STATE_{%d}={%.2f}".format(id_str,batt_level_str)
                 ef.write(batt_level_env+'\n')
                 batt_slope_str = robot["battery_discharge_rate"]*100
-                batt_slope_env = "BATT_SLOPE_STATE_%d=%.2f"%(id_str, batt_slope_str)
+                batt_slope_env = "BATT_SLOPE_STATE_{%d}={%.2f}".format(id_str, batt_slope_str)
                 ef.write(batt_slope_env+'\n')
                 ef.write('\n')
 
@@ -609,7 +602,7 @@ class Orchestrator(object):
 
     def save_compose_file(self):
         self.compose_name = 'experiment_trials.yaml'
-        with open(current_path+'/'+self.compose_name, 'w') as file:
+        with open(f'{current_path}/{self.compose_name}', 'w') as file:
             documents = yaml.dump(self.get_compose_file(), file)
 
 def choose_poses(n_robots):
@@ -636,9 +629,9 @@ if __name__ == '__main__':
     try:
         os.mkdir(simulation_path)
     except OSError:
-        print ("Creation of the directory %s failed" % simulation_path)
+        print (f"Creation of the directory {simulation_path} failed")
     else:
-        print ("Successfully created the directory %s" % simulation_path)
+        print (f"Successfully created the directory {simulation_path}")
 
     trials_runner = Orchestrator("trials.json", 9)
     trials_runner.prepare_environment()
