@@ -84,33 +84,33 @@ class Robot(object):
         return json.dumps(self.repre)
 
     def build_motion_docker(self):
-        # motion_ctrl:
-        #     build:
-        #       context: ./docker
-        #       dockerfile: Dockerfile.motion
-        #     container_name: motion_ctrl
-        #     runtime: runc
-        #     depends_on:
-        #       - master
-        #     ports:
-        #       - "11311:11311"
-        #     volumes:
-        #       - ./docker/motion_ctrl:/ros_ws/src/motion_ctrl/
-        #       - ./docker/turtlebot3_hospital_sim:/ros_ws/src/turtlebot3_hospital_sim/
-        #     environment:
-        #       - "ROS_HOSTNAME=motion_ctrl"
-        #       - "ROS_MASTER_URI=http://motion_ctrl:11311"
-        #       - "ROBOT_NAME=turtlebot1"
-        #     env_file:
-        #       - test.env
-        #     # command: /bin/bash -c "source /ros_ws/devel/setup.bash && roslaunch motion_ctrl base_navigation.launch"
-        #     command: /bin/bash -c "source /ros_ws/devel/setup.bash && roslaunch motion_ctrl base_navigation.launch & rosrun topic_tools relay /move_base_simple/goal /turtlebot1/move_base_simple/goal"
-        #     # command: /bin/bash -c "source /ros_ws/devel/setup.bash && roscore"
-        #     tty: true
-        #     privileged: true
-        #     networks:
-        #       morsegatonet:
-        #         ipv4_address: 10.2.0.6
+        '''
+        motion_ctrl:
+            build:
+              context: ./docker
+              dockerfile: Dockerfile.motion
+            container_name: motion_ctrl
+            runtime: runc
+            depends_on:
+              - master
+            ports:
+              - "11311:11311"
+            volumes:
+              - ./docker/motion_ctrl:/ros_ws/src/motion_ctrl/
+              - ./docker/turtlebot3_hospital_sim:/ros_ws/src/turtlebot3_hospital_sim/
+            environment:
+              - "ROS_HOSTNAME=motion_ctrl"
+              - "ROS_MASTER_URI=http://motion_ctrl:11311"
+              - "ROBOT_NAME=turtlebot1"
+            env_file:
+              - test.env
+            command: /bin/bash -c "source /ros_ws/devel/setup.bash && roslaunch motion_ctrl base_navigation.launch & rosrun topic_tools relay /move_base_simple/goal /turtlebot1/move_base_simple/goal"
+            tty: true
+            privileged: true
+            networks:
+              morsegatonet:
+                ipv4_address: 10.2.0.6
+        '''
         package_name = 'motion_ctrl'
         container_name = self.motion_pkg_name+str(self.id)
         self.motiond = {
@@ -138,43 +138,44 @@ class Robot(object):
         }
 
     def build_pytrees_docker(self):
-        # py_trees1:
-        #     build:
-        #       context: ./docker
-        #       dockerfile: Dockerfile.pytrees
-        #     container_name: py_trees1
-        #     runtime: runc
-        #     depends_on:
-        #       - motion_ctrl
-        #     env_file:
-        #       - .env
-        #     devices:
-        #       - "/dev/dri"
-        #       - "/dev/snd"
-        #     environment:
-        #       - "ROS_HOSTNAME=py_trees1"
-        #       - "ROS_MASTER_URI=http://motion_ctrl:11311"
-        #       - "QT_X11_NO_MITSHM=1"
-        #       - "DISPLAY=$DISPLAY"
-        #       - "XAUTHORITY=$XAUTH"
-        #       - "QT_GRAPHICSSYSTEM=native"
-        #       - "PULSE_SERVER=unix:${XDG_RUNTIME_DIR}/pulse/native"
-        #       - "ROBOT_NAME=turtlebot1"
-        #     volumes:
-        #       - /tmp/.docker.xauth:/tmp/.docker.xauth:rw
-        #       - /tmp/.X11-unix:/tmp/.X11-unix:rw
-        #       - /var/run/dbus:/var/run/dbus:ro
-        #       - /etc/machine-id:/etc/machine-id:ro
-        #       - ${XDG_RUNTIME_DIR}/pulse/native:${XDG_RUNTIME_DIR}/pulse/native
-        #       - ~/.config/pulse/cookie:/root/.config/pulse/cookie
-        #       - ./docker/py_trees_ros_behaviors:/ros_ws/src/py_trees_ros_behaviors/
-        #     # command: /bin/bash -c "source /ros_ws/install/setup.bash && ros2 topic pub /std_out std_msgs/msg/String data:\ \'HelloWorld\'\ "
-        #     command: python3 /ros_ws/src/bridge.py
-        #     command: /bin/bash -c "source /opt/ros/noetic/setup.bash && ros2 run ros1_bridge dynamic_bridge --bridge-all-topics "
-        #     tty: true
-        #     networks:
-        #       morsegatonet:
-        #         ipv4_address: 10.2.0.8
+        '''
+        py_trees1:
+            build:
+              context: ./docker
+              dockerfile: Dockerfile.pytrees
+            container_name: py_trees1
+            runtime: runc
+            depends_on:
+              - motion_ctrl
+            env_file:
+              - .env
+            devices:
+              - "/dev/dri"
+              - "/dev/snd"
+            environment:
+              - "ROS_HOSTNAME=py_trees1"
+              - "ROS_MASTER_URI=http://motion_ctrl:11311"
+              - "QT_X11_NO_MITSHM=1"
+              - "DISPLAY=$DISPLAY"
+              - "XAUTHORITY=$XAUTH"
+              - "QT_GRAPHICSSYSTEM=native"
+              - "PULSE_SERVER=unix:${XDG_RUNTIME_DIR}/pulse/native"
+              - "ROBOT_NAME=turtlebot1"
+            volumes:
+              - /tmp/.docker.xauth:/tmp/.docker.xauth:rw
+              - /tmp/.X11-unix:/tmp/.X11-unix:rw
+              - /var/run/dbus:/var/run/dbus:ro
+              - /etc/machine-id:/etc/machine-id:ro
+              - ${XDG_RUNTIME_DIR}/pulse/native:${XDG_RUNTIME_DIR}/pulse/native
+              - ~/.config/pulse/cookie:/root/.config/pulse/cookie
+              - ./docker/py_trees_ros_behaviors:/ros_ws/src/py_trees_ros_behaviors/
+            command: python3 /ros_ws/src/bridge.py
+            command: /bin/bash -c "source /opt/ros/noetic/setup.bash && ros2 run ros1_bridge dynamic_bridge --bridge-all-topics "
+            tty: true
+            networks:
+              morsegatonet:
+                ipv4_address: 10.2.0.8
+        '''
         package_name = 'py_trees'
         container_name = self.pytrees_pkg_name+str(self.id)
         self.pytreesd = {
@@ -492,7 +493,6 @@ class Orchestrator(object):
             r_id = r_config["id"]
             r_loc = r_config["location"]
             robot = Robot(r_id, r_loc, r_config["battery_charge"], r_config["skills"], r_config)
-            print(robot)
             r_motion_name, r_motion_serv = robot.get_motion_docker()
             r_pytrees_name, r_pytrees_serv = robot.get_pytrees_docker()
             robot_info = {
@@ -504,7 +504,7 @@ class Orchestrator(object):
                 'pytrees_serv': r_pytrees_serv,
             }
             robots_servs.append(robot_info)
-            print(r_config["local_plan"])
+            print(f'Robot {robot} has the following plan => {r_config["local_plan"]}')
         for i in range(0, len(self.robots_config)):
             self.services[robots_servs[i]["motion_name"]] = robots_servs[i]["motion_serv"]
             self.services[robots_servs[i]["pytrees_name"]] = robots_servs[i]["pytrees_serv"]
