@@ -13,7 +13,7 @@ The source code is released under a [MIT license](LICENSE).
 
 **Authors: Gabriel F P Araujo, Gabriel Rodrigues and Vicente Moraes<br />
 Affiliation: [LES](http://les.unb.br//)<br />
-Maintainers: [Gabriel F P Araujo](mailto:gabriel.fp.araujo@gmail.com), [Gabriel Rodrigues](mailto:gabrielsr@gmail.com) and Vicente Moraes(mailto:vicente@gmail.com)**
+Maintainers: [Gabriel F P Araujo](mailto:gabriel.fp.araujo@gmail.com), [Gabriel Rodrigues](mailto:gabrielsr@gmail.com) and [Vicente Moraes](mailto:vicenteromeiromoraes@gmail.com)**
 
 morse_simulation has been tested under Ubuntu 20.04, Docker 20.10.7 and docker-compose 1.29.2. This is research code, expect that it changes often and any fitness for a particular purpose is disclaimed.
 
@@ -42,7 +42,7 @@ If you use this work in an academic context, please cite the following publicati
 - [docker-compose](https://docs.docker.com/compose/install/)
 
 
-Clone this repository to your workspace.
+Clone this repository to your workspace and build the images.
 
 ```bash
 git clone https://github.com/lesunb/morse_simulation
