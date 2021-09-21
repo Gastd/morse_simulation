@@ -17,7 +17,7 @@ Maintainers: [Gabriel F P Araujo](mailto:gabriel.fp.araujo@gmail.com), [Gabriel 
 
 morse_simulation has been tested under Ubuntu 20.04, Docker 20.10.7 and docker-compose 1.29.2. This is research code, expect that it changes often and any fitness for a particular purpose is disclaimed.
 
-![Execution Pipeline](docs/execution_pipeline2.png)
+![Execution Pipeline](docs/pipeline_execution2.png)
 
 <!-- ### Publications
 
